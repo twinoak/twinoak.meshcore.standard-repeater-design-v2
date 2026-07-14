@@ -42,5 +42,7 @@
 | Capacitor            | Panasonic  | 16SEPG470M, 470µF PolyAlu, x1     | [TME](https://www.tme.eu/dk/en/details/16sepg470m/tht-polymer-capacitors/panasonic/)                     |   ~10 DKK |
 | Capacitor            | AISHI      | EWH1CM101E11OT, 100µF, x2         | [TME](https://www.tme.eu/dk/en/details/ce-100_16pht-y/tht-electrolytic-capacitors/aishi/ewh1cm101e11ot/) |    ~1 DKK |
 | Capacitor            | SR passives| CCT-10N/100V-S, 10nF Ceramic, x2  | [TME](https://www.tme.eu/dk/en/details/cct-10n_100v-s/mlcc-tht-capacitors/sr-passives/ct40805b103k101f1r/) |  ~1 DKK |                                                                                                        |           |
+| Connector            |            | Pin headers for radio modules?    | TBD                                                                                                      |           |
+| Connector            |            | Low profile headers for adapters? | TBD                                                                                                      |           |
 
 Total: ~3.250DKK + TBD + solder/heatshrink/screws/wires/etc + shipping/customs/fees/etc
