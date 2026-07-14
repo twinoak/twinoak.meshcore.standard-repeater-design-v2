@@ -1,11 +1,37 @@
 # TwinOak Standard Repeater Design v2
 
+## General design concept and project goals
+The thought behind this project came to life when i had quite a few failures in OTA firmware updates. I needed a better, and more stable, way of doing the firmware updates. 
+Besides the devices being bricked from the OTA process, i also had a very long distance to drive to the repeaters, so i wanted something that could update remotely, from the comfort of my desk. 
+I shortly considered using LoRa for sending the updates to the repeaters, but since the network is already congested enough, i didn't want to pile even more load on that band, assuming that i somehow get a stable link to all the repeater sites.
+
+I decided on going for a design which incorporated an LTE-M module for managinge the node. This gives me almost 100% coverage(in Denmark at least!) and high bandwidth for firmware transfer. 
+So the structure looked something like this:
+```mermaid
+flowchart LR
+    subgraph Mesh plane
+    A@{ shape: cloud, label: "Mesh network" } <--> B[LoRa module]
+    end
+    B[LoRa module] <-.-> C[LTE-M module]
+    subgraph Management plane
+    C <--> D@{ shape: cloud, label: "Internet" }
+    end
+```
+
+Besides the problematic management of remote nodes, i also wanted to solve a few other issues with this new repeater design. So the primary goals for the project ended up begin:
+1. <b>Remote management</b>. Being able to do management remotely based on existing LTE infrastructure. Only management, no data via LTE.
+2. <b>Superior noise "rejection"</b> with radio in RF shielding and using proper cables and isolation to give the LoRa the best possible noise floor. I've previously used SenseCAP Solar P1 nodes, and even though they are very nice nodes, they are plastic enclosures with no RF protection. Put them next to a cell tower and you are in trouble! A bit ironic that my biggest nemesis regarding noise is LTE, when i'm going to use LTE as the transport for the management plane!
+3. <b>Integrated cavity filter</b>. I've had to many issues with noise in all my locations. There is always a cell tower(or some DAB/DVT/whatever tower) sitting just next to great locations. The Solar P1 only offers the option to add a small SAW filter, but i want it to be easy to add a good cavity filter.
+4. <b>Modularity</b>. Things change fast; firmware, features and other software changes fast! But hardware also changes. With the Solar P1 i had to replace the entire unit if i wanted to change a radio to something newer or better. I need something where i can change JUST the radio or JUST the solarpanel or JUST the batteries. Not doing a complete "forklift upgrade" everytime is a must.
+
+
+
 ## Bill-of-materials and links to sources
 
 | Component            | Brand      | Model                             | Source                                                                                                   | Price     |
 |----------------------|------------|-----------------------------------|----------------------------------------------------------------------------------------------------------|----------:|
 | <u>*External components*</u>                                                                                                                                                                 |
-| Antenna, LoRa        | Vinnant    | CC868/8-PEL 10dBi                 | [Hoeg teknik](https://hoegteknik.dk/shop/da/dv-nodermeshtastic/483-8dbd-58-antenne-for-868-mhz.html)         |   599 DKK |
+| Antenna, LoRa        | Vinnant    | CC868/8-PEL 10dBi                 | [Hoeg teknik](https://hoegteknik.dk/shop/da/dv-nodermeshtastic/483-8dbd-58-antenne-for-868-mhz.html)     |   599 DKK |
 | Antenna, LTE-M       |            | IP67, N-Male, "9dBi"              | [Aliexpress](https://www.aliexpress.com/item/1005005889564983.html)                                      |   ~50 DKK |
 | Cable                | Bevotop    | LMR240, N Male to N Male, 80cm    | [Aliexpress](https://www.aliexpress.com/item/1005002640557645.html)                                      |   ~70 DKK |
 | Pipe                 |            | 1" pipe, 200cm                    | [Webshop](https://shop.erik-larsen.dk/products/pipe-galv?variant=39625182412883)                         |   150 DKK |
@@ -46,3 +72,11 @@
 | Connector            |            | Low profile headers for adapters? | TBD                                                                                                      |           |
 
 Total: ~3.250DKK + TBD + solder/heatshrink/screws/wires/etc + shipping/customs/fees/etc
+
+## LTE-M providers
+
+### Lebara
+I've tried a Lebara SIM card, their cheapest plan, and it worked fine with the Walter MCU and could get contact with the internet without issues.
+
+### NexCon
+I tried nexcon.io as a LTE provider, they have a 25MB/month plan that is VERY cheap, like 1eur/month per SIM card including a management website that is VERY nice! Can highly recommend them, however i think they only serve commercial customers, but i'm unsure of that.
