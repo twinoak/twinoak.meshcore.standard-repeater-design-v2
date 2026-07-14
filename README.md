@@ -5,7 +5,7 @@
 | Component            | Brand      | Model                             | Source                                                                                                   | Price     |
 |----------------------|------------|-----------------------------------|----------------------------------------------------------------------------------------------------------|----------:|
 | <u>*External components*</u>                                                                                                                                                                 |
-| Antenna, LoRa        | Vinnant    | CC868/8-PEL 10dBi                 | [Webshop](https://hoegteknik.dk/shop/da/dv-nodermeshtastic/483-8dbd-58-antenne-for-868-mhz.html)         |   599 DKK |
+| Antenna, LoRa        | Vinnant    | CC868/8-PEL 10dBi                 | [Hoeg teknik](https://hoegteknik.dk/shop/da/dv-nodermeshtastic/483-8dbd-58-antenne-for-868-mhz.html)         |   599 DKK |
 | Antenna, LTE-M       |            | IP67, N-Male, "9dBi"              | [Aliexpress](https://www.aliexpress.com/item/1005005889564983.html)                                      |   ~50 DKK |
 | Cable                | Bevotop    | LMR240, N Male to N Male, 80cm    | [Aliexpress](https://www.aliexpress.com/item/1005002640557645.html)                                      |   ~70 DKK |
 | Pipe                 |            | 1" pipe, 200cm                    | [Webshop](https://shop.erik-larsen.dk/products/pipe-galv?variant=39625182412883)                         |   150 DKK |
@@ -19,16 +19,16 @@
 | Backplates           | Custom     | Set of 2pce, 1,5mm lasercut alu   | (Fusion link? DXF?)                                                                                      |   280 DKK |
 | RF boxes             | Gainta     | G103-IP67, 64x98x34mm, alu, 2pce  | [TME](https://www.tme.eu/dk/en/details/g103-ip67/multipurpose-enclosures/gainta/)                        |   108 DKK |
 | Cavity filter        | Sysmocom   | 7Mhz Cavity filter(Link to test?) | [Sysmocom](https://shop.sysmocom.de/868-863..870-MHz-cavity-filter-ISM-LoRa-SigFox-Helium/cf866.5-kt30)  |  ~400 DKK |
-| Battery              | Meshnology | 10.000mA LiPo battery             | [Webshop](https://meshnology.com/collections/frontpage/products/3-7v-10000mah-lipo-battery-with-usb-charger-protection-for-arduino-esp32-drone?variant=46431266963694) | ~150 DKK |
+| Battery              | Meshnology | 10.000mA LiPo battery             | [Meshnology](https://meshnology.com/collections/frontpage/products/3-7v-10000mah-lipo-battery-with-usb-charger-protection-for-arduino-esp32-drone?variant=46431266963694) | ~150 DKK |
 | Cable                |            | U.FL -> SMA pigtail, 10cm         | [Aliexpress](https://www.aliexpress.com/item/1005009937311685.html)                                      |   ~10 DKK |
 | Cable                |            | N-female -> SMA pigtail, 10cm     | [Aliexpress](https://www.aliexpress.com/item/1005008984322302.html)                                      |   ~10 DKK |
 | Cable                |            | N-female -> SMA pigtail, 20cm     | [Aliexpress](https://www.aliexpress.com/item/1005008984322302.html)                                      |   ~10 DKK |
 | Cable                |            | SMA -> SMA pigtail, 10cm          | [Aliexpress](https://www.aliexpress.com/item/1005006890065800.html)                                      |   ~10 DKK |
 | <u>*Radio modules*</u>                                                                                                                                                                       |
-| LoRa module          | Heltec     | Heltec V3, ESP32 based            | [Webshop](https://heltec.org/project/wifi-lora-32-v3/)                                                   |  ~120 DKK |
+| LoRa module          | Heltec     | Heltec V3, ESP32 based            | [Heltec](https://heltec.org/project/wifi-lora-32-v3/)                                                   |  ~120 DKK |
 | *...or...*                                                                                                                                                                                   |
-| LoRa module          | Heltec     | Heltec T096, nRF52 based          | [Webshop](https://heltec.org/project/t096/)                                                              |  ~230 DKK |
-| LTE module           | Quickspot  | Walter LTE MCU, ESP32 based       | [Webshop](https://www.tinytronics.nl/nl/development-boards/microcontroller-boards/met-telecommunicatie/walter-esp32-s3-iot-development-board-cat-m-nb-iot-en-gnss-gm02sp) |   ~510 DKK |
+| LoRa module          | Heltec     | Heltec T096, nRF52 based          | [Heltec](https://heltec.org/project/t096/)                                                              |  ~230 DKK |
+| LTE module           | Quickspot  | Walter LTE MCU, ESP32 based       | [TinyTronics](https://www.tinytronics.nl/nl/development-boards/microcontroller-boards/met-telecommunicatie/walter-esp32-s3-iot-development-board-cat-m-nb-iot-en-gnss-gm02sp) |   ~510 DKK |
 | <u>*Custom PCBs*</u>                                                                                                                                                                         |
 | Platform board       |            | TBD                               |                                                                                                          |           |
 | Heltec V3 adapter    |            | TBD                               |                                                                                                          |           |
