@@ -554,7 +554,7 @@
     "last_paths": {
       "idf": "",
       "netlist": "",
-      "plot": "./",
+      "plot": "./outputs",
       "specctra_dsn": "",
       "vrml": ""
     },
@@ -684,7 +684,7 @@
   "sheets": [
     [
       "06a38798-314b-43d0-92f7-26c13b6d6633",
-      "Root"
+      "platform-board"
     ]
   ],
   "text_variables": {},

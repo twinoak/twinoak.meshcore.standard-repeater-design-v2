@@ -1,0 +1,4 @@
+(fp_lib_table
+	(version 7)
+	(lib (name "walter") (type "KiCad") (uri "${KIPRJMOD}/walter-mcu/footprint/kicad/walter.pretty") (options "") (descr ""))
+)

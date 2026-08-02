@@ -1734,7 +1734,7 @@
 			(uuid "4a8801fc-a327-42b7-9212-3c02361974c5")
 		)
 		(instances
-			(project "standard-repeater-design-v2"
+			(project "platform-board"
 				(path "/06a38798-314b-43d0-92f7-26c13b6d6633"
 					(reference "#PWR03")
 					(unit 1)
@@ -1813,7 +1813,7 @@
 			(uuid "bf2a0c75-7658-4240-bbe6-c3b435a2f8fd")
 		)
 		(instances
-			(project "standard-repeater-design-v2"
+			(project "platform-board"
 				(path "/06a38798-314b-43d0-92f7-26c13b6d6633"
 					(reference "H3")
 					(unit 1)
@@ -1891,7 +1891,7 @@
 			(uuid "213331ff-bfe0-47b9-ba20-f37b23b41a9c")
 		)
 		(instances
-			(project "standard-repeater-design-v2"
+			(project "platform-board"
 				(path "/06a38798-314b-43d0-92f7-26c13b6d6633"
 					(reference "#PWR06")
 					(unit 1)
@@ -1931,7 +1931,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x09_P2.54mm_Horizontal"
+		(property "Footprint" "TwinOak platform footprints:82155700"
 			(at 109.22 91.44 0)
 			(hide yes)
 			(show_name no)
@@ -1992,7 +1992,7 @@
 			(uuid "9c14be74-c25c-41e1-89b4-5245c1f691f3")
 		)
 		(instances
-			(project "standard-repeater-design-v2"
+			(project "platform-board"
 				(path "/06a38798-314b-43d0-92f7-26c13b6d6633"
 					(reference "J1")
 					(unit 1)
@@ -2067,10 +2067,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "213331ff-bfe0-47b9-ba20-f37b23b41a9c")
+			(uuid "213331ff-bfe0-47b9-ba20-f37b23b41a9d")
 		)
 		(instances
-			(project "standard-repeater-design-v2"
+			(project "platform-board"
 				(path "/06a38798-314b-43d0-92f7-26c13b6d6633"
 					(reference "#PWR09")
 					(unit 1)
@@ -2148,7 +2148,7 @@
 			(uuid "21ccb161-da2f-43e7-8584-1fe02b66e590")
 		)
 		(instances
-			(project "standard-repeater-design-v2"
+			(project "platform-board"
 				(path "/06a38798-314b-43d0-92f7-26c13b6d6633"
 					(reference "#PWR01")
 					(unit 1)
@@ -2223,10 +2223,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "213331ff-bfe0-47b9-ba20-f37b23b41a9c")
+			(uuid "213331ff-bfe0-47b9-ba20-f37b23b41a9e")
 		)
 		(instances
-			(project "standard-repeater-design-v2"
+			(project "platform-board"
 				(path "/06a38798-314b-43d0-92f7-26c13b6d6633"
 					(reference "#PWR07")
 					(unit 1)
@@ -2302,10 +2302,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "bf2a0c75-7658-4240-bbe6-c3b435a2f8fd")
+			(uuid "bf2a0c75-7658-4240-bbe6-c3b435a2f8fe")
 		)
 		(instances
-			(project "standard-repeater-design-v2"
+			(project "platform-board"
 				(path "/06a38798-314b-43d0-92f7-26c13b6d6633"
 					(reference "H1")
 					(unit 1)
@@ -2396,7 +2396,7 @@
 			(uuid "c6942a9d-e293-4032-9dc9-c6213cab5bb4")
 		)
 		(instances
-			(project "standard-repeater-design-v2"
+			(project "platform-board"
 				(path "/06a38798-314b-43d0-92f7-26c13b6d6633"
 					(reference "J2")
 					(unit 1)
@@ -2472,10 +2472,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "bf2a0c75-7658-4240-bbe6-c3b435a2f8fd")
+			(uuid "bf2a0c75-7658-4240-bbe6-c3b435a2f8ff")
 		)
 		(instances
-			(project "standard-repeater-design-v2"
+			(project "platform-board"
 				(path "/06a38798-314b-43d0-92f7-26c13b6d6633"
 					(reference "H4")
 					(unit 1)
@@ -2566,7 +2566,7 @@
 			(uuid "4de8df24-64aa-4c4c-a204-0c9638f30098")
 		)
 		(instances
-			(project "standard-repeater-design-v2"
+			(project "platform-board"
 				(path "/06a38798-314b-43d0-92f7-26c13b6d6633"
 					(reference "J3")
 					(unit 1)
@@ -2641,10 +2641,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "4a8801fc-a327-42b7-9212-3c02361974c5")
+			(uuid "4a8801fc-a327-42b7-9212-3c02361974c6")
 		)
 		(instances
-			(project "standard-repeater-design-v2"
+			(project "platform-board"
 				(path "/06a38798-314b-43d0-92f7-26c13b6d6633"
 					(reference "#PWR02")
 					(unit 1)
@@ -2719,10 +2719,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "4a8801fc-a327-42b7-9212-3c02361974c5")
+			(uuid "4a8801fc-a327-42b7-9212-3c02361974c7")
 		)
 		(instances
-			(project "standard-repeater-design-v2"
+			(project "platform-board"
 				(path "/06a38798-314b-43d0-92f7-26c13b6d6633"
 					(reference "#PWR05")
 					(unit 1)
@@ -2798,22 +2798,22 @@
 			)
 		)
 		(pin "1"
-			(uuid "78069114-1692-4dcc-aeff-7dbbcdaf26b4")
+			(uuid "78069114-1692-4dcc-aeff-7dbbcdaf26b5")
 		)
 		(pin "3"
-			(uuid "16539af9-b00c-4b90-9ea8-2f141e7e62e7")
+			(uuid "16539af9-b00c-4b90-9ea8-2f141e7e62e8")
 		)
 		(pin "2"
-			(uuid "9808b823-0312-4235-8bb5-45791396916f")
+			(uuid "9808b823-0312-4235-8bb5-457913969170")
 		)
 		(pin "5"
-			(uuid "f26d9a76-2fde-48f4-a2c8-b457db4f0277")
+			(uuid "f26d9a76-2fde-48f4-a2c8-b457db4f0278")
 		)
 		(pin "4"
-			(uuid "4de8df24-64aa-4c4c-a204-0c9638f30098")
+			(uuid "4de8df24-64aa-4c4c-a204-0c9638f30099")
 		)
 		(instances
-			(project "standard-repeater-design-v2"
+			(project "platform-board"
 				(path "/06a38798-314b-43d0-92f7-26c13b6d6633"
 					(reference "J5")
 					(unit 1)
@@ -2889,22 +2889,22 @@
 			)
 		)
 		(pin "1"
-			(uuid "78069114-1692-4dcc-aeff-7dbbcdaf26b4")
+			(uuid "78069114-1692-4dcc-aeff-7dbbcdaf26b6")
 		)
 		(pin "3"
-			(uuid "16539af9-b00c-4b90-9ea8-2f141e7e62e7")
+			(uuid "16539af9-b00c-4b90-9ea8-2f141e7e62e9")
 		)
 		(pin "2"
-			(uuid "9808b823-0312-4235-8bb5-45791396916f")
+			(uuid "9808b823-0312-4235-8bb5-457913969171")
 		)
 		(pin "5"
-			(uuid "f26d9a76-2fde-48f4-a2c8-b457db4f0277")
+			(uuid "f26d9a76-2fde-48f4-a2c8-b457db4f0279")
 		)
 		(pin "4"
-			(uuid "4de8df24-64aa-4c4c-a204-0c9638f30098")
+			(uuid "4de8df24-64aa-4c4c-a204-0c9638f3009a")
 		)
 		(instances
-			(project "standard-repeater-design-v2"
+			(project "platform-board"
 				(path "/06a38798-314b-43d0-92f7-26c13b6d6633"
 					(reference "J4")
 					(unit 1)
@@ -2979,10 +2979,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "213331ff-bfe0-47b9-ba20-f37b23b41a9c")
+			(uuid "213331ff-bfe0-47b9-ba20-f37b23b41a9f")
 		)
 		(instances
-			(project "standard-repeater-design-v2"
+			(project "platform-board"
 				(path "/06a38798-314b-43d0-92f7-26c13b6d6633"
 					(reference "#PWR08")
 					(unit 1)
@@ -3058,10 +3058,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "bf2a0c75-7658-4240-bbe6-c3b435a2f8fd")
+			(uuid "bf2a0c75-7658-4240-bbe6-c3b435a2f900")
 		)
 		(instances
-			(project "standard-repeater-design-v2"
+			(project "platform-board"
 				(path "/06a38798-314b-43d0-92f7-26c13b6d6633"
 					(reference "H2")
 					(unit 1)
@@ -3136,10 +3136,10 @@
 			)
 		)
 		(pin "1"
-			(uuid "4a8801fc-a327-42b7-9212-3c02361974c5")
+			(uuid "4a8801fc-a327-42b7-9212-3c02361974c8")
 		)
 		(instances
-			(project "standard-repeater-design-v2"
+			(project "platform-board"
 				(path "/06a38798-314b-43d0-92f7-26c13b6d6633"
 					(reference "#PWR04")
 					(unit 1)
