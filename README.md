@@ -95,12 +95,12 @@ Each of the 3 parts should be kept as RF isolated as possible as the two radio m
 |----------------------|------------|-----------------------------------|----------------------------------------------------------------------------------------------------------|----------:|
 | <u>*External components*</u>                                                                                                                                                                 |
 | Antenna, LoRa        | Vinnant    | CC868/8-PEL 10dBi                 | [Hoeg teknik](https://hoegteknik.dk/shop/da/dv-nodermeshtastic/483-8dbd-58-antenne-for-868-mhz.html)     |   599 DKK |
-| Antenna, LTE-M       |            | IP67, N-Male, "9dBi"              | [Aliexpress](https://www.aliexpress.com/item/1005005889564983.html)                                      |   ~50 DKK |
+| Antenna, LTE-M       | SR passives| IP67, N-Male, 5dBi                | [TME](https://www.tme.eu/dk/en/details/5g-ant-rs02w-n/gsm-antennas/sr-passives/)                         |    73 DKK |
 | Cable                | Bevotop    | LMR240, N Male to N Male, 80cm    | [Aliexpress](https://www.aliexpress.com/item/1005002640557645.html)                                      |   ~70 DKK |
 | Pipe                 |            | 1" pipe, 200cm                    | [Webshop](https://shop.erik-larsen.dk/products/pipe-galv?variant=39625182412883)                         |   150 DKK |
 | Brackets             |            | Pipeclamps, set of 2, max 60mm    | [Amazon](https://www.amazon.de/-/da/Premium-mastklemme-dobbeltklemme-galvaniseret-dobbelt/dp/B010UL5B66) |   ~67 DKK |
 | Enclosure            |            | Diecast alu box, IP67             | [Aliexpress](https://www.aliexpress.com/item/1005007492347455.html)                                      |  ~185 DKK |
-| Solar panel          |            | "30W" Solar Panel                 | [Aliexpress](https://www.aliexpress.com/item/1005009053070915.html)                                      |  ~200 DKK |
+| Solar panel          | Cellevia   | 10W Solar Panel                   | [TME](https://www.tme.eu/dk/en/details/cl-sm10p/photovoltaic-modules/cellevia-power/)                    |    76 DKK |
 | Vent valve           |            | M16 watertight alu vent valve     | [Aliexpress](https://www.aliexpress.com/item/1005012242062756.html)                                      |   ~20 DKK |
 | Bracket              |            | For solar panel                   | TBD                                                                                                      |           |
 | Bracket              |            | For enclosure                     | TBD                                                                                                      |           |
