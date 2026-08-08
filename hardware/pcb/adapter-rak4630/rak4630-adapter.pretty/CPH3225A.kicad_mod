@@ -1,0 +1,133 @@
+(footprint "CPH3225A"
+	(version 20260206)
+	(generator "pcbnew")
+	(generator_version "10.0")
+	(layer "F.Cu")
+	(descr "Seiko CPH3225A 11mF 3.3V chip supercapacitor, 1210/3225 metric, hand-solder pads (KiCad C_1210 HandSolder geometry) + polarity mark. Pin 1 = + (VBACKUP side).")
+	(tags "supercapacitor EDLC CPH3225A 1210 3225")
+	(property "Reference" "REF**"
+		(at 0 -2.4 0)
+		(layer "F.SilkS")
+		(uuid "b9275244-0335-4ad2-a159-6474b2e369ac")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "CPH3225A"
+		(at 0 2.4 0)
+		(layer "F.Fab")
+		(uuid "e11d2506-d96b-414b-837e-e8568ff8f949")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "34a7c7d7-94d9-4875-8780-5ca314f5c5c3")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "54133e9b-9abb-4909-b0d1-97072cfdffc8")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr smd)
+	(duplicate_pad_numbers_are_jumpers no)
+	(fp_line
+		(start -3.3 0)
+		(end -2.7 0)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "8b845f87-6286-4001-8dba-f2403a02135f")
+	)
+	(fp_line
+		(start -3 -0.3)
+		(end -3 0.3)
+		(stroke
+			(width 0.15)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "bd1716f0-4eb6-4cc4-bd1c-b423bef0d841")
+	)
+	(fp_line
+		(start -0.71 -1.36)
+		(end 0.71 -1.36)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "519fa055-f50b-4f34-969b-4a86f587a591")
+	)
+	(fp_line
+		(start -0.71 1.36)
+		(end 0.71 1.36)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "7aeb9b72-d2f0-495d-8df9-043722f5d034")
+	)
+	(fp_rect
+		(start -2.48 -1.6)
+		(end 2.48 1.6)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.CrtYd")
+		(uuid "ce8d213b-e525-4f76-a61c-767d30d39767")
+	)
+	(fp_rect
+		(start -1.6 -1.25)
+		(end 1.6 1.25)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(fill no)
+		(layer "F.Fab")
+		(uuid "0ab3625a-c556-42c1-acd1-59d7fa5430c5")
+	)
+	(pad "1" smd roundrect
+		(at -1.5625 0)
+		(size 1.325 2.7)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(roundrect_rratio 0.188679)
+		(uuid "fdb8cdfd-7d9f-4b6a-9ee9-4b1cb72f6fd6")
+	)
+	(pad "2" smd roundrect
+		(at 1.5625 0)
+		(size 1.325 2.7)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(roundrect_rratio 0.188679)
+		(uuid "2f84f7b4-c7e5-42ed-8270-6d4d6a6276b8")
+	)
+	(embedded_fonts no)
+)
