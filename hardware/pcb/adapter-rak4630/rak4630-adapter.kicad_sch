@@ -3226,6 +3226,17 @@
 			(embedded_fonts no)
 		)
 	)
+	(text "Bulk reservoir for TX bursts\n2x 100uF near 3V3 header entry"
+		(exclude_from_sim no)
+		(at 71.12 60.96 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "2d7969f3-d823-4699-9134-093995c80672")
+	)
 	(text "1 +3V3   2 SDA   3 SCL   4 SWDIO\n5 SWDCLK   6 nRESET   7+8 GND"
 		(exclude_from_sim no)
 		(at 48.26 146.05 0)
@@ -4711,7 +4722,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp yes)
+		(dnp no)
 		(uuid "129b0e45-9688-412c-8c16-6245af1b9585")
 		(property "Reference" "C8"
 			(at 340.36 125.73 0)
@@ -4724,7 +4735,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "DNP"
+		(property "Value" "100u 6.3V"
 			(at 340.36 128.27 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4759,6 +4770,17 @@
 		)
 		(property "Description" ""
 			(at 337.82 127 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC Part #" "C49066"
+			(at 337.82 127 0)
+			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4839,6 +4861,17 @@
 		)
 		(property "Description" ""
 			(at 303.53 101.6 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC Part #" "C49678"
+			(at 303.53 101.6 0)
+			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4995,6 +5028,28 @@
 		)
 		(property "Description" ""
 			(at 130.81 179.07 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC Part #" "C7519"
+			(at 130.81 179.07 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "JLCPCB Rotation Offset" "270"
+			(at 130.81 179.07 0)
+			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5247,6 +5302,17 @@
 				)
 			)
 		)
+		(property "LCSC Part #" "C17414"
+			(at 314.96 110.49 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "b5417568-0e87-469c-abe0-af40d9849f9b")
 		)
@@ -5257,6 +5323,83 @@
 			(project "rak4630-adapter"
 				(path "/38ac6593-5391-44f0-929b-714d24dc2acd"
 					(reference "R3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "adapter:+3V3")
+		(at 86.36 64.77 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "284b3ff5-c523-4a6b-8a29-fc499b5230bc")
+		(property "Reference" "#PWR041"
+			(at 86.36 67.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+3V3"
+			(at 86.36 60.96 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 86.36 64.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 86.36 64.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 86.36 64.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "52f26b04-fb2d-456e-849a-c216958578de")
+		)
+		(instances
+			(project "rak4630-adapter"
+				(path "/38ac6593-5391-44f0-929b-714d24dc2acd"
+					(reference "#PWR041")
 					(unit 1)
 				)
 			)
@@ -5319,6 +5462,17 @@
 		)
 		(property "Description" ""
 			(at 105.41 203.2 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC Part #" "C27834"
+			(at 105.41 203.2 0)
+			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5655,7 +5809,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "5aa22c20-58f3-4b18-9398-9e2c21d3edc5")
 		(property "Reference" "U2"
@@ -5922,6 +6076,28 @@
 				)
 			)
 		)
+		(property "LCSC Part #" "C3304278"
+			(at 288.29 113.03 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "JLCPCB Rotation Offset" "180"
+			(at 288.29 113.03 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "4"
 			(uuid "8caa554e-03ee-48b0-9fd2-46fcd77fd45a")
 		)
@@ -6012,6 +6188,17 @@
 		)
 		(property "Description" ""
 			(at 128.27 148.59 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC Part #" "C2837531"
+			(at 128.27 148.59 0)
+			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6176,6 +6363,17 @@
 				)
 			)
 		)
+		(property "LCSC Part #" "C17513"
+			(at 241.3 158.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "fc1bf1d2-c211-4372-8b1c-e442bb25dc6a")
 		)
@@ -6186,6 +6384,83 @@
 			(project "rak4630-adapter"
 				(path "/38ac6593-5391-44f0-929b-714d24dc2acd"
 					(reference "R6")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "adapter:GND")
+		(at 76.2 72.39 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "765b41a2-f149-4918-acf0-8a0e6235df7a")
+		(property "Reference" "#PWR042"
+			(at 76.2 74.93 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 76.2 76.2 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 76.2 72.39 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 76.2 72.39 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 76.2 72.39 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "4a3826da-b32a-4f0a-bc69-ad0a5f8b0226")
+		)
+		(instances
+			(project "rak4630-adapter"
+				(path "/38ac6593-5391-44f0-929b-714d24dc2acd"
+					(reference "#PWR042")
 					(unit 1)
 				)
 			)
@@ -6638,6 +6913,17 @@
 				)
 			)
 		)
+		(property "LCSC Part #" "C1779"
+			(at 109.22 127 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "188b7057-3362-455e-8cf3-ecfa819deaea")
 		)
@@ -6710,6 +6996,17 @@
 		)
 		(property "Description" ""
 			(at 250.19 161.29 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC Part #" "C2293"
+			(at 250.19 161.29 0)
+			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6798,6 +7095,17 @@
 				)
 			)
 		)
+		(property "LCSC Part #" "C49678"
+			(at 156.21 114.3 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "9124e4c8-67fd-4cab-89c7-8ca1fec08211")
 		)
@@ -6870,6 +7178,17 @@
 		)
 		(property "Description" ""
 			(at 250.19 158.75 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC Part #" "C2297"
+			(at 250.19 158.75 0)
+			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7034,6 +7353,17 @@
 				)
 			)
 		)
+		(property "LCSC Part #" "C720628"
+			(at 80.01 186.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "A4"
 			(uuid "eab1c68c-a2ee-49e8-b1c9-61bcf204065c")
 		)
@@ -7115,7 +7445,7 @@
 				)
 			)
 		)
-		(property "Value" "CPH3225A 11mF"
+		(property "Value" "100u 6.3V"
 			(at 316.23 129.286 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7157,6 +7487,17 @@
 				)
 			)
 		)
+		(property "LCSC Part #" "C49066"
+			(at 326.39 127 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "157b48ed-1a2e-4380-a20b-54272c502e85")
 		)
@@ -7167,6 +7508,83 @@
 			(project "rak4630-adapter"
 				(path "/38ac6593-5391-44f0-929b-714d24dc2acd"
 					(reference "C7")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "adapter:+3V3")
+		(at 76.2 64.77 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "b94918f4-faeb-4309-88aa-170f0e0cd60b")
+		(property "Reference" "#PWR040"
+			(at 76.2 67.31 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+3V3"
+			(at 76.2 60.96 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 76.2 64.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 76.2 64.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 76.2 64.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "fd151dab-5871-42af-9e13-3594aaa372c7")
+		)
+		(instances
+			(project "rak4630-adapter"
+				(path "/38ac6593-5391-44f0-929b-714d24dc2acd"
+					(reference "#PWR040")
 					(unit 1)
 				)
 			)
@@ -7249,6 +7667,98 @@
 		)
 	)
 	(symbol
+		(lib_id "adapter:C")
+		(at 86.36 68.58 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "bae8eb6f-2fb0-43dc-8f81-0952f96096c0")
+		(property "Reference" "C11"
+			(at 88.9 67.31 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100u 6.3V"
+			(at 88.9 69.85 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "rak4630-adapter:CPH3225A"
+			(at 86.36 68.58 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 86.36 68.58 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Bulk decoupling for RAK 3V3 rail (TX burst reservoir)"
+			(at 86.36 68.58 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC Part #" "C49066"
+			(at 86.36 68.58 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "789c34c8-ad56-49f9-8f11-1ed7c1415873")
+		)
+		(pin "2"
+			(uuid "dd90728a-3904-496e-8aa8-a567ce51fd64")
+		)
+		(instances
+			(project "rak4630-adapter"
+				(path "/38ac6593-5391-44f0-929b-714d24dc2acd"
+					(reference "C11")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "adapter:R")
 		(at 237.49 101.6 0)
 		(unit 1)
@@ -7305,6 +7815,17 @@
 		)
 		(property "Description" ""
 			(at 237.49 101.6 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC Part #" "C17414"
+			(at 237.49 101.6 0)
+			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7469,6 +7990,17 @@
 				)
 			)
 		)
+		(property "LCSC Part #" "C17414"
+			(at 242.57 101.6 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "1d096920-b6a2-4e1a-95b6-9f34ac0501b0")
 		)
@@ -7625,6 +8157,17 @@
 				)
 			)
 		)
+		(property "LCSC Part #" "C49678"
+			(at 147.32 114.3 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "d5607fee-b9ba-42dd-ad53-437fc9b44e3d")
 		)
@@ -7697,6 +8240,17 @@
 		)
 		(property "Description" ""
 			(at 204.47 151.13 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC Part #" "C32315253"
+			(at 204.47 151.13 0)
+			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7987,6 +8541,17 @@
 				)
 			)
 		)
+		(property "LCSC Part #" "C15850"
+			(at 163.83 114.3 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "cdca925b-01a3-41fb-817a-da000c08e99c")
 		)
@@ -8135,6 +8700,17 @@
 		)
 		(property "Description" ""
 			(at 241.3 161.29 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC Part #" "C17513"
+			(at 241.3 161.29 0)
+			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8299,6 +8875,17 @@
 				)
 			)
 		)
+		(property "LCSC Part #" "C27834"
+			(at 100.33 200.66 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "95310a2c-fd14-4a7a-8ab5-f8354a18faa9")
 		)
@@ -8385,6 +8972,175 @@
 			(project "rak4630-adapter"
 				(path "/38ac6593-5391-44f0-929b-714d24dc2acd"
 					(reference "#PWR031")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "adapter:GND")
+		(at 86.36 72.39 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "fec5b0bc-e306-4057-b256-5d0b889b7f3d")
+		(property "Reference" "#PWR043"
+			(at 86.36 74.93 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 86.36 76.2 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 86.36 72.39 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 86.36 72.39 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 86.36 72.39 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "12d00d85-108e-4ee8-846a-6a328d3f5fca")
+		)
+		(instances
+			(project "rak4630-adapter"
+				(path "/38ac6593-5391-44f0-929b-714d24dc2acd"
+					(reference "#PWR043")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "adapter:C")
+		(at 76.2 68.58 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "ff3ddc43-616e-4e04-bd0d-e3ddee041827")
+		(property "Reference" "C10"
+			(at 78.74 67.31 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100u 6.3V"
+			(at 78.74 69.85 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "rak4630-adapter:CPH3225A"
+			(at 76.2 68.58 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 76.2 68.58 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Bulk decoupling for RAK 3V3 rail (TX burst reservoir)"
+			(at 76.2 68.58 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC Part #" "C49066"
+			(at 76.2 68.58 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "47aca78c-1554-4fe1-95ff-400f378eb4fe")
+		)
+		(pin "2"
+			(uuid "53134405-c8ea-46c4-8f72-660bc62dd222")
+		)
+		(instances
+			(project "rak4630-adapter"
+				(path "/38ac6593-5391-44f0-929b-714d24dc2acd"
+					(reference "C10")
 					(unit 1)
 				)
 			)
