@@ -1,0 +1,4 @@
+(sym_lib_table
+	(version 7)
+	(lib (name "TwinOak") (type "KiCad") (uri "${KIPRJMOD}/../../lib/TwinOak.kicad_sym") (options "") (descr "TwinOak shared symbols"))
+)

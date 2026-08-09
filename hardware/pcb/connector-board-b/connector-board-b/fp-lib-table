@@ -1,4 +1,4 @@
 (fp_lib_table
 	(version 7)
-	(lib (name "connector-board-b") (type "KiCad") (uri "${KIPRJMOD}/connector-board-b.pretty") (options "") (descr ""))
+	(lib (name "TwinOak") (type "KiCad") (uri "${KIPRJMOD}/../../lib/TwinOak.pretty") (options "") (descr "TwinOak shared footprints"))
 )

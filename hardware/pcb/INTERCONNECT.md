@@ -22,7 +22,7 @@ Updated 2026-08-09 (post connection-audit + A/B power move).
 | Pin | LoRa box (A-side)  | LTE box (B-side)             |
 |----:|--------------------|------------------------------|
 | 1   | GND                | GND                          |
-| 2   | **3V3_LORA** (from A-board regulator) | **VBAT_OUT** (raw battery, INA ch3-measured) |
+| 2   | **3V3_LORA** (from A-board regulator) | **VLOAD+** (raw battery, INA ch3-measured) |
 | 3   | LORA_nRESET        | LORA_nRESET (Walter IO1)     |
 | 4   | LORA_SWDCLK ¹      | LORA_SWDCLK (Walter IO2)     |
 | 5   | LORA_SWDIO ¹       | LORA_SWDIO (Walter IO4)      |
@@ -40,7 +40,7 @@ Pins 3, 4, 5, 8, 9 are straight-through Walter↔LoRa links (via B-board). Pins 
 | Wire | Net            | Notes                                        |
 |-----:|----------------|----------------------------------------------|
 | 1    | GND            |                                              |
-| 2    | VBAT_RAW       | fused on B-board (F2, 0.35 A PTC) → A-board regulator input |
+| 2    | VLOAD+ / VBAT_RAW | raw battery from B-board (`VLOAD+`, measured by INA ch3) → A-board regulator input (`VBAT_RAW`). Currently **unfused** — F2 was dropped; consider a PTC (C438898) in this feed if you want the ribbon protected. |
 | 3    | LORA_nRESET    | pass-through to both D-subs                  |
 | 4    | LORA_SWDCLK    | pass-through                                 |
 | 5    | LORA_SWDIO     | pass-through                                 |
@@ -66,15 +66,15 @@ Note: platform J1 uses a 9-pin symbol on the 10-pad 82155700 footprint — pad 1
 | IO3 (5) | SWDIO | SWDIO (pin 19) | — (NC) | SWDIO | Walter IO4 |
 | IO4 (6) | SCL | P0.14 I2C_SCL + RV-3028 | GPIO34 (SCL) *LoRa side only — LTE side pin 6 = KILL* | PWR_KILL | Walter IO5 |
 | IO5 (7) | SDA | P0.13 I2C_SDA + RV-3028 | GPIO33 (SDA) | SPARE | Walter IO6 |
-| IO6 (8) | UART_RX | P0.15 Serial1 RX (R8, 0R) / P0.19 Serial2 RX (R10, DNP) | GPIO44 U0RXD | UART_TX | Walter IO7 |
-| IO7 (9) | UART_TX | P0.16 Serial1 TX (R9, 0R) / P0.20 Serial2 TX (R11, DNP) | GPIO43 U0TXD | UART_RX | Walter IO8 |
+| IO6 (8) | UART_RX | P0.15 Serial1 RX / P0.19 Serial2 RX (via J4) | GPIO44 U0RXD | UART_TX | Walter IO7 |
+| IO7 (9) | UART_TX | P0.16 Serial1 TX / P0.20 Serial2 TX (via J5) | GPIO43 U0TXD | UART_RX | Walter IO8 |
 
-RAK UART selection: R8/R9 populated = **Serial1 (P0.15/P0.16, Arduino/MeshCore default)**. Move the 0R jumpers to R10/R11 for Serial2 (P0.19/P0.20).
+RAK UART selection: 2.54 mm 3-pin headers **J4 (RX) / J5 (TX)** — jumper **1–2 = Serial1 (P0.15/P0.16, Arduino/MeshCore default)**, jumper 2–3 = Serial2 (P0.19/P0.20). The RAK adapter's SCL/SDA sit on the B-row platform pins (7/8) — electrically identical to the D-row (rows are paralleled on the platform board).
 
 ## I2C bus (LoRa is the single master)
 
 * Members: RAK/V3 MCU (master), RV-3028-C7 RTC on the RAK adapter (**0x52**), INA3221 on B-board (**0x42**, A0 tied to SDA — deliberate).
-* Pull-ups: **one set only — 1 k to 3V3_LORA on the LoRa adapter** (RAK: R1/R2, V3 adapter: R2/R3). The B-board pull-ups were removed. With the rail killed the bus sits low and nothing backfeeds.
+* Pull-ups: **one set only — 1 k to +3V3 on the LoRa adapter** (RAK: R1/R2, V3 adapter: R2/R3). The B-board pull-ups were removed. With the rail killed the bus sits low and nothing backfeeds.
 * Why 1 k: SDA/SCL cross the LoRa bulkhead filter (1000 pF/line ≈ 1.2 nF total with wiring). τ ≈ 1.3 µs → reaches V_IH in ~1.5 µs. Workable at 100 kHz (rise-time spec technically exceeded; drop the clock if flaky). 10 k would make the bus unusable (τ ≈ 12 µs).
 * Sink current at 1 k ≈ 3.3 mA: within INA3221/RV-3028 limits; on nRF52 prefer high-drive (H0D1) pin config if VOL margin is tight.
 
@@ -94,12 +94,43 @@ RAK4630: SWD flashing via Walter (pins 3/4/5) stays the primary update path; UAR
 ## Board change log (this revision)
 
 * **Bug fixed:** B-board had I2C SCL on ribbon wire 9 while the RAK adapter had SCL on D-sub 6 — SCL never reached the INA3221 and was instead shorted to Walter IO5 through the pin-6 pass-through. SDA happened to line up. New map above is consistent end-to-end (machine-verified netlist walk across all five boards).
-* B-board: 3V3_LORA stage (TPS63001 + kill circuit) **moved to the A-board**; B-board pull-ups R9/R10 deleted; J1.7 now NC; F2 now fuses the ribbon VBAT_RAW feed; every remaining part carries an `LCSC Part #` field.
+* B-board: 3V3_LORA stage (TPS63001 + kill circuit) **moved to the A-board**; B-board pull-ups R9/R10 deleted; J1.7 now NC; every remaining part carries an `LCSC Part #` field. (F2 later removed in your rail rework — ribbon feed is unfused, see ribbon table.)
 * A-board: was a dumb 1:1 adapter, now hosts the 3V3_LORA regulator, kill circuit and series protection resistors. Ribbon J2 is now the proper 10-pin 8-215570-0 symbol.
-* RAK adapter: labels renamed to real signal names; Serial1/Serial2 wired via 0R-select; I2C pull-ups 10 k → 1 k.
+* RAK adapter: labels renamed to real signal names; Serial1/Serial2 selectable via J4/J5 pin-header jumpers; I2C pull-ups 10 k → 1 k.
 * Walter adapter: symbol/labels renamed only — **no wire changes**. Firmware: KILL moves from IO8 → IO5; IO7 = TX to LoRa, IO8 = RX from LoRa; IO6 spare.
 * Heltec V3 adapter: rebuilt for the real V3 (ESP32-S3) with a pinout-verified module symbol (was a V2 symbol with I2C/UART on input-only GPI36-38, and the module's 3V3 pins were not even connected). Physical 2×18 footprint reused (Heltec: V2→V3 pin layout unchanged) — verify mechanically against a real module before ordering.
 * T096 adapter: still an unwired stub — TODO (nRF52840: same SWD+UART+I2C pattern as RAK; MeshCore T096 variant uses P0.07/P0.08 as Wire SDA/SCL, Serial1 on P0.23/P0.25).
+
+
+## Shared libraries (from this revision)
+
+All custom symbols and footprints live in **`hardware/pcb/lib/`**:
+`TwinOak.kicad_sym` (Platform_interface / Platform_LoRa / Platform_LTE, RAK4630, RV-3028-C7, DPT_Walter,
+WiFi_LoRa_32_V3, 8-215570-0, TPS63001) and `TwinOak.pretty/` (platform-adapter-footprint, 82155700, RAK4630,
+RV-3028-C7, CPH3225A, USB-C XUNPU, Kinghelm switch, CAX toggle, walter-socket/-solder, Heltec module, TI VQFN).
+Every project has its own `sym-lib-table`/`fp-lib-table` pointing at them via `${KIPRJMOD}` relative paths, so the
+repo is self-contained — no global-library registration needed. Superseded per-project `.pretty` dirs and the old
+`hardware/TwinOak-standard-repeater-layout.kicad_sym` are parked in `hardware/pcb/_superseded/` (delete when happy;
+also remove their entries from KiCad's global library tables if you had added them there).
+Conventions: power symbols are the standard `power:GND` / `power:+3V3` / `power:VCC` / `power:VIN` / `power:VBAT`
+everywhere; every unused pin carries an explicit no-connect flag (T096 adapter excluded — still an unwired stub).
+
+## B-board rail names (your rename, kept)
+
+`PANEL_RAW`→switch→`PANEL+`→RS2→`VIN` (charger input) · `BAT_RAW`→switch→`BAT+`→F1→`VBAT`→RS3→`VCC`
+(battery rail) · `VCC`→RS4→`VLOAD+` (feeds LTE D-sub pin 2 and ribbon wire 2). INA3221: ch1 = panel (RS2),
+ch2 = battery (RS3), ch3 = total load (RS4). Fixed during review: IN-1 rejoined to `VIN`, IN-3 label typo
+(`VLOAD`→`VLOAD+`), and both STAT LEDs were reversed (anode must face the VREF/resistor side, cathode the STAT pin).
+
+## Adapter bulk storage (verified)
+
+Each radio adapter buffers its rail at the box entry, per the BOM: Walter = **470 µF 16 V polymer**
+(Panasonic 16SEPG470M) + 10 nF (CCT-10N/100V-S); Heltec V3 = **100 µF** (AISHI EWH1CM101E11OT) + 10 nF;
+RAK = 2×100 µF MLCC on the 3V3 rail. For the Walter this is sound: LTE-M bursts (~1 A class) ride on the module's
+own buck input caps + 470 µF low-ESR, and the 10 Ah battery is close by — no change recommended. If field logs ever
+show brown-outs during TX bursts, double C1 to 2×470 µF; don't go polymer→tantalum here.
+The Walter adapter also gained a reset micro-switch (SW1, Kinghelm KH-6X6X5H-STM, C2837531) — `WALTER_nRST` to GND,
+safe against the module's onboard 10 k pull-up/RC.
 
 ## JLCPCB / BOM notes (checked 2026-08-09)
 

@@ -97,7 +97,8 @@
 			(symbol "C_0_1"
 				(polyline
 					(pts
-						(xy -2.032 0.762) (xy 2.032 0.762)
+						(xy -2.032 0.762)
+						(xy 2.032 0.762)
 					)
 					(stroke
 						(width 0.508)
@@ -109,7 +110,8 @@
 				)
 				(polyline
 					(pts
-						(xy -2.032 -0.762) (xy 2.032 -0.762)
+						(xy -2.032 -0.762)
+						(xy 2.032 -0.762)
 					)
 					(stroke
 						(width 0.508)
@@ -263,7 +265,8 @@
 				)
 				(polyline
 					(pts
-						(xy -1.778 2.286) (xy -0.762 2.286)
+						(xy -1.778 2.286)
+						(xy -0.762 2.286)
 					)
 					(stroke
 						(width 0)
@@ -275,7 +278,8 @@
 				)
 				(polyline
 					(pts
-						(xy -1.27 2.794) (xy -1.27 1.778)
+						(xy -1.27 2.794)
+						(xy -1.27 1.778)
 					)
 					(stroke
 						(width 0)
@@ -477,7 +481,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Heltec_V3:WiFi_LoRa_32_V3"
+		(symbol "TwinOak:WiFi_LoRa_32_V3"
 			(pin_names
 				(offset 1.016)
 			)
@@ -1204,7 +1208,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "TwinOak-standard-repeater-layout:Platform_LoRa"
+		(symbol "TwinOak:Platform_LoRa"
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -1722,7 +1726,12 @@
 			(symbol "GND_0_1"
 				(polyline
 					(pts
-						(xy 0 0) (xy 0 -1.27) (xy 1.27 -1.27) (xy 0 -2.54) (xy -1.27 -1.27) (xy 0 -1.27)
+						(xy 0 0)
+						(xy 0 -1.27)
+						(xy 1.27 -1.27)
+						(xy 0 -2.54)
+						(xy -1.27 -1.27)
+						(xy 0 -1.27)
 					)
 					(stroke
 						(width 0)
@@ -1738,6 +1747,122 @@
 					(at 0 0 270)
 					(length 0)
 					(name ""
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "power:+3V3"
+			(power global)
+			(pin_names
+				(offset 0)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "#PWR"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "+3V3"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "+3V3_0_1"
+				(polyline
+					(pts
+						(xy -0.762 1.27)
+						(xy 0 2.54)
+						(xy 0.762 1.27)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 0)
+						(xy 0 2.54)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "+3V3_1_1"
+				(pin power_in line
+					(at 0 0 90)
+					(length 0)
+					(hide yes)
+					(name "+3V3"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1882,9 +2007,42 @@
 		(at 160.02 96.52)
 		(uuid "fa8ca963-9d8a-48d9-8856-bbd1dc639f2f")
 	)
+	(no_connect
+		(at 232.41 69.85)
+		(uuid "eea34a4b-c3ba-4d51-8114-7e65e52579ca")
+	)
+	(no_connect
+		(at 232.41 74.93)
+		(uuid "4cfaf81d-c093-4e8f-b681-86055d571827")
+	)
+	(no_connect
+		(at 232.41 80.01)
+		(uuid "ce0a690e-f375-4e06-98c2-e55db64bfc2e")
+	)
+	(no_connect
+		(at 232.41 85.09)
+		(uuid "04606ca2-a001-4fb1-ab8d-bc71c76af1a2")
+	)
+	(no_connect
+		(at 232.41 90.17)
+		(uuid "5df3db3e-8467-4036-9164-345df9c808ae")
+	)
+	(no_connect
+		(at 232.41 95.25)
+		(uuid "d74e7faa-76a4-433b-991f-838f702e7bff")
+	)
+	(no_connect
+		(at 232.41 100.33)
+		(uuid "85885bc7-349b-4211-9ecb-044086a5b458")
+	)
+	(no_connect
+		(at 232.41 66.04)
+		(uuid "fbbdd727-a96d-4283-9e67-ee8dbe1f4786")
+	)
 	(wire
 		(pts
-			(xy 160.02 86.36) (xy 167.64 86.36)
+			(xy 160.02 86.36)
+			(xy 167.64 86.36)
 		)
 		(stroke
 			(width 0)
@@ -1894,7 +2052,8 @@
 	)
 	(wire
 		(pts
-			(xy 160.02 101.6) (xy 167.64 101.6)
+			(xy 160.02 101.6)
+			(xy 167.64 101.6)
 		)
 		(stroke
 			(width 0)
@@ -1904,7 +2063,8 @@
 	)
 	(wire
 		(pts
-			(xy 114.3 73.66) (xy 104.14 73.66)
+			(xy 114.3 73.66)
+			(xy 104.14 73.66)
 		)
 		(stroke
 			(width 0)
@@ -1914,7 +2074,8 @@
 	)
 	(wire
 		(pts
-			(xy 48.26 41.91) (xy 48.26 39.37)
+			(xy 48.26 41.91)
+			(xy 48.26 39.37)
 		)
 		(stroke
 			(width 0)
@@ -1924,7 +2085,8 @@
 	)
 	(wire
 		(pts
-			(xy 160.02 88.9) (xy 167.64 88.9)
+			(xy 160.02 88.9)
+			(xy 167.64 88.9)
 		)
 		(stroke
 			(width 0)
@@ -1934,7 +2096,8 @@
 	)
 	(wire
 		(pts
-			(xy 219.71 54.61) (xy 232.41 54.61)
+			(xy 219.71 54.61)
+			(xy 232.41 54.61)
 		)
 		(stroke
 			(width 0)
@@ -1944,7 +2107,8 @@
 	)
 	(wire
 		(pts
-			(xy 219.71 57.15) (xy 232.41 57.15)
+			(xy 219.71 57.15)
+			(xy 232.41 57.15)
 		)
 		(stroke
 			(width 0)
@@ -1954,7 +2118,8 @@
 	)
 	(wire
 		(pts
-			(xy 219.71 52.07) (xy 232.41 52.07)
+			(xy 219.71 52.07)
+			(xy 232.41 52.07)
 		)
 		(stroke
 			(width 0)
@@ -1964,7 +2129,8 @@
 	)
 	(wire
 		(pts
-			(xy 165.1 73.66) (xy 165.1 76.2)
+			(xy 165.1 73.66)
+			(xy 165.1 76.2)
 		)
 		(stroke
 			(width 0)
@@ -1974,7 +2140,8 @@
 	)
 	(wire
 		(pts
-			(xy 48.26 49.53) (xy 48.26 53.34)
+			(xy 48.26 49.53)
+			(xy 48.26 53.34)
 		)
 		(stroke
 			(width 0)
@@ -1984,7 +2151,8 @@
 	)
 	(wire
 		(pts
-			(xy 160.02 83.82) (xy 167.64 83.82)
+			(xy 160.02 83.82)
+			(xy 167.64 83.82)
 		)
 		(stroke
 			(width 0)
@@ -1994,7 +2162,8 @@
 	)
 	(wire
 		(pts
-			(xy 73.66 49.53) (xy 73.66 52.07)
+			(xy 73.66 49.53)
+			(xy 73.66 52.07)
 		)
 		(stroke
 			(width 0)
@@ -2004,7 +2173,8 @@
 	)
 	(wire
 		(pts
-			(xy 66.04 41.91) (xy 66.04 39.37)
+			(xy 66.04 41.91)
+			(xy 66.04 39.37)
 		)
 		(stroke
 			(width 0)
@@ -2014,7 +2184,8 @@
 	)
 	(wire
 		(pts
-			(xy 229.87 63.5) (xy 232.41 63.5)
+			(xy 229.87 63.5)
+			(xy 232.41 63.5)
 		)
 		(stroke
 			(width 0)
@@ -2024,7 +2195,8 @@
 	)
 	(wire
 		(pts
-			(xy 160.02 73.66) (xy 165.1 73.66)
+			(xy 160.02 73.66)
+			(xy 165.1 73.66)
 		)
 		(stroke
 			(width 0)
@@ -2034,7 +2206,8 @@
 	)
 	(wire
 		(pts
-			(xy 73.66 41.91) (xy 73.66 39.37)
+			(xy 73.66 41.91)
+			(xy 73.66 39.37)
 		)
 		(stroke
 			(width 0)
@@ -2044,7 +2217,8 @@
 	)
 	(wire
 		(pts
-			(xy 114.3 76.2) (xy 110.49 76.2)
+			(xy 114.3 76.2)
+			(xy 110.49 76.2)
 		)
 		(stroke
 			(width 0)
@@ -2054,7 +2228,8 @@
 	)
 	(wire
 		(pts
-			(xy 219.71 59.69) (xy 232.41 59.69)
+			(xy 219.71 59.69)
+			(xy 232.41 59.69)
 		)
 		(stroke
 			(width 0)
@@ -2064,7 +2239,8 @@
 	)
 	(wire
 		(pts
-			(xy 219.71 52.07) (xy 219.71 62.23)
+			(xy 219.71 52.07)
+			(xy 219.71 62.23)
 		)
 		(stroke
 			(width 0)
@@ -2074,7 +2250,8 @@
 	)
 	(wire
 		(pts
-			(xy 55.88 41.91) (xy 55.88 39.37)
+			(xy 55.88 41.91)
+			(xy 55.88 39.37)
 		)
 		(stroke
 			(width 0)
@@ -2084,7 +2261,8 @@
 	)
 	(wire
 		(pts
-			(xy 160.02 99.06) (xy 167.64 99.06)
+			(xy 160.02 99.06)
+			(xy 167.64 99.06)
 		)
 		(stroke
 			(width 0)
@@ -2094,7 +2272,8 @@
 	)
 	(wire
 		(pts
-			(xy 66.04 49.53) (xy 66.04 52.07)
+			(xy 66.04 49.53)
+			(xy 66.04 52.07)
 		)
 		(stroke
 			(width 0)
@@ -2104,7 +2283,8 @@
 	)
 	(wire
 		(pts
-			(xy 104.14 73.66) (xy 104.14 78.74)
+			(xy 104.14 73.66)
+			(xy 104.14 78.74)
 		)
 		(stroke
 			(width 0)
@@ -2114,7 +2294,8 @@
 	)
 	(wire
 		(pts
-			(xy 160.02 91.44) (xy 167.64 91.44)
+			(xy 160.02 91.44)
+			(xy 167.64 91.44)
 		)
 		(stroke
 			(width 0)
@@ -2124,7 +2305,8 @@
 	)
 	(wire
 		(pts
-			(xy 114.3 78.74) (xy 110.49 78.74)
+			(xy 114.3 78.74)
+			(xy 110.49 78.74)
 		)
 		(stroke
 			(width 0)
@@ -2134,7 +2316,8 @@
 	)
 	(wire
 		(pts
-			(xy 55.88 49.53) (xy 55.88 53.34)
+			(xy 55.88 49.53)
+			(xy 55.88 53.34)
 		)
 		(stroke
 			(width 0)
@@ -2164,28 +2347,6 @@
 			)
 		)
 	)
-	(global_label "3V3"
-		(shape passive)
-		(at 48.26 39.37 90)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "16983dd8-6b90-486c-a2b8-c3f02c1ed392")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 48.26 39.37 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-	)
 	(global_label "UART_TX"
 		(shape passive)
 		(at 167.64 86.36 0)
@@ -2198,28 +2359,6 @@
 		(uuid "18256f34-c970-4339-a53f-37c75de397cc")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 167.64 86.36 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-	)
-	(global_label "3V3"
-		(shape passive)
-		(at 229.87 63.5 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "2caa9b5d-8077-49f9-bd97-0d3c8189ae3a")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 229.87 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2296,28 +2435,6 @@
 			)
 		)
 	)
-	(global_label "3V3"
-		(shape passive)
-		(at 66.04 39.37 90)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "594a6ea2-a158-4a1a-b29a-9fdb68de2cac")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 66.04 39.37 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-	)
 	(global_label "UART_TX"
 		(shape passive)
 		(at 232.41 102.87 180)
@@ -2352,28 +2469,6 @@
 		(uuid "5d060cd9-2bf9-4b4e-b2d6-d296330ab60f")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 232.41 77.47 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-	)
-	(global_label "3V3"
-		(shape passive)
-		(at 110.49 76.2 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "62f99946-5882-42bd-a39c-c8760484bc3d")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 110.49 76.2 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2428,28 +2523,6 @@
 			)
 		)
 	)
-	(global_label "3V3"
-		(shape passive)
-		(at 73.66 39.37 90)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "75ee1f4a-22e3-4c8c-9215-b0dd314d014c")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 73.66 39.37 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-	)
 	(global_label "nRESET"
 		(shape passive)
 		(at 232.41 72.39 180)
@@ -2462,28 +2535,6 @@
 		(uuid "93a59843-603b-45d3-8386-2bbb026e12d7")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 232.41 72.39 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-	)
-	(global_label "3V3"
-		(shape passive)
-		(at 110.49 78.74 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "a2cd8854-d85e-4fef-a456-611137cde568")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 110.49 78.74 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2550,28 +2601,6 @@
 		(uuid "c7b9fff9-f088-4823-8c52-59efd350da3d")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 66.04 52.07 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-	)
-	(global_label "3V3"
-		(shape passive)
-		(at 55.88 39.37 90)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "dac50356-4f12-4351-81b4-ace5fa23d8d3")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 55.88 39.37 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2757,7 +2786,7 @@
 		)
 	)
 	(symbol
-		(lib_id "TwinOak-standard-repeater-layout:Platform_LoRa")
+		(lib_id "TwinOak:Platform_LoRa")
 		(at 234.95 49.53 0)
 		(unit 1)
 		(body_style 1)
@@ -2787,7 +2816,7 @@
 				)
 			)
 		)
-		(property "Footprint" "TwinOak platform footprints:platform-adapter-footprint"
+		(property "Footprint" "TwinOak:platform-adapter-footprint"
 			(at 234.95 49.53 0)
 			(hide yes)
 			(show_name no)
@@ -2889,7 +2918,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Heltec_V3:WiFi_LoRa_32_V3")
+		(lib_id "TwinOak:WiFi_LoRa_32_V3")
 		(at 137.16 95.25 0)
 		(unit 1)
 		(body_style 1)
@@ -2919,7 +2948,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Library:MODULE_ESP32_LORA_V2.0"
+		(property "Footprint" "TwinOak:MODULE_ESP32_LORA_V2.0"
 			(at 137.16 95.25 0)
 			(hide yes)
 			(show_name no)
@@ -3089,7 +3118,7 @@
 				)
 			)
 		)
-		(property "Value" "100u"
+		(property "Value" "100u 16V"
 			(at 51.054 48.26 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3142,6 +3171,17 @@
 				(path "/38ac6593-5391-44f0-929b-714d24dc2acd"
 					(reference "C1")
 					(unit 1)
+				)
+			)
+		)
+		(property "MPN" "AISHI EWH1CM101E11OT"
+			(at 48.26 45.72 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
 				)
 			)
 		)
@@ -3573,7 +3613,7 @@
 				)
 			)
 		)
-		(property "Value" "100n"
+		(property "Value" "10n"
 			(at 58.674 48.26 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3625,6 +3665,549 @@
 			(project "Heltec v3 adapter"
 				(path "/38ac6593-5391-44f0-929b-714d24dc2acd"
 					(reference "C2")
+					(unit 1)
+				)
+			)
+		)
+		(property "MPN" "SR Passives CCT-10N/100V-S"
+			(at 55.88 45.72 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3V3")
+		(at 48.26 39.37 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "0669b4cd-138e-4a88-9dad-d8ea3eb2b6a4")
+		(property "Reference" "#PWR0200"
+			(at 48.26 36.83 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+3V3"
+			(at 48.26 36.83 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 48.26 36.83 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 48.26 36.83 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 48.26 36.83 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "b7c697fb-82c9-4567-b12f-06707e8e56dc")
+		)
+		(instances
+			(project "Heltec v3 adapter"
+				(path "/38ac6593-5391-44f0-929b-714d24dc2acd"
+					(reference "#PWR0200")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3V3")
+		(at 55.88 39.37 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "0d10e4a6-3d9c-4a09-a66d-7fb34af2e0ab")
+		(property "Reference" "#PWR0201"
+			(at 55.88 36.83 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+3V3"
+			(at 55.88 36.83 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 55.88 36.83 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 55.88 36.83 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 55.88 36.83 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "ba9b8a04-53f8-4c7b-a0c3-2fc4ac0b96f3")
+		)
+		(instances
+			(project "Heltec v3 adapter"
+				(path "/38ac6593-5391-44f0-929b-714d24dc2acd"
+					(reference "#PWR0201")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3V3")
+		(at 66.04 39.37 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "2e175b98-7673-47e0-9dfe-5f30c36840ba")
+		(property "Reference" "#PWR0202"
+			(at 66.04 36.83 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+3V3"
+			(at 66.04 36.83 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 66.04 36.83 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 66.04 36.83 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 66.04 36.83 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "f5f6e732-564d-45e1-8978-3fc32c076836")
+		)
+		(instances
+			(project "Heltec v3 adapter"
+				(path "/38ac6593-5391-44f0-929b-714d24dc2acd"
+					(reference "#PWR0202")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3V3")
+		(at 73.66 39.37 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "6f7a2a14-f3f2-4b29-ba44-d49fd0a0c377")
+		(property "Reference" "#PWR0203"
+			(at 73.66 36.83 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+3V3"
+			(at 73.66 36.83 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 73.66 36.83 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 73.66 36.83 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 73.66 36.83 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "3073f1ea-b8b9-40ce-99ba-6f63008d9d45")
+		)
+		(instances
+			(project "Heltec v3 adapter"
+				(path "/38ac6593-5391-44f0-929b-714d24dc2acd"
+					(reference "#PWR0203")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3V3")
+		(at 229.87 63.5 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "7d3beb7d-1382-48e8-ad29-945fd1fe002c")
+		(property "Reference" "#PWR0204"
+			(at 229.87 60.96 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+3V3"
+			(at 229.87 60.96 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 229.87 60.96 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 229.87 60.96 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 229.87 60.96 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "2f7125a9-89db-45f3-9477-18e9f19d86a8")
+		)
+		(instances
+			(project "Heltec v3 adapter"
+				(path "/38ac6593-5391-44f0-929b-714d24dc2acd"
+					(reference "#PWR0204")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3V3")
+		(at 110.49 76.2 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "924e6362-5623-453a-8b1b-8e1be00035d9")
+		(property "Reference" "#PWR0210"
+			(at 105.41 76.2 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+3V3"
+			(at 105.41 76.2 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 105.41 76.2 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 105.41 76.2 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 105.41 76.2 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "28cbdb27-819b-4bf3-b5f5-12ee7674fce3")
+		)
+		(instances
+			(project "Heltec v3 adapter"
+				(path "/38ac6593-5391-44f0-929b-714d24dc2acd"
+					(reference "#PWR0210")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3V3")
+		(at 110.49 78.74 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "859f66f7-99ef-4416-beb9-c358d6c88473")
+		(property "Reference" "#PWR0211"
+			(at 105.41 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+3V3"
+			(at 105.41 78.74 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 105.41 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 105.41 78.74 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 105.41 78.74 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "3db1f7ff-c046-4754-adc8-ebdf8b9a633c")
+		)
+		(instances
+			(project "Heltec v3 adapter"
+				(path "/38ac6593-5391-44f0-929b-714d24dc2acd"
+					(reference "#PWR0211")
 					(unit 1)
 				)
 			)

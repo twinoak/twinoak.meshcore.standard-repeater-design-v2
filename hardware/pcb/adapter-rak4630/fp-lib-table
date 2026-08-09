@@ -1,4 +1,4 @@
 (fp_lib_table
 	(version 7)
-	(lib (name "rak4630-adapter") (type "KiCad") (uri "${KIPRJMOD}/rak4630-adapter.pretty") (options "") (descr ""))
+	(lib (name "TwinOak") (type "KiCad") (uri "${KIPRJMOD}/../lib/TwinOak.pretty") (options "") (descr "TwinOak shared footprints"))
 )

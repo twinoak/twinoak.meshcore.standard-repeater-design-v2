@@ -1,5 +1,4 @@
 (fp_lib_table
 	(version 7)
-	(lib (name "KiCad") (type "KiCad") (uri "C:/Users/Thomas/Documents/GitHub/twinoak.meshcore.standard-repeater-design-v2/hardware/pcb/KiCad.pretty") (options "") (descr ""))
-	(lib (name "platform-footprint") (type "KiCad") (uri "C:/Users/Thomas/Documents/GitHub/twinoak.meshcore.standard-repeater-design-v2/hardware/pcb/platform-board/platform-footprint.pretty") (options "") (descr ""))
+	(lib (name "TwinOak") (type "KiCad") (uri "${KIPRJMOD}/../lib/TwinOak.pretty") (options "") (descr "TwinOak shared footprints"))
 )
