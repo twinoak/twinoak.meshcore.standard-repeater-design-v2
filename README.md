@@ -89,6 +89,13 @@ From the bottom up:
 Each of the 3 parts should be kept as RF isolated as possible as the two radio modules will likely interfer with each other. So the parts also indicate an "physical seperation" with RF shielding. To make this as good as possible the entire repeater should be house inside a RF shielded enclosure and both the LoRa part and the management part should be kept in seperate RF shielded enclosures. Great care should be taken at the interfaces between each part, such that RF noise don't traverse the bounderies between each part.
 
 
+### Pinouts and inter-board wiring
+
+Every pin of the D-subs, the A↔B ribbon, the platform boards and all adapter mappings is documented in
+[`hardware/pcb/INTERCONNECT.md`](hardware/pcb/INTERCONNECT.md) — including the I2C bus plan (LoRa is master,
+INA3221 @0x42, RV-3028 @0x52), the LoRa↔Walter UART link, the remote power-kill behaviour and JLCPCB part
+references. Update that file first whenever the wiring changes.
+
 ## Bill-of-materials and links to sources
 
 | Component            | Brand      | Model                             | Source                                                                                                   | Price     |
