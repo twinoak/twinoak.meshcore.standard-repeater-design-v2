@@ -5,6 +5,442 @@
 	(uuid "38ac6593-5391-44f0-929b-714d24dc2acd")
 	(paper "A3")
 	(lib_symbols
+		(symbol "TwinOak-standard-repeater-layout:Platform_LoRa"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "U"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "TwinOak platform footprints:platform-adapter-footprint"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "TwinOak platform interface, LoRa radio box. D-sub 3-9: nRESET, SWDCLK, SWDIO, SCL, SDA, UART_RX, UART_TX. Pin2 rail = 3V3_LORA from connector board A."
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "Platform_LoRa_0_1"
+				(rectangle
+					(start 0 0)
+					(end 10.16 -55.88)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "Platform_LoRa_1_1"
+				(pin power_in line
+					(at -2.54 -2.54 0)
+					(length 2.54)
+					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at -2.54 -13.97 0)
+					(length 2.54)
+					(name "3V3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at -2.54 -20.32 0)
+					(length 2.54)
+					(name "nRESET"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at -2.54 -25.4 0)
+					(length 2.54)
+					(name "SWDCLK"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at -2.54 -30.48 0)
+					(length 2.54)
+					(name "SWDIO"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at -2.54 -5.08 0)
+					(length 2.54)
+					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at -2.54 -35.56 0)
+					(length 2.54)
+					(name "SCL"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at -2.54 -40.64 0)
+					(length 2.54)
+					(name "SDA"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at -2.54 -45.72 0)
+					(length 2.54)
+					(name "UART_RX"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "9"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at -2.54 -50.8 0)
+					(length 2.54)
+					(name "UART_TX"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "10"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at -2.54 -7.62 0)
+					(length 2.54)
+					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "11"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at -2.54 -16.51 0)
+					(length 2.54)
+					(name "3V3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "12"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at -2.54 -22.86 0)
+					(length 2.54)
+					(name "nRESET"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "13"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at -2.54 -27.94 0)
+					(length 2.54)
+					(name "SWDCLK"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "14"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at -2.54 -33.02 0)
+					(length 2.54)
+					(name "SWDIO"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "15"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at -2.54 -10.16 0)
+					(length 2.54)
+					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "16"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at -2.54 -38.1 0)
+					(length 2.54)
+					(name "SCL"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "17"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at -2.54 -43.18 0)
+					(length 2.54)
+					(name "SDA"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "18"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at -2.54 -48.26 0)
+					(length 2.54)
+					(name "UART_RX"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "19"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at -2.54 -53.34 0)
+					(length 2.54)
+					(name "UART_TX"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "20"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "TwinOak-standard-repeater-layout:Platform_interface"
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -3228,7 +3664,7 @@
 	)
 	(text "Bulk reservoir for TX bursts\n2x 100uF near 3V3 header entry"
 		(exclude_from_sim no)
-		(at 71.12 60.96 0)
+		(at 70.104 58.928 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3424,7 +3860,7 @@
 		(uuid "f2d23390-ee37-4d5b-9cd1-327acd5f5185")
 	)
 	(junction
-		(at 288.29 97.79)
+		(at 288.29 93.98)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "f359eac1-67c0-4155-a0da-a4fa55b800c1")
@@ -3442,18 +3878,6 @@
 		(uuid "ffcf8f11-f2e7-47c2-902d-cf281b4762ed")
 	)
 	(no_connect
-		(at 232.41 128.27)
-		(uuid "27e5efe5-9d52-4525-9e6c-1150c18afdd1")
-	)
-	(no_connect
-		(at 232.41 135.89)
-		(uuid "3566290e-e550-49c7-9fd1-099a714ba60f")
-	)
-	(no_connect
-		(at 232.41 133.35)
-		(uuid "37868a54-b331-4e0e-8c33-8d4d32d996c8")
-	)
-	(no_connect
 		(at 232.41 184.15)
 		(uuid "42fdfdbf-70e5-4d88-a81b-0ba819b3babf")
 	)
@@ -3468,10 +3892,6 @@
 	(no_connect
 		(at 95.25 189.23)
 		(uuid "5c0bf7b3-ea41-45d4-a778-f42e480567fa")
-	)
-	(no_connect
-		(at 232.41 125.73)
-		(uuid "68f9f4bc-60b8-4c85-ba19-51ecbf9b1688")
 	)
 	(no_connect
 		(at 306.07 115.57)
@@ -3591,6 +4011,16 @@
 	)
 	(wire
 		(pts
+			(xy 245.11 128.27) (xy 250.19 128.27)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "100404b2-fabd-442f-b620-834bee9860ac")
+	)
+	(wire
+		(pts
 			(xy 105.41 166.37) (xy 130.81 166.37)
 		)
 		(stroke
@@ -3608,6 +4038,16 @@
 			(type default)
 		)
 		(uuid "140902d0-236f-4f26-98a7-952b5a8463e2")
+	)
+	(wire
+		(pts
+			(xy 232.41 133.35) (xy 237.49 133.35)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "14e6b401-ca2f-4437-9c0c-664461a6a8f2")
 	)
 	(wire
 		(pts
@@ -3871,6 +4311,16 @@
 	)
 	(wire
 		(pts
+			(xy 245.11 133.35) (xy 250.19 133.35)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "65b2169a-511f-486f-90da-b79c1091e5df")
+	)
+	(wire
+		(pts
 			(xy 254 161.29) (xy 261.62 161.29)
 		)
 		(stroke
@@ -4001,6 +4451,16 @@
 	)
 	(wire
 		(pts
+			(xy 245.11 135.89) (xy 250.19 135.89)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9e56d81d-2437-4f8a-8c87-6279ee957764")
+	)
+	(wire
+		(pts
 			(xy 204.47 201.93) (xy 207.01 201.93)
 		)
 		(stroke
@@ -4008,6 +4468,26 @@
 			(type default)
 		)
 		(uuid "a061f80a-fc63-49a1-977b-36716b076123")
+	)
+	(wire
+		(pts
+			(xy 232.41 128.27) (xy 237.49 128.27)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a0742528-6e76-4716-ada4-c765f8d8b393")
+	)
+	(wire
+		(pts
+			(xy 288.29 93.98) (xy 288.29 100.33)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a1fb5fc0-3dc0-449c-bd90-f4d114bc5c87")
 	)
 	(wire
 		(pts
@@ -4021,13 +4501,23 @@
 	)
 	(wire
 		(pts
-			(xy 288.29 100.33) (xy 288.29 97.79)
+			(xy 245.11 125.73) (xy 250.19 125.73)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "b90ccac0-5147-4497-adf5-352f38f3a5f9")
+		(uuid "a563b3a1-9189-4502-944c-b77fc607b64a")
+	)
+	(wire
+		(pts
+			(xy 232.41 135.89) (xy 237.49 135.89)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "adf862a6-a129-44e5-b87b-41b3bb4c960f")
 	)
 	(wire
 		(pts
@@ -4141,16 +4631,6 @@
 	)
 	(wire
 		(pts
-			(xy 288.29 125.73) (xy 288.29 128.27)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d6a3aa3c-06d0-4397-8556-8aeb49d35c55")
-	)
-	(wire
-		(pts
 			(xy 242.57 105.41) (xy 242.57 113.03)
 		)
 		(stroke
@@ -4201,6 +4681,16 @@
 	)
 	(wire
 		(pts
+			(xy 232.41 125.73) (xy 237.49 125.73)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e2b14321-5c12-4213-8add-67b203cc3a5d")
+	)
+	(wire
+		(pts
 			(xy 232.41 158.75) (xy 237.49 158.75)
 		)
 		(stroke
@@ -4241,7 +4731,7 @@
 	)
 	(wire
 		(pts
-			(xy 288.29 97.79) (xy 303.53 97.79)
+			(xy 288.29 93.98) (xy 303.53 93.98)
 		)
 		(stroke
 			(width 0)
@@ -4349,7 +4839,7 @@
 		)
 		(uuid "f32e298c-88e1-49ce-98d7-a7effc12d8d1")
 	)
-	(global_label "IO4"
+	(global_label "SCL"
 		(shape bidirectional)
 		(at 247.65 92.71 0)
 		(fields_autoplaced yes)
@@ -4373,7 +4863,31 @@
 			)
 		)
 	)
-	(global_label "IO3"
+	(global_label "SCL"
+		(shape bidirectional)
+		(at 375.92 64.77 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "17b93503-c519-406c-9583-e12e8b8cb4c6")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 368.6787 64.77 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+	)
+	(global_label "SWDIO"
 		(shape bidirectional)
 		(at 176.53 133.35 180)
 		(fields_autoplaced yes)
@@ -4397,19 +4911,18 @@
 			)
 		)
 	)
-	(global_label "IO4"
+	(global_label "UART_TX"
 		(shape bidirectional)
-		(at 375.92 67.31 180)
-		(fields_autoplaced yes)
+		(at 250.19 128.27 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right)
+			(justify left)
 		)
-		(uuid "248394bb-fc9f-45b1-b2c3-8dacf814d81b")
+		(uuid "314d2320-9c66-45a6-aa9e-2b47614ed951")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 368.6787 67.31 0)
+			(at 250.19 128.27 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4417,11 +4930,10 @@
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
 			)
 		)
 	)
-	(global_label "IO5"
+	(global_label "SDA"
 		(shape bidirectional)
 		(at 375.92 69.85 180)
 		(fields_autoplaced yes)
@@ -4445,7 +4957,7 @@
 			)
 		)
 	)
-	(global_label "IO7"
+	(global_label "UART_TX"
 		(shape bidirectional)
 		(at 375.92 80.01 180)
 		(fields_autoplaced yes)
@@ -4469,7 +4981,7 @@
 			)
 		)
 	)
-	(global_label "IO6"
+	(global_label "UART_RX"
 		(shape bidirectional)
 		(at 375.92 74.93 180)
 		(fields_autoplaced yes)
@@ -4493,7 +5005,29 @@
 			)
 		)
 	)
-	(global_label "IO2"
+	(global_label "UART_TX"
+		(shape bidirectional)
+		(at 250.19 135.89 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "604a6ecb-18b1-4117-9ea1-a1e5b6ac1164")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 250.19 135.89 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+	)
+	(global_label "SWDCLK"
 		(shape bidirectional)
 		(at 176.53 135.89 180)
 		(fields_autoplaced yes)
@@ -4517,7 +5051,51 @@
 			)
 		)
 	)
-	(global_label "IO5"
+	(global_label "UART_RX"
+		(shape bidirectional)
+		(at 250.19 125.73 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "77670b2e-49ea-4943-84e2-2cc2d9d6e49a")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 250.19 125.73 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+	)
+	(global_label "UART_RX"
+		(shape bidirectional)
+		(at 250.19 133.35 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "8acb9ec6-177c-42be-a3d9-85ef0cc54b48")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 250.19 133.35 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+	)
+	(global_label "SDA"
 		(shape bidirectional)
 		(at 247.65 90.17 0)
 		(fields_autoplaced yes)
@@ -4541,7 +5119,7 @@
 			)
 		)
 	)
-	(global_label "IO1"
+	(global_label "nRESET"
 		(shape bidirectional)
 		(at 129.54 140.97 180)
 		(fields_autoplaced yes)
@@ -4565,7 +5143,7 @@
 			)
 		)
 	)
-	(global_label "IO1"
+	(global_label "nRESET"
 		(shape bidirectional)
 		(at 375.92 52.07 180)
 		(fields_autoplaced yes)
@@ -4589,7 +5167,7 @@
 			)
 		)
 	)
-	(global_label "IO3"
+	(global_label "SWDIO"
 		(shape bidirectional)
 		(at 375.92 62.23 180)
 		(fields_autoplaced yes)
@@ -4613,7 +5191,7 @@
 			)
 		)
 	)
-	(global_label "IO2"
+	(global_label "SWDCLK"
 		(shape bidirectional)
 		(at 375.92 57.15 180)
 		(fields_autoplaced yes)
@@ -4714,6 +5292,97 @@
 		)
 	)
 	(symbol
+		(lib_id "adapter:R")
+		(at 241.3 133.35 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp yes)
+		(uuid "059a2f0b-533e-4b69-8272-b1f8fe44d42e")
+		(property "Reference" "R10"
+			(at 237.998 132.334 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "0R"
+			(at 242.57 133.35 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+			(at 1.27 21.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 1.27 21.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 241.3 158.75 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC Part #" "C17477"
+			(at 241.3 158.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "0cd4f1d8-d3ec-4f54-a904-66fd30491a7c")
+		)
+		(pin "2"
+			(uuid "1106ce1d-ef69-4137-ab40-a656990e0b66")
+		)
+		(instances
+			(project "rak4630-adapter"
+				(path "/38ac6593-5391-44f0-929b-714d24dc2acd"
+					(reference "R10")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "adapter:C_Polarized")
 		(at 337.82 127 0)
 		(unit 1)
@@ -4725,7 +5394,7 @@
 		(dnp no)
 		(uuid "129b0e45-9688-412c-8c16-6245af1b9585")
 		(property "Reference" "C8"
-			(at 340.36 125.73 0)
+			(at 338.074 124.714 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4736,7 +5405,7 @@
 			)
 		)
 		(property "Value" "100u 6.3V"
-			(at 340.36 128.27 0)
+			(at 338.328 129.286 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4806,7 +5475,7 @@
 	)
 	(symbol
 		(lib_id "adapter:C")
-		(at 303.53 101.6 0)
+		(at 303.53 97.79 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4816,7 +5485,7 @@
 		(dnp no)
 		(uuid "1325a20d-f3e0-4d74-b496-bf88b0de43e3")
 		(property "Reference" "C6"
-			(at 305.44 100.33 0)
+			(at 303.784 95.758 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4827,7 +5496,7 @@
 			)
 		)
 		(property "Value" "100n"
-			(at 305.44 102.87 0)
+			(at 303.784 100.076 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4838,7 +5507,7 @@
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder"
-			(at 1.27 21.59 0)
+			(at 1.27 17.78 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4849,7 +5518,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 1.27 21.59 0)
+			(at 1.27 17.78 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4860,7 +5529,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 303.53 101.6 0)
+			(at 303.53 97.79 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4870,7 +5539,7 @@
 			)
 		)
 		(property "LCSC Part #" "C49678"
-			(at 303.53 101.6 0)
+			(at 303.53 97.79 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5087,7 +5756,7 @@
 	)
 	(symbol
 		(lib_id "adapter:+3V3")
-		(at 288.29 97.79 0)
+		(at 288.29 93.98 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -5097,7 +5766,7 @@
 		(dnp no)
 		(uuid "1f545d97-8fd1-44df-8a4a-b9b6b411c7b6")
 		(property "Reference" "#PWR026"
-			(at 288.29 97.79 0)
+			(at 288.29 93.98 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5108,7 +5777,7 @@
 			)
 		)
 		(property "Value" "+3V3"
-			(at 288.29 93.98 0)
+			(at 288.29 90.17 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5118,7 +5787,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 1.27 21.59 0)
+			(at 1.27 17.78 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5129,7 +5798,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 1.27 21.59 0)
+			(at 1.27 17.78 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5140,7 +5809,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 288.29 97.79 0)
+			(at 288.29 93.98 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5249,7 +5918,7 @@
 		(dnp no)
 		(uuid "23b1d49f-879b-4d48-8ab4-2e90b7b1cb5c")
 		(property "Reference" "R3"
-			(at 312.42 106.045 0)
+			(at 315.214 110.49 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5260,7 +5929,7 @@
 			)
 		)
 		(property "Value" "10k"
-			(at 312.42 113.665 0)
+			(at 315.722 112.776 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5498,7 +6167,7 @@
 	)
 	(symbol
 		(lib_id "adapter:GND")
-		(at 288.29 128.27 0)
+		(at 288.29 125.73 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -5508,7 +6177,7 @@
 		(dnp no)
 		(uuid "396b9c4f-1cc4-4627-bbc2-1f509f0a63be")
 		(property "Reference" "#PWR027"
-			(at 288.29 128.27 0)
+			(at 288.29 125.73 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5519,7 +6188,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 288.29 132.08 0)
+			(at 288.29 129.54 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5529,6 +6198,83 @@
 			)
 		)
 		(property "Footprint" ""
+			(at 1.27 19.05 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 1.27 19.05 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 288.29 125.73 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "33855942-360e-4c98-9876-ceffc82cf335")
+		)
+		(instances
+			(project "rak4630-adapter"
+				(path "/38ac6593-5391-44f0-929b-714d24dc2acd"
+					(reference "#PWR027")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "adapter:R")
+		(at 241.3 128.27 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "40874ec8-39f2-42f8-8ce8-af1e6a663120")
+		(property "Reference" "R9"
+			(at 237.49 127.254 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "0R"
+			(at 241.3 130.47 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
 			(at 1.27 21.59 0)
 			(hide yes)
 			(show_name no)
@@ -5551,7 +6297,18 @@
 			)
 		)
 		(property "Description" ""
-			(at 288.29 128.27 0)
+			(at 241.3 158.75 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC Part #" "C17477"
+			(at 241.3 158.75 0)
+			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5561,12 +6318,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "33855942-360e-4c98-9876-ceffc82cf335")
+			(uuid "40dd9bc6-39f5-4e20-8f94-6ab034b16765")
+		)
+		(pin "2"
+			(uuid "9cdf666e-57fe-4569-90fe-b1539fdb0115")
 		)
 		(instances
 			(project "rak4630-adapter"
 				(path "/38ac6593-5391-44f0-929b-714d24dc2acd"
-					(reference "#PWR027")
+					(reference "R9")
 					(unit 1)
 				)
 			)
@@ -5801,7 +6561,7 @@
 		)
 	)
 	(symbol
-		(lib_id "TwinOak-standard-repeater-layout:Platform_interface")
+		(lib_id "TwinOak-standard-repeater-layout:Platform_LoRa")
 		(at 378.46 29.21 0)
 		(unit 1)
 		(body_style 1)
@@ -5810,10 +6570,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp yes)
-		(fields_autoplaced yes)
 		(uuid "5aa22c20-58f3-4b18-9398-9e2c21d3edc5")
 		(property "Reference" "U2"
-			(at 389.89 57.1499 0)
+			(at 378.206 27.94 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5823,8 +6582,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" ""
-			(at 378.46 29.21 0)
+		(property "Value" "Platform_LoRa"
+			(at 383.286 86.868 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6467,6 +7226,97 @@
 		)
 	)
 	(symbol
+		(lib_id "adapter:R")
+		(at 241.3 125.73 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "7ee8cc10-200e-4d16-ad04-3a4bad61d3c7")
+		(property "Reference" "R8"
+			(at 237.49 124.714 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "0R"
+			(at 242.57 125.73 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+			(at 1.27 21.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 1.27 21.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 241.3 158.75 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC Part #" "C17477"
+			(at 241.3 158.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "d96b3986-3238-40f5-b00b-b6635707217f")
+		)
+		(pin "2"
+			(uuid "24e20c32-159e-4bba-bdf3-29eb5815e459")
+		)
+		(instances
+			(project "rak4630-adapter"
+				(path "/38ac6593-5391-44f0-929b-714d24dc2acd"
+					(reference "R8")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "adapter:GND")
 		(at 80.01 214.63 0)
 		(unit 1)
@@ -6696,7 +7546,7 @@
 	)
 	(symbol
 		(lib_id "adapter:GND")
-		(at 303.53 105.41 0)
+		(at 303.53 101.6 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -6706,7 +7556,7 @@
 		(dnp no)
 		(uuid "89918769-4bb4-45b4-a767-619aeb228e2c")
 		(property "Reference" "#PWR028"
-			(at 303.53 105.41 0)
+			(at 303.53 101.6 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6717,7 +7567,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 303.53 109.22 0)
+			(at 303.53 105.41 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6727,7 +7577,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 1.27 21.59 0)
+			(at 1.27 17.78 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6738,7 +7588,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 1.27 21.59 0)
+			(at 1.27 17.78 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6749,7 +7599,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 303.53 105.41 0)
+			(at 303.53 101.6 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7436,7 +8286,7 @@
 		(dnp no)
 		(uuid "b195d535-29bb-4443-b12f-8336779a77a3")
 		(property "Reference" "C7"
-			(at 321.95 121.92 0)
+			(at 327.914 124.968 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7446,7 +8296,7 @@
 			)
 		)
 		(property "Value" "100u 6.3V"
-			(at 316.23 129.286 0)
+			(at 331.47 129.286 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7780,7 +8630,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "10k"
+		(property "Value" "1k"
 			(at 235.58 102.87 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7823,7 +8673,7 @@
 				)
 			)
 		)
-		(property "LCSC Part #" "C17414"
+		(property "LCSC Part #" "C17513"
 			(at 237.49 101.6 0)
 			(hide yes)
 			(show_name no)
@@ -7947,7 +8797,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10k"
+		(property "Value" "1k"
 			(at 248.92 102.87 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7990,7 +8840,7 @@
 				)
 			)
 		)
-		(property "LCSC Part #" "C17414"
+		(property "LCSC Part #" "C17513"
 			(at 242.57 101.6 0)
 			(hide yes)
 			(show_name no)
@@ -8805,6 +9655,97 @@
 			(project "rak4630-adapter"
 				(path "/38ac6593-5391-44f0-929b-714d24dc2acd"
 					(reference "#PWR014")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "adapter:R")
+		(at 241.3 135.89 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp yes)
+		(uuid "ed2ba712-06e5-4267-b67b-e9a1575b0522")
+		(property "Reference" "R11"
+			(at 237.998 135.128 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "0R"
+			(at 242.57 136.144 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+			(at 1.27 21.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 1.27 21.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 241.3 158.75 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC Part #" "C17477"
+			(at 241.3 158.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "3bd5e20b-3491-4c7f-962b-7db3c6f57804")
+		)
+		(pin "2"
+			(uuid "484b7529-18f4-497c-b0e9-0d1072afd3f1")
+		)
+		(instances
+			(project "rak4630-adapter"
+				(path "/38ac6593-5391-44f0-929b-714d24dc2acd"
+					(reference "R11")
 					(unit 1)
 				)
 			)
