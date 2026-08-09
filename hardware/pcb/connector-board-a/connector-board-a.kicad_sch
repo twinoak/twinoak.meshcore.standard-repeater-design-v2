@@ -2473,6 +2473,17 @@
 			(embedded_fonts no)
 		)
 	)
+	(text "JP1 open = power-save (PFM)\nJP1 closed = forced PWM 1.5MHz"
+		(exclude_from_sim no)
+		(at 82.296 120.396 0)
+		(effects
+			(font
+				(size 1 1)
+			)
+			(justify left bottom)
+		)
+		(uuid "ed2e52e7-8e84-415d-906a-d21c9c8f2318")
+	)
 	(junction
 		(at 179.07 93.98)
 		(diameter 0)
