@@ -4382,7 +4382,7 @@
 	)
 	(wire
 		(pts
-			(xy 276.86 139.7) (xy 281.94 139.7)
+			(xy 322.58 177.8) (xy 327.66 177.8)
 		)
 		(stroke
 			(width 0)
@@ -4412,7 +4412,7 @@
 	)
 	(wire
 		(pts
-			(xy 276.86 134.62) (xy 281.94 134.62)
+			(xy 322.58 172.72) (xy 327.66 172.72)
 		)
 		(stroke
 			(width 0)
@@ -4462,7 +4462,7 @@
 	)
 	(wire
 		(pts
-			(xy 276.86 130.81) (xy 281.94 130.81)
+			(xy 322.58 161.29) (xy 327.66 161.29)
 		)
 		(stroke
 			(width 0)
@@ -4712,7 +4712,7 @@
 	)
 	(wire
 		(pts
-			(xy 276.86 128.27) (xy 281.94 128.27)
+			(xy 322.58 158.75) (xy 327.66 158.75)
 		)
 		(stroke
 			(width 0)
@@ -4782,7 +4782,7 @@
 	)
 	(wire
 		(pts
-			(xy 276.86 137.16) (xy 281.94 137.16)
+			(xy 322.58 175.26) (xy 327.66 175.26)
 		)
 		(stroke
 			(width 0)
@@ -4942,7 +4942,7 @@
 	)
 	(wire
 		(pts
-			(xy 276.86 125.73) (xy 281.94 125.73)
+			(xy 322.58 156.21) (xy 327.66 156.21)
 		)
 		(stroke
 			(width 0)
@@ -5166,7 +5166,7 @@
 	)
 	(global_label "SER1_TX"
 		(shape passive)
-		(at 281.94 134.62 0)
+		(at 327.66 172.72 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5175,7 +5175,7 @@
 		)
 		(uuid "633d4c87-188f-4b12-8ce1-570afee8e023")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 281.94 134.62 0)
+			(at 327.66 172.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5212,7 +5212,7 @@
 	)
 	(global_label "SER2_TX"
 		(shape passive)
-		(at 281.94 139.7 0)
+		(at 327.66 177.8 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5221,7 +5221,7 @@
 		)
 		(uuid "6b109bc7-89bd-4526-8ae5-b222ef81b57c")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 281.94 139.7 0)
+			(at 327.66 177.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5234,7 +5234,7 @@
 	)
 	(global_label "SER1_RX"
 		(shape passive)
-		(at 281.94 125.73 0)
+		(at 327.66 156.21 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5243,7 +5243,7 @@
 		)
 		(uuid "90ebb30a-1685-4c1a-adfc-f0957381b98f")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 281.94 125.73 0)
+			(at 327.66 156.21 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5256,7 +5256,7 @@
 	)
 	(global_label "SER2_RX"
 		(shape passive)
-		(at 281.94 130.81 0)
+		(at 327.66 161.29 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5265,7 +5265,7 @@
 		)
 		(uuid "947e9ba0-fba7-4ff7-a892-e0553c555e11")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 281.94 130.81 0)
+			(at 327.66 161.29 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5278,7 +5278,7 @@
 	)
 	(global_label "UART_RX"
 		(shape passive)
-		(at 281.94 128.27 0)
+		(at 327.66 158.75 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5287,7 +5287,7 @@
 		)
 		(uuid "9c3de174-34b1-425f-9ed7-40e0194c468e")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 281.94 128.27 0)
+			(at 327.66 158.75 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5488,7 +5488,7 @@
 	)
 	(global_label "UART_TX"
 		(shape passive)
-		(at 281.94 137.16 0)
+		(at 327.66 175.26 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5497,7 +5497,7 @@
 		)
 		(uuid "fdd17ac9-bf51-4fe8-b420-04ed73f8c9d9")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 281.94 137.16 0)
+			(at 327.66 175.26 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6110,7 +6110,7 @@
 	)
 	(symbol
 		(lib_id "Connector:Conn_01x03_Pin")
-		(at 271.78 128.27 0)
+		(at 317.5 158.75 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -6120,7 +6120,7 @@
 		(dnp no)
 		(uuid "22bd60e9-e708-4cdb-867c-0ec20259315a")
 		(property "Reference" "J4"
-			(at 271.78 123.19 0)
+			(at 317.5 153.67 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6130,7 +6130,7 @@
 			)
 		)
 		(property "Value" "SER_SEL"
-			(at 271.78 133.35 0)
+			(at 317.5 163.83 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6140,7 +6140,7 @@
 			)
 		)
 		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical"
-			(at 271.78 128.27 0)
+			(at 317.5 158.75 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6151,7 +6151,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 271.78 128.27 0)
+			(at 317.5 158.75 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6162,7 +6162,7 @@
 			)
 		)
 		(property "Description" "UART select: jumper 1-2 = Serial1 (P0.15/P0.16, default), jumper 2-3 = Serial2 (P0.19/P0.20)"
-			(at 271.78 128.27 0)
+			(at 317.5 158.75 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6603,7 +6603,7 @@
 	)
 	(symbol
 		(lib_id "Connector:Conn_01x03_Pin")
-		(at 271.78 137.16 0)
+		(at 317.5 175.26 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -6613,7 +6613,7 @@
 		(dnp no)
 		(uuid "501a2b73-86b2-4f07-8e9f-51fb0edeee0a")
 		(property "Reference" "J5"
-			(at 271.78 132.08 0)
+			(at 317.5 170.18 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6623,7 +6623,7 @@
 			)
 		)
 		(property "Value" "SER_SEL"
-			(at 271.78 142.24 0)
+			(at 317.5 180.34 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6633,7 +6633,7 @@
 			)
 		)
 		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical"
-			(at 271.78 137.16 0)
+			(at 317.5 175.26 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6644,7 +6644,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 271.78 137.16 0)
+			(at 317.5 175.26 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6655,7 +6655,7 @@
 			)
 		)
 		(property "Description" "UART select: jumper 1-2 = Serial1 (P0.15/P0.16, default), jumper 2-3 = Serial2 (P0.19/P0.20)"
-			(at 271.78 137.16 0)
+			(at 317.5 175.26 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
