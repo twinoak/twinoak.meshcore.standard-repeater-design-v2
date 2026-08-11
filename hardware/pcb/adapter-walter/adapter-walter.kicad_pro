@@ -211,6 +211,8 @@
       ],
       "track_widths": [
         0.0,
+        0.254,
+        0.508,
         0.635,
         1.27
       ],
@@ -541,6 +543,7 @@
       "netlist": "",
       "plot": "outputs/",
       "specctra_dsn": "",
+      "step": "",
       "vrml": ""
     },
     "page_layout_descr_file": ""
