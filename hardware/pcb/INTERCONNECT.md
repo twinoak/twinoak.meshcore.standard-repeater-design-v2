@@ -91,6 +91,23 @@ RAK4630: SWD flashing via Walter (pins 3/4/5) stays the primary update path; UAR
 * Drive HIGH to kill the LoRa 3V3 rail. RTC on the RAK adapter rides through on its backup caps.
 * **Firmware rule: tristate nRESET/SWD/UART pins before asserting kill.** The A-board's 470 R series resistors (R1–R5) on pins 3/4/5/8/9 limit backfeed current into the unpowered radio to ~7 mA as a hardware backstop (swap to 0R if they ever bother SWD speed; bit-banged SWD is fine up to ~300 kHz).
 
+
+## Walter USB / local flashing (added after USB analysis)
+
+The Walter's USB-C VBUS and its VIN header pin are **directly tied** (datasheet: "DO NOT power Walter with both
+the USB-C connection and the VIN-pin!"), and the S3's native USB (GPIO19/20) is not on the headers. The adapter
+therefore now has:
+
+* **U3 LM66100 ideal diode** (SC-70-6, LCSC C2869734) between the platform battery rail (`VCC`) and the Walter's
+  VIN (`WALTER_VIN`), CE tied to GND, C3 100 nF on the input. Bulk C1 (470 µF) + C2 (10 nF) sit on the Walter side
+  of the diode. Result: a PC on the onboard USB-C (5 V) simply wins the rail and **cannot back-charge the LiPo**
+  through RS4 — hot-plug is safe with the system live. Drop ≈ 20–90 mV; INA ch3 still reads battery-sourced Walter
+  current. (Boards built before this change: flip SW1 OFF before connecting USB — 5 V would otherwise force-charge
+  the battery past the BQ24650's 4.2 V limit.)
+* **J1 recovery header** (1×6, 2.54 mm): 1 = WALTER_VIN (5 V from a dongle is fine — the diode isolates the battery),
+  2 = TX0 (GPIO43), 3 = RX0 (GPIO44), 4 = nRST, 5 = IO0 (boot strap, doubles as the module's 3V3_SW enable — unused
+  here), 6 = GND. Any USB-UART dongle + esptool can flash the Walter if the native USB ever wedges.
+
 ## Board change log (this revision)
 
 * **Bug fixed:** B-board had I2C SCL on ribbon wire 9 while the RAK adapter had SCL on D-sub 6 — SCL never reached the INA3221 and was instead shorted to Walter IO5 through the pin-6 pass-through. SDA happened to line up. New map above is consistent end-to-end (machine-verified netlist walk across all five boards).
