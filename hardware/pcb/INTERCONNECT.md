@@ -117,6 +117,7 @@ therefore now has:
 * Walter adapter: symbol/labels renamed only — **no wire changes**. Firmware: KILL moves from IO8 → IO5; IO7 = TX to LoRa, IO8 = RX from LoRa; IO6 spare.
 * Heltec V3 adapter: rebuilt for the real V3 (ESP32-S3) with a pinout-verified module symbol (was a V2 symbol with I2C/UART on input-only GPI36-38, and the module's 3V3 pins were not even connected). Physical 2×18 footprint reused (Heltec: V2→V3 pin layout unchanged) — verify mechanically against a real module before ordering.
 * T096 adapter: still an unwired stub — TODO (nRF52840: same SWD+UART+I2C pattern as RAK; MeshCore T096 variant uses P0.07/P0.08 as Wire SDA/SCL, Serial1 on P0.23/P0.25).
+* **2026-08-11 preflight fixes:** RV-3028-C7 **footprint pad numbering corrected** — the library footprint was mirrored (top row read 4-3-2-1); pads renumbered in `TwinOak.pretty` and in the U5 copy embedded in the RAK PCB, silk pin-1 dot moved to the true pin-1 corner. **U5 tracks must be rerouted** (nets stayed with their pad numbers, so four signal pads changed sides). B-board **STAT LEDs D2/D3 flipped** so the anode faces the VREF resistors — the 2026-08-09 note above claimed this fix but it was not in the files. B-board **input protection added**: new net `PANEL_IN` (J2.1) → D4 SS54 → `PANEL_RAW`; D5 SMBJ26A TVS from `PANEL_IN` to GND. MPPT setpoint left at 17.83 V — the panel now sits one diode drop above it (≈18.2 V ≈ Vmp), which lands the operating point even closer to the panel's maximum-power voltage. Part swaps for delisted JLC catalog entries: A-board R13–R15 100 k C17407 → **C149504** (Basic), B-board L1 C511353 → **C845066**. D4/D5 have no PCB placements yet — run *Update PCB from Schematic* on the B-board and place/route them at J2.
 
 
 ## Shared libraries (from this revision)
@@ -134,7 +135,7 @@ everywhere; every unused pin carries an explicit no-connect flag (T096 adapter e
 
 ## B-board rail names (your rename, kept)
 
-`PANEL_RAW`→switch→`PANEL+`→RS2→`VIN` (charger input) · `BAT_RAW`→switch→`BAT+`→F1→`VBAT`→RS3→`VCC`
+`PANEL_IN` (J2) → **D4 SS54** (reverse-panel blocking, added 2026-08-11) → `PANEL_RAW`→switch→`PANEL+`→RS2→`VIN` (charger input; **D5 SMBJ26A** TVS clamps `PANEL_IN` to GND) · `BAT_RAW`→switch→`BAT+`→F1→`VBAT`→RS3→`VCC`
 (battery rail) · `VCC`→RS4→`VLOAD+` (feeds LTE D-sub pin 2 and ribbon wire 2). INA3221: ch1 = panel (RS2),
 ch2 = battery (RS3), ch3 = total load (RS4). Fixed during review: IN-1 rejoined to `VIN`, IN-3 label typo
 (`VLOAD`→`VLOAD+`), and both STAT LEDs were reversed (anode must face the VREF/resistor side, cathode the STAT pin).
@@ -160,8 +161,11 @@ Substitutions vs. previous values (all in stock at LCSC):
 | F2 | generic 0.35 A | PTTC SMD1206P035TF/30 PTC | C438898 |
 | C1/C2 (solar input) | 10u 25 V-class | Samsung CL32B106KBJNNNE **50 V** (panel Voc ≈ 21.6 V) | C138687 |
 | Q1/Q2 | Si4840BDY (LCSC OOS) | VBsemi SI4840DY-T1-E3-VB (low stock, 131) — check JLCPCB's own stock of C222446 first | C558269 |
-| L1 | IHLP4040DZER100M | IHLP4040DZER100M**5A** (same land pattern, Isat 8.5 A) | C511353 |
+| L1 | IHLP4040DZER100M**5A** (C511353 — delisted from the JLC assembly catalog) | IHLP4040DZER100M**11** (same land pattern, Isat 7.1 A) | C845066 |
 | D2/D3 | unspecified LEDs | CHG = red C84256, DONE = green C2297 | — |
+| R13–R15 (A-board) | 100k C17407 (NRND, delisted at JLC) | same UNI-ROYAL 0805W8F1003T5E re-listed, Basic | C149504 |
+| D4 (new, B-board) | — | SS54 5 A/40 V SMA reverse-panel blocking diode in the PANEL_IN feed | C22452 |
+| D5 (new, B-board) | — | SMBJ26A 26 V-standoff 600 W SMB TVS, PANEL_IN → GND | C123820 |
 
 Not machine-assemblable (hand-solder, source at Mouser/TME): TE 8-215570-0 ribbon headers, Amphenol L717DFE09PT PCB D-subs, FCE17-E09SM-250 bulkheads. THT JST/screw-terminal parts have LCSC numbers in the schematic if you want JLC THT assembly.
 Low-LCSC-stock flags: C13585 (10 µF 1206, JLC Basic stock is separate), C17710 (470 R, same), C2903502 (20 mΩ shunt, 2.6 k pcs), C558269 (see above).

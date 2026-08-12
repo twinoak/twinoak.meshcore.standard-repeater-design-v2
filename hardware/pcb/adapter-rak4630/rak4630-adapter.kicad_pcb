@@ -1870,7 +1870,7 @@
 		(layer "F.Cu")
 		(uuid "637bebb3-583a-48b4-8007-7665aebae4a5")
 		(at 158.83 96.866)
-		(descr "Micro Crystal RV-3028-C7 RTC, C7 ceramic SMD 3.2x1.5x0.8mm, 8 pads. Land pattern per Micro Crystal C7 app manual (pads 0.5x0.8, pitch 0.9, rows 1.2mm c2c). Pin 1 top-right. Lid = VSS.")
+		(descr "Micro Crystal RV-3028-C7 RTC, C7 ceramic SMD 3.2x1.5x0.8mm, 8 pads. Land pattern per Micro Crystal C7 app manual (pads 0.5x0.8, pitch 0.9, rows 1.2mm c2c). Pin 1 top-left (pad numbering corrected 2026-08-11 — was mirrored). Lid = VSS.")
 		(tags "RTC RV-3028 Micro Crystal C7")
 		(property "Reference" "U5"
 			(at 0 -2.2 0)
@@ -1976,8 +1976,8 @@
 			(uuid "13a0bd75-9e24-4a19-ac03-04d49322538b")
 		)
 		(fp_circle
-			(center 1.85 -1.5)
-			(end 2 -1.5)
+			(center -1.85 -1.5)
+			(end -2 -1.5)
 			(stroke
 				(width 0.12)
 				(type solid)
@@ -1998,8 +1998,8 @@
 			(uuid "99b40842-a30a-4990-ab5c-16ed6e1863e9")
 		)
 		(fp_line
-			(start 1.1 -0.75)
-			(end 1.6 -0.25)
+			(start -1.1 -0.75)
+			(end -1.6 -0.25)
 			(stroke
 				(width 0.1)
 				(type solid)
@@ -2019,7 +2019,7 @@
 			(uuid "e1efc8ba-ed52-4fb0-b3bf-9a95bb120349")
 		)
 		(pad "1" smd roundrect
-			(at 1.35 -0.6)
+			(at -1.35 -0.6)
 			(size 0.5 0.8)
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
@@ -2029,7 +2029,7 @@
 			(uuid "72d2a1df-4ba8-4d7b-8dfe-edb2e45acfa5")
 		)
 		(pad "2" smd roundrect
-			(at 0.45 -0.6)
+			(at -0.45 -0.6)
 			(size 0.5 0.8)
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
@@ -2039,7 +2039,7 @@
 			(uuid "7756bc58-646e-466d-b765-a9b27f97da27")
 		)
 		(pad "3" smd roundrect
-			(at -0.45 -0.6)
+			(at 0.45 -0.6)
 			(size 0.5 0.8)
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
@@ -2049,7 +2049,7 @@
 			(uuid "8598ca06-0167-47d0-b3f7-87cf9ec9a45c")
 		)
 		(pad "4" smd roundrect
-			(at -1.35 -0.6)
+			(at 1.35 -0.6)
 			(size 0.5 0.8)
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
@@ -2059,7 +2059,7 @@
 			(uuid "4167dbc8-c3b2-444b-951c-b98dcb5ce8d4")
 		)
 		(pad "5" smd roundrect
-			(at -1.35 0.6)
+			(at 1.35 0.6)
 			(size 0.5 0.8)
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
@@ -2069,7 +2069,7 @@
 			(uuid "447bef52-01dd-4408-b898-1a27b3ad2f39")
 		)
 		(pad "6" smd roundrect
-			(at -0.45 0.6)
+			(at 0.45 0.6)
 			(size 0.5 0.8)
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
@@ -2079,7 +2079,7 @@
 			(uuid "d55edfe3-18dd-4cfd-85fc-276e492b2377")
 		)
 		(pad "7" smd roundrect
-			(at 0.45 0.6)
+			(at -0.45 0.6)
 			(size 0.5 0.8)
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
@@ -2089,7 +2089,7 @@
 			(uuid "e0bf5b20-d116-476b-996f-576a277fc5ff")
 		)
 		(pad "8" smd roundrect
-			(at 1.35 0.6)
+			(at -1.35 0.6)
 			(size 0.5 0.8)
 			(layers "F.Cu" "F.Mask" "F.Paste")
 			(roundrect_rratio 0.25)
