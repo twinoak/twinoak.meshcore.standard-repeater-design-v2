@@ -5,324 +5,6 @@
 	(uuid "f046fec5-6210-4377-a87a-eb74f5d5b12a")
 	(paper "A3")
 	(lib_symbols
-		(symbol "TwinOak:8-215570-0"
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "J"
-				(at 19.05 7.62 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Value" "8-215570-0"
-				(at 19.05 5.08 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Footprint" "82155700"
-				(at 19.05 -94.92 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Datasheet" "https://www.te.com/commerce/DocumentDelivery/DDEController?Action=srchrtrv&DocNm=4-1773457-1_050_Micro_MaTch&DocType=Data%20Sheet&DocLang=English&PartCntxt=8-215570-0&DocFormat=pdf"
-				(at 19.05 -194.92 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Description" "Body Features: Primary Product Color Red | Configuration Features: Number of Rows 2 | Number of Positions 10 | Compatible With Wire & Cable Type Ribbon Cable | PCB Mount Orientation Vertical | Wire Entry Location Top | Contact Features: PCB Contact Termination Area Plating Material Thickness 118.11  196.85 MICIN | PCB Contact Termination Area Plating Material Thickness 3  5 MICM | Wire Contact Termination Area Plating Thickness 1 MICM | Wire Contact Termination Area Plating Thickness 39.37 MICIN | Con"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Height" "7.1"
-				(at 19.05 -394.92 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "TME Electronic Components Part Number" ""
-				(at 19.05 -494.92 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "TME Electronic Components Price/Stock" ""
-				(at 19.05 -594.92 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Manufacturer_Name" "TE Connectivity"
-				(at 19.05 -694.92 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(property "Manufacturer_Part_Number" "8-215570-0"
-				(at 19.05 -794.92 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left top)
-				)
-			)
-			(symbol "8-215570-0_1_1"
-				(rectangle
-					(start 5.08 2.54)
-					(end 17.78 -12.7)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
-				(pin passive line
-					(at 22.86 0 180)
-					(length 5.08)
-					(name "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 0 0)
-					(length 5.08)
-					(name "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 22.86 -2.54 180)
-					(length 5.08)
-					(name "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -2.54 0)
-					(length 5.08)
-					(name "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 22.86 -5.08 180)
-					(length 5.08)
-					(name "5"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "5"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -5.08 0)
-					(length 5.08)
-					(name "6"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "6"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 22.86 -7.62 180)
-					(length 5.08)
-					(name "7"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "7"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -7.62 0)
-					(length 5.08)
-					(name "8"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "8"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 22.86 -10.16 180)
-					(length 5.08)
-					(name "9"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "9"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -10.16 0)
-					(length 5.08)
-					(name "10"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "10"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "Connector:DE9_Pins"
 			(pin_names
 				(offset 1.016)
@@ -411,8 +93,7 @@
 			(symbol "DE9_Pins_0_1"
 				(polyline
 					(pts
-						(xy -3.81 10.16)
-						(xy -2.54 10.16)
+						(xy -3.81 10.16) (xy -2.54 10.16)
 					)
 					(stroke
 						(width 0)
@@ -424,8 +105,7 @@
 				)
 				(polyline
 					(pts
-						(xy -3.81 7.62)
-						(xy 0.508 7.62)
+						(xy -3.81 7.62) (xy 0.508 7.62)
 					)
 					(stroke
 						(width 0)
@@ -437,8 +117,7 @@
 				)
 				(polyline
 					(pts
-						(xy -3.81 5.08)
-						(xy -2.54 5.08)
+						(xy -3.81 5.08) (xy -2.54 5.08)
 					)
 					(stroke
 						(width 0)
@@ -450,8 +129,7 @@
 				)
 				(polyline
 					(pts
-						(xy -3.81 2.54)
-						(xy 0.508 2.54)
+						(xy -3.81 2.54) (xy 0.508 2.54)
 					)
 					(stroke
 						(width 0)
@@ -463,8 +141,7 @@
 				)
 				(polyline
 					(pts
-						(xy -3.81 0)
-						(xy -2.54 0)
+						(xy -3.81 0) (xy -2.54 0)
 					)
 					(stroke
 						(width 0)
@@ -476,8 +153,7 @@
 				)
 				(polyline
 					(pts
-						(xy -3.81 -2.54)
-						(xy 0.508 -2.54)
+						(xy -3.81 -2.54) (xy 0.508 -2.54)
 					)
 					(stroke
 						(width 0)
@@ -489,8 +165,7 @@
 				)
 				(polyline
 					(pts
-						(xy -3.81 -5.08)
-						(xy -2.54 -5.08)
+						(xy -3.81 -5.08) (xy -2.54 -5.08)
 					)
 					(stroke
 						(width 0)
@@ -502,8 +177,7 @@
 				)
 				(polyline
 					(pts
-						(xy -3.81 -7.62)
-						(xy 0.508 -7.62)
+						(xy -3.81 -7.62) (xy 0.508 -7.62)
 					)
 					(stroke
 						(width 0)
@@ -515,8 +189,7 @@
 				)
 				(polyline
 					(pts
-						(xy -3.81 -10.16)
-						(xy -2.54 -10.16)
+						(xy -3.81 -10.16) (xy -2.54 -10.16)
 					)
 					(stroke
 						(width 0)
@@ -528,11 +201,7 @@
 				)
 				(polyline
 					(pts
-						(xy -3.81 -13.335)
-						(xy -3.81 13.335)
-						(xy 3.81 9.525)
-						(xy 3.81 -9.525)
-						(xy -3.81 -13.335)
+						(xy -3.81 -13.335) (xy -3.81 13.335) (xy 3.81 9.525) (xy 3.81 -9.525) (xy -3.81 -13.335)
 					)
 					(stroke
 						(width 0.254)
@@ -907,8 +576,7 @@
 				)
 				(polyline
 					(pts
-						(xy -0.5334 0.3302)
-						(xy 0.3302 -0.508)
+						(xy -0.5334 0.3302) (xy 0.3302 -0.508)
 					)
 					(stroke
 						(width 0.1524)
@@ -920,8 +588,7 @@
 				)
 				(polyline
 					(pts
-						(xy -0.5334 -2.2098)
-						(xy 0.3302 -3.048)
+						(xy -0.5334 -2.2098) (xy 0.3302 -3.048)
 					)
 					(stroke
 						(width 0.1524)
@@ -933,8 +600,7 @@
 				)
 				(polyline
 					(pts
-						(xy -0.3556 0.508)
-						(xy 0.508 -0.3302)
+						(xy -0.3556 0.508) (xy 0.508 -0.3302)
 					)
 					(stroke
 						(width 0.1524)
@@ -946,8 +612,7 @@
 				)
 				(polyline
 					(pts
-						(xy -0.3556 -2.032)
-						(xy 0.508 -2.8702)
+						(xy -0.3556 -2.032) (xy 0.508 -2.8702)
 					)
 					(stroke
 						(width 0.1524)
@@ -1268,8 +933,7 @@
 			(symbol "C_0_1"
 				(polyline
 					(pts
-						(xy -2.032 0.762)
-						(xy 2.032 0.762)
+						(xy -2.032 0.762) (xy 2.032 0.762)
 					)
 					(stroke
 						(width 0.508)
@@ -1281,8 +945,7 @@
 				)
 				(polyline
 					(pts
-						(xy -2.032 -0.762)
-						(xy 2.032 -0.762)
+						(xy -2.032 -0.762) (xy 2.032 -0.762)
 					)
 					(stroke
 						(width 0.508)
@@ -1424,12 +1087,7 @@
 			(symbol "D_Schottky_0_1"
 				(polyline
 					(pts
-						(xy -1.905 0.635)
-						(xy -1.905 1.27)
-						(xy -1.27 1.27)
-						(xy -1.27 -1.27)
-						(xy -0.635 -1.27)
-						(xy -0.635 -0.635)
+						(xy -1.905 0.635) (xy -1.905 1.27) (xy -1.27 1.27) (xy -1.27 -1.27) (xy -0.635 -1.27) (xy -0.635 -0.635)
 					)
 					(stroke
 						(width 0.254)
@@ -1441,10 +1099,7 @@
 				)
 				(polyline
 					(pts
-						(xy 1.27 1.27)
-						(xy 1.27 -1.27)
-						(xy -1.27 0)
-						(xy 1.27 1.27)
+						(xy 1.27 1.27) (xy 1.27 -1.27) (xy -1.27 0) (xy 1.27 1.27)
 					)
 					(stroke
 						(width 0.254)
@@ -1456,8 +1111,7 @@
 				)
 				(polyline
 					(pts
-						(xy 1.27 0)
-						(xy -1.27 0)
+						(xy 1.27 0) (xy -1.27 0)
 					)
 					(stroke
 						(width 0)
@@ -1777,11 +1431,7 @@
 			(symbol "LED_0_1"
 				(polyline
 					(pts
-						(xy -3.048 -0.762)
-						(xy -4.572 -2.286)
-						(xy -3.81 -2.286)
-						(xy -4.572 -2.286)
-						(xy -4.572 -1.524)
+						(xy -3.048 -0.762) (xy -4.572 -2.286) (xy -3.81 -2.286) (xy -4.572 -2.286) (xy -4.572 -1.524)
 					)
 					(stroke
 						(width 0)
@@ -1793,11 +1443,7 @@
 				)
 				(polyline
 					(pts
-						(xy -1.778 -0.762)
-						(xy -3.302 -2.286)
-						(xy -2.54 -2.286)
-						(xy -3.302 -2.286)
-						(xy -3.302 -1.524)
+						(xy -1.778 -0.762) (xy -3.302 -2.286) (xy -2.54 -2.286) (xy -3.302 -2.286) (xy -3.302 -1.524)
 					)
 					(stroke
 						(width 0)
@@ -1809,8 +1455,7 @@
 				)
 				(polyline
 					(pts
-						(xy -1.27 0)
-						(xy 1.27 0)
+						(xy -1.27 0) (xy 1.27 0)
 					)
 					(stroke
 						(width 0)
@@ -1822,8 +1467,7 @@
 				)
 				(polyline
 					(pts
-						(xy -1.27 -1.27)
-						(xy -1.27 1.27)
+						(xy -1.27 -1.27) (xy -1.27 1.27)
 					)
 					(stroke
 						(width 0.254)
@@ -1835,10 +1479,7 @@
 				)
 				(polyline
 					(pts
-						(xy 1.27 -1.27)
-						(xy 1.27 1.27)
-						(xy -1.27 0)
-						(xy 1.27 -1.27)
+						(xy 1.27 -1.27) (xy 1.27 1.27) (xy -1.27 0) (xy 1.27 -1.27)
 					)
 					(stroke
 						(width 0.254)
@@ -1980,10 +1621,7 @@
 			(symbol "Polyfuse_0_1"
 				(polyline
 					(pts
-						(xy -1.524 2.54)
-						(xy -1.524 1.524)
-						(xy 1.524 -1.524)
-						(xy 1.524 -2.54)
+						(xy -1.524 2.54) (xy -1.524 1.524) (xy 1.524 -1.524) (xy 1.524 -2.54)
 					)
 					(stroke
 						(width 0)
@@ -2006,8 +1644,7 @@
 				)
 				(polyline
 					(pts
-						(xy 0 2.54)
-						(xy 0 -2.54)
+						(xy 0 2.54) (xy 0 -2.54)
 					)
 					(stroke
 						(width 0)
@@ -2760,6 +2397,600 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "TwinOak:8-215570-0"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "J"
+				(at 19.05 7.62 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Value" "8-215570-0"
+				(at 19.05 5.08 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Footprint" "82155700"
+				(at 19.05 -94.92 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Datasheet" "https://www.te.com/commerce/DocumentDelivery/DDEController?Action=srchrtrv&DocNm=4-1773457-1_050_Micro_MaTch&DocType=Data%20Sheet&DocLang=English&PartCntxt=8-215570-0&DocFormat=pdf"
+				(at 19.05 -194.92 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Description" "Body Features: Primary Product Color Red | Configuration Features: Number of Rows 2 | Number of Positions 10 | Compatible With Wire & Cable Type Ribbon Cable | PCB Mount Orientation Vertical | Wire Entry Location Top | Contact Features: PCB Contact Termination Area Plating Material Thickness 118.11  196.85 MICIN | PCB Contact Termination Area Plating Material Thickness 3  5 MICM | Wire Contact Termination Area Plating Thickness 1 MICM | Wire Contact Termination Area Plating Thickness 39.37 MICIN | Con"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Height" "7.1"
+				(at 19.05 -394.92 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "TME Electronic Components Part Number" ""
+				(at 19.05 -494.92 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "TME Electronic Components Price/Stock" ""
+				(at 19.05 -594.92 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Manufacturer_Name" "TE Connectivity"
+				(at 19.05 -694.92 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(property "Manufacturer_Part_Number" "8-215570-0"
+				(at 19.05 -794.92 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left top)
+				)
+			)
+			(symbol "8-215570-0_1_1"
+				(rectangle
+					(start 5.08 2.54)
+					(end 17.78 -12.7)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(pin passive line
+					(at 22.86 0 180)
+					(length 5.08)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 0 0)
+					(length 5.08)
+					(name "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 22.86 -2.54 180)
+					(length 5.08)
+					(name "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -2.54 0)
+					(length 5.08)
+					(name "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 22.86 -5.08 180)
+					(length 5.08)
+					(name "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -5.08 0)
+					(length 5.08)
+					(name "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 22.86 -7.62 180)
+					(length 5.08)
+					(name "7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -7.62 0)
+					(length 5.08)
+					(name "8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 22.86 -10.16 180)
+					(length 5.08)
+					(name "9"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "9"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -10.16 0)
+					(length 5.08)
+					(name "10"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "10"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "TwinOak:TPS63001"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "U"
+				(at -15.24 16.51 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "TPS63001"
+				(at 2.54 16.51 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "TPS63001_0_1"
+				(rectangle
+					(start -15.24 -15.24)
+					(end 15.24 15.24)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+			)
+			(symbol "TPS63001_1_1"
+				(pin power_out line
+					(at 17.78 10.16 180)
+					(length 2.54)
+					(name "VOUT"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 7.62 17.78 270)
+					(length 2.54)
+					(name "L2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 2.54 -17.78 90)
+					(length 2.54)
+					(name "PGND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -7.62 17.78 270)
+					(length 2.54)
+					(name "L1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at -17.78 10.16 0)
+					(length 2.54)
+					(name "VIN"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -17.78 -2.54 0)
+					(length 2.54)
+					(name "EN"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -17.78 -7.62 0)
+					(length 2.54)
+					(name "PS/SYNC"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at -17.78 5.08 0)
+					(length 2.54)
+					(name "VINA"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at -2.54 -17.78 90)
+					(length 2.54)
+					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "9"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at 17.78 5.08 180)
+					(length 2.54)
+					(name "FB"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "10"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 7.62 -17.78 90)
+					(length 2.54)
+					(name "PAD"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "11"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "adapter:SW_DPDT"
 			(pin_names
 				(offset 0)
@@ -2870,8 +3101,7 @@
 				)
 				(polyline
 					(pts
-						(xy -1.778 -0.254)
-						(xy 1.778 1.27)
+						(xy -1.778 -0.254) (xy 1.778 1.27)
 					)
 					(stroke
 						(width 0)
@@ -2883,8 +3113,7 @@
 				)
 				(polyline
 					(pts
-						(xy -1.778 -7.874)
-						(xy 1.778 -6.35)
+						(xy -1.778 -7.874) (xy 1.778 -6.35)
 					)
 					(stroke
 						(width 0)
@@ -2896,8 +3125,7 @@
 				)
 				(polyline
 					(pts
-						(xy 0 0.508)
-						(xy 0 -6.858)
+						(xy 0 0.508) (xy 0 -6.858)
 					)
 					(stroke
 						(width 0)
@@ -3112,8 +3340,7 @@
 			(symbol "C_V_0_1"
 				(polyline
 					(pts
-						(xy -1.524 0.508)
-						(xy 1.524 0.508)
+						(xy -1.524 0.508) (xy 1.524 0.508)
 					)
 					(stroke
 						(width 0.3048)
@@ -3125,8 +3352,7 @@
 				)
 				(polyline
 					(pts
-						(xy -1.524 -0.508)
-						(xy 1.524 -0.508)
+						(xy -1.524 -0.508) (xy 1.524 -0.508)
 					)
 					(stroke
 						(width 0.3048)
@@ -3543,8 +3769,7 @@
 			(symbol "NMOS_0_1"
 				(polyline
 					(pts
-						(xy -1.778 -2.54)
-						(xy -1.778 1.905)
+						(xy -1.778 -2.54) (xy -1.778 1.905)
 					)
 					(stroke
 						(width 0.254)
@@ -3556,8 +3781,7 @@
 				)
 				(polyline
 					(pts
-						(xy -1.016 1.905)
-						(xy 2.54 1.905)
+						(xy -1.016 1.905) (xy 2.54 1.905)
 					)
 					(stroke
 						(width 0.254)
@@ -3569,8 +3793,7 @@
 				)
 				(polyline
 					(pts
-						(xy -1.016 -1.905)
-						(xy 2.54 -1.905)
+						(xy -1.016 -1.905) (xy 2.54 -1.905)
 					)
 					(stroke
 						(width 0.254)
@@ -3582,8 +3805,7 @@
 				)
 				(polyline
 					(pts
-						(xy -1.016 -2.286)
-						(xy -1.016 2.286)
+						(xy -1.016 -2.286) (xy -1.016 2.286)
 					)
 					(stroke
 						(width 0.3048)
@@ -3595,10 +3817,7 @@
 				)
 				(polyline
 					(pts
-						(xy 0.635 -1.397)
-						(xy -0.254 -1.905)
-						(xy 0.635 -2.413)
-						(xy 0.635 -1.397)
+						(xy 0.635 -1.397) (xy -0.254 -1.905) (xy 0.635 -2.413) (xy 0.635 -1.397)
 					)
 					(stroke
 						(width 0.127)
@@ -3905,282 +4124,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "TwinOak:TPS63001"
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "U"
-				(at -15.24 16.51 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Value" "TPS63001"
-				(at 2.54 16.51 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" ""
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "TPS63001_0_1"
-				(rectangle
-					(start -15.24 -15.24)
-					(end 15.24 15.24)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
-			)
-			(symbol "TPS63001_1_1"
-				(pin power_out line
-					(at 17.78 10.16 180)
-					(length 2.54)
-					(name "VOUT"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 7.62 17.78 270)
-					(length 2.54)
-					(name "L2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin power_in line
-					(at 2.54 -17.78 90)
-					(length 2.54)
-					(name "PGND"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -7.62 17.78 270)
-					(length 2.54)
-					(name "L1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin power_in line
-					(at -17.78 10.16 0)
-					(length 2.54)
-					(name "VIN"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "5"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at -17.78 -2.54 0)
-					(length 2.54)
-					(name "EN"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "6"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at -17.78 -7.62 0)
-					(length 2.54)
-					(name "PS/SYNC"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "7"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin power_in line
-					(at -17.78 5.08 0)
-					(length 2.54)
-					(name "VINA"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "8"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin power_in line
-					(at -2.54 -17.78 90)
-					(length 2.54)
-					(name "GND"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "9"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at 17.78 5.08 180)
-					(length 2.54)
-					(name "FB"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "10"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin power_in line
-					(at 7.62 -17.78 90)
-					(length 2.54)
-					(name "PAD"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "11"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "lora3v3:TVS_V"
 			(pin_numbers
 				(hide yes)
@@ -4251,8 +4194,7 @@
 			(symbol "TVS_V_0_1"
 				(polyline
 					(pts
-						(xy -1.524 0.635)
-						(xy 1.524 0.635)
+						(xy -1.524 0.635) (xy 1.524 0.635)
 					)
 					(stroke
 						(width 0.254)
@@ -4264,8 +4206,7 @@
 				)
 				(polyline
 					(pts
-						(xy -1.524 -0.635)
-						(xy 1.524 -0.635)
+						(xy -1.524 -0.635) (xy 1.524 -0.635)
 					)
 					(stroke
 						(width 0.254)
@@ -4277,10 +4218,7 @@
 				)
 				(polyline
 					(pts
-						(xy -1.27 1.905)
-						(xy 1.27 1.905)
-						(xy 0 0.635)
-						(xy -1.27 1.905)
+						(xy -1.27 1.905) (xy 1.27 1.905) (xy 0 0.635) (xy -1.27 1.905)
 					)
 					(stroke
 						(width 0.254)
@@ -4292,10 +4230,7 @@
 				)
 				(polyline
 					(pts
-						(xy -1.27 -1.905)
-						(xy 1.27 -1.905)
-						(xy 0 -0.635)
-						(xy -1.27 -1.905)
+						(xy -1.27 -1.905) (xy 1.27 -1.905) (xy 0 -0.635) (xy -1.27 -1.905)
 					)
 					(stroke
 						(width 0.254)
@@ -4307,8 +4242,7 @@
 				)
 				(polyline
 					(pts
-						(xy 0 0.635)
-						(xy 0 -0.635)
+						(xy 0 0.635) (xy 0 -0.635)
 					)
 					(stroke
 						(width 0.254)
@@ -4441,12 +4375,7 @@
 			(symbol "GND_0_1"
 				(polyline
 					(pts
-						(xy 0 0)
-						(xy 0 -1.27)
-						(xy 1.27 -1.27)
-						(xy 0 -2.54)
-						(xy -1.27 -1.27)
-						(xy 0 -1.27)
+						(xy 0 0) (xy 0 -1.27) (xy 1.27 -1.27) (xy 0 -2.54) (xy -1.27 -1.27) (xy 0 -1.27)
 					)
 					(stroke
 						(width 0)
@@ -4557,8 +4486,7 @@
 			(symbol "VBAT_0_1"
 				(polyline
 					(pts
-						(xy -0.762 1.27)
-						(xy 0 2.54)
+						(xy -0.762 1.27) (xy 0 2.54)
 					)
 					(stroke
 						(width 0)
@@ -4570,8 +4498,7 @@
 				)
 				(polyline
 					(pts
-						(xy 0 2.54)
-						(xy 0.762 1.27)
+						(xy 0 2.54) (xy 0.762 1.27)
 					)
 					(stroke
 						(width 0)
@@ -4583,8 +4510,7 @@
 				)
 				(polyline
 					(pts
-						(xy 0 0)
-						(xy 0 2.54)
+						(xy 0 0) (xy 0 2.54)
 					)
 					(stroke
 						(width 0)
@@ -4696,8 +4622,7 @@
 			(symbol "VIN_0_1"
 				(polyline
 					(pts
-						(xy -0.762 1.27)
-						(xy 0 2.54)
+						(xy -0.762 1.27) (xy 0 2.54)
 					)
 					(stroke
 						(width 0)
@@ -4709,8 +4634,7 @@
 				)
 				(polyline
 					(pts
-						(xy 0 2.54)
-						(xy 0.762 1.27)
+						(xy 0 2.54) (xy 0.762 1.27)
 					)
 					(stroke
 						(width 0)
@@ -4722,8 +4646,7 @@
 				)
 				(polyline
 					(pts
-						(xy 0 0)
-						(xy 0 2.54)
+						(xy 0 0) (xy 0 2.54)
 					)
 					(stroke
 						(width 0)
@@ -5221,8 +5144,7 @@
 				)
 				(polyline
 					(pts
-						(xy -2.54 1.905)
-						(xy -2.54 -1.905)
+						(xy -2.54 1.905) (xy -2.54 -1.905)
 					)
 					(stroke
 						(width 0.254)
@@ -5234,8 +5156,7 @@
 				)
 				(polyline
 					(pts
-						(xy -1.27 1.27)
-						(xy -1.27 -1.27)
+						(xy -1.27 1.27) (xy -1.27 -1.27)
 					)
 					(stroke
 						(width 0.4)
@@ -5247,8 +5168,7 @@
 				)
 				(polyline
 					(pts
-						(xy -1.27 0)
-						(xy 1.27 0)
+						(xy -1.27 0) (xy 1.27 0)
 					)
 					(stroke
 						(width 0.254)
@@ -5260,8 +5180,7 @@
 				)
 				(polyline
 					(pts
-						(xy 0 7.62)
-						(xy 0 5.08)
+						(xy 0 7.62) (xy 0 5.08)
 					)
 					(stroke
 						(width 0)
@@ -5683,8 +5602,7 @@
 	)
 	(wire
 		(pts
-			(xy 154.94 232.41)
-			(xy 154.94 234.95)
+			(xy 154.94 232.41) (xy 154.94 234.95)
 		)
 		(stroke
 			(width 0)
@@ -5694,8 +5612,7 @@
 	)
 	(wire
 		(pts
-			(xy 107.95 86.36)
-			(xy 111.76 86.36)
+			(xy 107.95 86.36) (xy 111.76 86.36)
 		)
 		(stroke
 			(width 0)
@@ -5705,8 +5622,7 @@
 	)
 	(wire
 		(pts
-			(xy 139.7 207.01)
-			(xy 135.89 207.01)
+			(xy 139.7 207.01) (xy 135.89 207.01)
 		)
 		(stroke
 			(width 0)
@@ -5716,8 +5632,7 @@
 	)
 	(wire
 		(pts
-			(xy 306.07 196.85)
-			(xy 288.29 196.85)
+			(xy 306.07 196.85) (xy 288.29 196.85)
 		)
 		(stroke
 			(width 0)
@@ -5727,8 +5642,7 @@
 	)
 	(wire
 		(pts
-			(xy 124.46 111.76)
-			(xy 124.46 114.3)
+			(xy 124.46 111.76) (xy 124.46 114.3)
 		)
 		(stroke
 			(width 0)
@@ -5738,8 +5652,7 @@
 	)
 	(wire
 		(pts
-			(xy 137.16 91.44)
-			(xy 153.67 91.44)
+			(xy 137.16 91.44) (xy 153.67 91.44)
 		)
 		(stroke
 			(width 0)
@@ -5749,8 +5662,7 @@
 	)
 	(wire
 		(pts
-			(xy 151.13 93.98)
-			(xy 151.13 83.82)
+			(xy 151.13 93.98) (xy 151.13 83.82)
 		)
 		(stroke
 			(width 0)
@@ -5760,8 +5672,7 @@
 	)
 	(wire
 		(pts
-			(xy 109.22 88.9)
-			(xy 111.76 88.9)
+			(xy 109.22 88.9) (xy 111.76 88.9)
 		)
 		(stroke
 			(width 0)
@@ -5771,8 +5682,7 @@
 	)
 	(wire
 		(pts
-			(xy 349.25 90.17)
-			(xy 351.79 90.17)
+			(xy 349.25 90.17) (xy 351.79 90.17)
 		)
 		(stroke
 			(width 0)
@@ -5782,8 +5692,7 @@
 	)
 	(wire
 		(pts
-			(xy 151.13 83.82)
-			(xy 154.94 83.82)
+			(xy 151.13 83.82) (xy 154.94 83.82)
 		)
 		(stroke
 			(width 0)
@@ -5793,8 +5702,7 @@
 	)
 	(wire
 		(pts
-			(xy 195.58 88.9)
-			(xy 200.66 88.9)
+			(xy 195.58 88.9) (xy 200.66 88.9)
 		)
 		(stroke
 			(width 0)
@@ -5804,8 +5712,7 @@
 	)
 	(wire
 		(pts
-			(xy 139.7 217.17)
-			(xy 135.89 217.17)
+			(xy 139.7 217.17) (xy 135.89 217.17)
 		)
 		(stroke
 			(width 0)
@@ -5815,8 +5722,7 @@
 	)
 	(wire
 		(pts
-			(xy 144.78 190.5)
-			(xy 144.78 186.69)
+			(xy 144.78 190.5) (xy 144.78 186.69)
 		)
 		(stroke
 			(width 0)
@@ -5826,8 +5732,7 @@
 	)
 	(wire
 		(pts
-			(xy 91.44 50.8)
-			(xy 96.52 50.8)
+			(xy 91.44 50.8) (xy 96.52 50.8)
 		)
 		(stroke
 			(width 0)
@@ -5837,8 +5742,7 @@
 	)
 	(wire
 		(pts
-			(xy 99.06 186.69)
-			(xy 104.14 186.69)
+			(xy 99.06 186.69) (xy 104.14 186.69)
 		)
 		(stroke
 			(width 0)
@@ -5848,8 +5752,7 @@
 	)
 	(wire
 		(pts
-			(xy 153.67 100.33)
-			(xy 163.83 100.33)
+			(xy 153.67 100.33) (xy 163.83 100.33)
 		)
 		(stroke
 			(width 0)
@@ -5859,8 +5762,7 @@
 	)
 	(wire
 		(pts
-			(xy 96.52 50.8)
-			(xy 96.52 62.23)
+			(xy 96.52 50.8) (xy 96.52 62.23)
 		)
 		(stroke
 			(width 0)
@@ -5870,8 +5772,7 @@
 	)
 	(wire
 		(pts
-			(xy 139.7 118.11)
-			(xy 205.74 118.11)
+			(xy 139.7 118.11) (xy 205.74 118.11)
 		)
 		(stroke
 			(width 0)
@@ -5881,8 +5782,7 @@
 	)
 	(wire
 		(pts
-			(xy 238.76 88.9)
-			(xy 238.76 85.09)
+			(xy 238.76 88.9) (xy 238.76 85.09)
 		)
 		(stroke
 			(width 0)
@@ -5892,8 +5792,7 @@
 	)
 	(wire
 		(pts
-			(xy 171.45 88.9)
-			(xy 171.45 92.71)
+			(xy 171.45 88.9) (xy 171.45 92.71)
 		)
 		(stroke
 			(width 0)
@@ -5903,8 +5802,7 @@
 	)
 	(wire
 		(pts
-			(xy 171.45 85.09)
-			(xy 171.45 88.9)
+			(xy 171.45 85.09) (xy 171.45 88.9)
 		)
 		(stroke
 			(width 0)
@@ -5914,8 +5812,7 @@
 	)
 	(wire
 		(pts
-			(xy 90.17 222.25)
-			(xy 90.17 214.63)
+			(xy 90.17 222.25) (xy 90.17 214.63)
 		)
 		(stroke
 			(width 0)
@@ -5925,8 +5822,7 @@
 	)
 	(wire
 		(pts
-			(xy 90.17 222.25)
-			(xy 139.7 222.25)
+			(xy 90.17 222.25) (xy 139.7 222.25)
 		)
 		(stroke
 			(width 0)
@@ -5936,8 +5832,7 @@
 	)
 	(wire
 		(pts
-			(xy 137.16 120.65)
-			(xy 213.36 120.65)
+			(xy 137.16 120.65) (xy 213.36 120.65)
 		)
 		(stroke
 			(width 0)
@@ -5947,8 +5842,7 @@
 	)
 	(wire
 		(pts
-			(xy 213.36 96.52)
-			(xy 213.36 120.65)
+			(xy 213.36 96.52) (xy 213.36 120.65)
 		)
 		(stroke
 			(width 0)
@@ -5958,8 +5852,7 @@
 	)
 	(wire
 		(pts
-			(xy 139.7 224.79)
-			(xy 135.89 224.79)
+			(xy 139.7 224.79) (xy 135.89 224.79)
 		)
 		(stroke
 			(width 0)
@@ -5969,8 +5862,7 @@
 	)
 	(wire
 		(pts
-			(xy 63.5 101.6)
-			(xy 111.76 101.6)
+			(xy 63.5 101.6) (xy 111.76 101.6)
 		)
 		(stroke
 			(width 0)
@@ -5980,8 +5872,7 @@
 	)
 	(wire
 		(pts
-			(xy 137.16 120.65)
-			(xy 137.16 101.6)
+			(xy 137.16 120.65) (xy 137.16 101.6)
 		)
 		(stroke
 			(width 0)
@@ -5991,8 +5882,7 @@
 	)
 	(wire
 		(pts
-			(xy 63.5 97.79)
-			(xy 63.5 101.6)
+			(xy 63.5 97.79) (xy 63.5 101.6)
 		)
 		(stroke
 			(width 0)
@@ -6002,8 +5892,7 @@
 	)
 	(wire
 		(pts
-			(xy 306.07 201.93)
-			(xy 306.07 196.85)
+			(xy 306.07 201.93) (xy 306.07 196.85)
 		)
 		(stroke
 			(width 0)
@@ -6013,8 +5902,7 @@
 	)
 	(wire
 		(pts
-			(xy 107.95 71.12)
-			(xy 107.95 86.36)
+			(xy 107.95 71.12) (xy 107.95 86.36)
 		)
 		(stroke
 			(width 0)
@@ -6024,8 +5912,7 @@
 	)
 	(wire
 		(pts
-			(xy 110.49 96.52)
-			(xy 111.76 96.52)
+			(xy 110.49 96.52) (xy 111.76 96.52)
 		)
 		(stroke
 			(width 0)
@@ -6035,8 +5922,7 @@
 	)
 	(wire
 		(pts
-			(xy 73.66 80.01)
-			(xy 81.28 80.01)
+			(xy 73.66 80.01) (xy 81.28 80.01)
 		)
 		(stroke
 			(width 0)
@@ -6046,8 +5932,7 @@
 	)
 	(wire
 		(pts
-			(xy 81.28 135.89)
-			(xy 93.98 135.89)
+			(xy 81.28 135.89) (xy 93.98 135.89)
 		)
 		(stroke
 			(width 0)
@@ -6057,8 +5942,7 @@
 	)
 	(wire
 		(pts
-			(xy 137.16 83.82)
-			(xy 151.13 83.82)
+			(xy 137.16 83.82) (xy 151.13 83.82)
 		)
 		(stroke
 			(width 0)
@@ -6068,8 +5952,7 @@
 	)
 	(wire
 		(pts
-			(xy 342.9 212.09)
-			(xy 337.82 212.09)
+			(xy 342.9 212.09) (xy 337.82 212.09)
 		)
 		(stroke
 			(width 0)
@@ -6079,8 +5962,7 @@
 	)
 	(wire
 		(pts
-			(xy 170.18 219.71)
-			(xy 175.26 219.71)
+			(xy 170.18 219.71) (xy 175.26 219.71)
 		)
 		(stroke
 			(width 0)
@@ -6090,8 +5972,7 @@
 	)
 	(wire
 		(pts
-			(xy 73.66 50.8)
-			(xy 82.55 50.8)
+			(xy 73.66 50.8) (xy 82.55 50.8)
 		)
 		(stroke
 			(width 0)
@@ -6101,8 +5982,7 @@
 	)
 	(wire
 		(pts
-			(xy 119.38 186.69)
-			(xy 124.46 186.69)
+			(xy 119.38 186.69) (xy 124.46 186.69)
 		)
 		(stroke
 			(width 0)
@@ -6112,8 +5992,7 @@
 	)
 	(wire
 		(pts
-			(xy 256.54 85.09)
-			(xy 256.54 88.9)
+			(xy 256.54 85.09) (xy 256.54 88.9)
 		)
 		(stroke
 			(width 0)
@@ -6123,8 +6002,7 @@
 	)
 	(wire
 		(pts
-			(xy 251.46 88.9)
-			(xy 251.46 85.09)
+			(xy 251.46 88.9) (xy 251.46 85.09)
 		)
 		(stroke
 			(width 0)
@@ -6134,8 +6012,7 @@
 	)
 	(wire
 		(pts
-			(xy 90.17 214.63)
-			(xy 90.17 186.69)
+			(xy 90.17 214.63) (xy 90.17 186.69)
 		)
 		(stroke
 			(width 0)
@@ -6145,8 +6022,7 @@
 	)
 	(wire
 		(pts
-			(xy 127 109.22)
-			(xy 127 111.76)
+			(xy 127 109.22) (xy 127 111.76)
 		)
 		(stroke
 			(width 0)
@@ -6156,8 +6032,7 @@
 	)
 	(wire
 		(pts
-			(xy 154.94 234.95)
-			(xy 152.4 234.95)
+			(xy 154.94 234.95) (xy 152.4 234.95)
 		)
 		(stroke
 			(width 0)
@@ -6167,8 +6042,7 @@
 	)
 	(wire
 		(pts
-			(xy 96.52 71.12)
-			(xy 107.95 71.12)
+			(xy 96.52 71.12) (xy 107.95 71.12)
 		)
 		(stroke
 			(width 0)
@@ -6178,8 +6052,7 @@
 	)
 	(wire
 		(pts
-			(xy 110.49 83.82)
-			(xy 111.76 83.82)
+			(xy 110.49 83.82) (xy 111.76 83.82)
 		)
 		(stroke
 			(width 0)
@@ -6189,8 +6062,7 @@
 	)
 	(wire
 		(pts
-			(xy 121.92 111.76)
-			(xy 124.46 111.76)
+			(xy 121.92 111.76) (xy 124.46 111.76)
 		)
 		(stroke
 			(width 0)
@@ -6200,8 +6072,7 @@
 	)
 	(wire
 		(pts
-			(xy 149.86 234.95)
-			(xy 152.4 234.95)
+			(xy 149.86 234.95) (xy 152.4 234.95)
 		)
 		(stroke
 			(width 0)
@@ -6211,8 +6082,7 @@
 	)
 	(wire
 		(pts
-			(xy 43.18 46.99)
-			(xy 43.18 50.8)
+			(xy 43.18 46.99) (xy 43.18 50.8)
 		)
 		(stroke
 			(width 0)
@@ -6222,8 +6092,7 @@
 	)
 	(wire
 		(pts
-			(xy 165.1 219.71)
-			(xy 170.18 219.71)
+			(xy 165.1 219.71) (xy 170.18 219.71)
 		)
 		(stroke
 			(width 0)
@@ -6233,8 +6102,7 @@
 	)
 	(wire
 		(pts
-			(xy 110.49 135.89)
-			(xy 110.49 96.52)
+			(xy 110.49 135.89) (xy 110.49 96.52)
 		)
 		(stroke
 			(width 0)
@@ -6244,8 +6112,7 @@
 	)
 	(wire
 		(pts
-			(xy 248.92 88.9)
-			(xy 251.46 88.9)
+			(xy 248.92 88.9) (xy 251.46 88.9)
 		)
 		(stroke
 			(width 0)
@@ -6255,8 +6122,7 @@
 	)
 	(wire
 		(pts
-			(xy 153.67 91.44)
-			(xy 153.67 100.33)
+			(xy 153.67 91.44) (xy 153.67 100.33)
 		)
 		(stroke
 			(width 0)
@@ -6266,8 +6132,7 @@
 	)
 	(wire
 		(pts
-			(xy 92.71 80.01)
-			(xy 92.71 88.9)
+			(xy 92.71 80.01) (xy 92.71 88.9)
 		)
 		(stroke
 			(width 0)
@@ -6277,8 +6142,7 @@
 	)
 	(wire
 		(pts
-			(xy 73.66 97.79)
-			(xy 73.66 99.06)
+			(xy 73.66 97.79) (xy 73.66 99.06)
 		)
 		(stroke
 			(width 0)
@@ -6288,8 +6152,7 @@
 	)
 	(wire
 		(pts
-			(xy 144.78 186.69)
-			(xy 149.86 186.69)
+			(xy 144.78 186.69) (xy 149.86 186.69)
 		)
 		(stroke
 			(width 0)
@@ -6299,8 +6162,7 @@
 	)
 	(wire
 		(pts
-			(xy 92.71 88.9)
-			(xy 109.22 88.9)
+			(xy 92.71 88.9) (xy 109.22 88.9)
 		)
 		(stroke
 			(width 0)
@@ -6310,8 +6172,7 @@
 	)
 	(wire
 		(pts
-			(xy 93.98 93.98)
-			(xy 111.76 93.98)
+			(xy 93.98 93.98) (xy 111.76 93.98)
 		)
 		(stroke
 			(width 0)
@@ -6321,8 +6182,7 @@
 	)
 	(wire
 		(pts
-			(xy 220.98 88.9)
-			(xy 228.6 88.9)
+			(xy 220.98 88.9) (xy 228.6 88.9)
 		)
 		(stroke
 			(width 0)
@@ -6332,8 +6192,7 @@
 	)
 	(wire
 		(pts
-			(xy 213.36 88.9)
-			(xy 220.98 88.9)
+			(xy 213.36 88.9) (xy 220.98 88.9)
 		)
 		(stroke
 			(width 0)
@@ -6343,8 +6202,7 @@
 	)
 	(wire
 		(pts
-			(xy 90.17 186.69)
-			(xy 99.06 186.69)
+			(xy 90.17 186.69) (xy 99.06 186.69)
 		)
 		(stroke
 			(width 0)
@@ -6354,8 +6212,7 @@
 	)
 	(wire
 		(pts
-			(xy 81.28 80.01)
-			(xy 92.71 80.01)
+			(xy 81.28 80.01) (xy 92.71 80.01)
 		)
 		(stroke
 			(width 0)
@@ -6365,8 +6222,7 @@
 	)
 	(wire
 		(pts
-			(xy 110.49 50.8)
-			(xy 110.49 83.82)
+			(xy 110.49 50.8) (xy 110.49 83.82)
 		)
 		(stroke
 			(width 0)
@@ -6376,8 +6232,7 @@
 	)
 	(wire
 		(pts
-			(xy 237.49 110.49)
-			(xy 241.3 110.49)
+			(xy 237.49 110.49) (xy 241.3 110.49)
 		)
 		(stroke
 			(width 0)
@@ -6387,8 +6242,7 @@
 	)
 	(wire
 		(pts
-			(xy 93.98 135.89)
-			(xy 93.98 93.98)
+			(xy 93.98 135.89) (xy 93.98 93.98)
 		)
 		(stroke
 			(width 0)
@@ -6398,8 +6252,7 @@
 	)
 	(wire
 		(pts
-			(xy 121.92 109.22)
-			(xy 121.92 111.76)
+			(xy 121.92 109.22) (xy 121.92 111.76)
 		)
 		(stroke
 			(width 0)
@@ -6409,8 +6262,7 @@
 	)
 	(wire
 		(pts
-			(xy 163.83 88.9)
-			(xy 171.45 88.9)
+			(xy 163.83 88.9) (xy 171.45 88.9)
 		)
 		(stroke
 			(width 0)
@@ -6420,8 +6272,7 @@
 	)
 	(wire
 		(pts
-			(xy 96.52 71.12)
-			(xy 96.52 72.39)
+			(xy 96.52 71.12) (xy 96.52 72.39)
 		)
 		(stroke
 			(width 0)
@@ -6431,8 +6282,7 @@
 	)
 	(wire
 		(pts
-			(xy 81.28 80.01)
-			(xy 81.28 127)
+			(xy 81.28 80.01) (xy 81.28 127)
 		)
 		(stroke
 			(width 0)
@@ -6442,8 +6292,7 @@
 	)
 	(wire
 		(pts
-			(xy 213.36 85.09)
-			(xy 213.36 88.9)
+			(xy 213.36 85.09) (xy 213.36 88.9)
 		)
 		(stroke
 			(width 0)
@@ -6453,8 +6302,7 @@
 	)
 	(wire
 		(pts
-			(xy 184.15 104.14)
-			(xy 184.15 105.41)
+			(xy 184.15 104.14) (xy 184.15 105.41)
 		)
 		(stroke
 			(width 0)
@@ -6464,8 +6312,7 @@
 	)
 	(wire
 		(pts
-			(xy 137.16 88.9)
-			(xy 163.83 88.9)
+			(xy 137.16 88.9) (xy 163.83 88.9)
 		)
 		(stroke
 			(width 0)
@@ -6475,8 +6322,7 @@
 	)
 	(wire
 		(pts
-			(xy 137.16 86.36)
-			(xy 153.67 86.36)
+			(xy 137.16 86.36) (xy 153.67 86.36)
 		)
 		(stroke
 			(width 0)
@@ -6486,8 +6332,7 @@
 	)
 	(wire
 		(pts
-			(xy 127 111.76)
-			(xy 124.46 111.76)
+			(xy 127 111.76) (xy 124.46 111.76)
 		)
 		(stroke
 			(width 0)
@@ -6497,8 +6342,7 @@
 	)
 	(wire
 		(pts
-			(xy 52.07 93.98)
-			(xy 52.07 97.79)
+			(xy 52.07 93.98) (xy 52.07 97.79)
 		)
 		(stroke
 			(width 0)
@@ -6508,8 +6352,7 @@
 	)
 	(wire
 		(pts
-			(xy 143.51 93.98)
-			(xy 143.51 104.14)
+			(xy 143.51 93.98) (xy 143.51 104.14)
 		)
 		(stroke
 			(width 0)
@@ -6519,8 +6362,7 @@
 	)
 	(wire
 		(pts
-			(xy 193.04 88.9)
-			(xy 195.58 88.9)
+			(xy 193.04 88.9) (xy 195.58 88.9)
 		)
 		(stroke
 			(width 0)
@@ -6530,8 +6372,7 @@
 	)
 	(wire
 		(pts
-			(xy 124.46 186.69)
-			(xy 144.78 186.69)
+			(xy 124.46 186.69) (xy 144.78 186.69)
 		)
 		(stroke
 			(width 0)
@@ -6541,8 +6382,7 @@
 	)
 	(wire
 		(pts
-			(xy 73.66 99.06)
-			(xy 111.76 99.06)
+			(xy 73.66 99.06) (xy 111.76 99.06)
 		)
 		(stroke
 			(width 0)
@@ -6552,8 +6392,7 @@
 	)
 	(wire
 		(pts
-			(xy 205.74 96.52)
-			(xy 205.74 88.9)
+			(xy 205.74 96.52) (xy 205.74 88.9)
 		)
 		(stroke
 			(width 0)
@@ -6563,8 +6402,7 @@
 	)
 	(wire
 		(pts
-			(xy 237.49 88.9)
-			(xy 238.76 88.9)
+			(xy 237.49 88.9) (xy 238.76 88.9)
 		)
 		(stroke
 			(width 0)
@@ -6574,8 +6412,7 @@
 	)
 	(wire
 		(pts
-			(xy 165.1 224.79)
-			(xy 170.18 224.79)
+			(xy 165.1 224.79) (xy 170.18 224.79)
 		)
 		(stroke
 			(width 0)
@@ -6585,8 +6422,7 @@
 	)
 	(wire
 		(pts
-			(xy 228.6 110.49)
-			(xy 229.87 110.49)
+			(xy 228.6 110.49) (xy 229.87 110.49)
 		)
 		(stroke
 			(width 0)
@@ -6596,8 +6432,7 @@
 	)
 	(wire
 		(pts
-			(xy 49.53 46.99)
-			(xy 49.53 50.8)
+			(xy 49.53 46.99) (xy 49.53 50.8)
 		)
 		(stroke
 			(width 0)
@@ -6607,8 +6442,7 @@
 	)
 	(wire
 		(pts
-			(xy 82.55 50.8)
-			(xy 91.44 50.8)
+			(xy 82.55 50.8) (xy 91.44 50.8)
 		)
 		(stroke
 			(width 0)
@@ -6618,8 +6452,7 @@
 	)
 	(wire
 		(pts
-			(xy 339.09 82.55)
-			(xy 336.55 82.55)
+			(xy 339.09 82.55) (xy 336.55 82.55)
 		)
 		(stroke
 			(width 0)
@@ -6629,8 +6462,7 @@
 	)
 	(wire
 		(pts
-			(xy 59.69 50.8)
-			(xy 64.77 50.8)
+			(xy 59.69 50.8) (xy 64.77 50.8)
 		)
 		(stroke
 			(width 0)
@@ -6640,8 +6472,7 @@
 	)
 	(wire
 		(pts
-			(xy 238.76 88.9)
-			(xy 241.3 88.9)
+			(xy 238.76 88.9) (xy 241.3 88.9)
 		)
 		(stroke
 			(width 0)
@@ -6651,8 +6482,7 @@
 	)
 	(wire
 		(pts
-			(xy 349.25 82.55)
-			(xy 351.79 82.55)
+			(xy 349.25 82.55) (xy 351.79 82.55)
 		)
 		(stroke
 			(width 0)
@@ -6662,8 +6492,7 @@
 	)
 	(wire
 		(pts
-			(xy 163.83 83.82)
-			(xy 163.83 88.9)
+			(xy 163.83 83.82) (xy 163.83 88.9)
 		)
 		(stroke
 			(width 0)
@@ -6673,8 +6502,7 @@
 	)
 	(wire
 		(pts
-			(xy 111.76 91.44)
-			(xy 109.22 91.44)
+			(xy 111.76 91.44) (xy 109.22 91.44)
 		)
 		(stroke
 			(width 0)
@@ -6684,8 +6512,7 @@
 	)
 	(wire
 		(pts
-			(xy 149.86 232.41)
-			(xy 149.86 234.95)
+			(xy 149.86 232.41) (xy 149.86 234.95)
 		)
 		(stroke
 			(width 0)
@@ -6695,8 +6522,7 @@
 	)
 	(wire
 		(pts
-			(xy 170.18 224.79)
-			(xy 170.18 219.71)
+			(xy 170.18 224.79) (xy 170.18 219.71)
 		)
 		(stroke
 			(width 0)
@@ -6706,8 +6532,7 @@
 	)
 	(wire
 		(pts
-			(xy 139.7 118.11)
-			(xy 139.7 99.06)
+			(xy 139.7 118.11) (xy 139.7 99.06)
 		)
 		(stroke
 			(width 0)
@@ -6717,8 +6542,7 @@
 	)
 	(wire
 		(pts
-			(xy 153.67 86.36)
-			(xy 153.67 77.47)
+			(xy 153.67 86.36) (xy 153.67 77.47)
 		)
 		(stroke
 			(width 0)
@@ -6728,8 +6552,7 @@
 	)
 	(wire
 		(pts
-			(xy 121.92 209.55)
-			(xy 121.92 208.28)
+			(xy 121.92 209.55) (xy 121.92 208.28)
 		)
 		(stroke
 			(width 0)
@@ -6739,8 +6562,7 @@
 	)
 	(wire
 		(pts
-			(xy 49.53 50.8)
-			(xy 52.07 50.8)
+			(xy 49.53 50.8) (xy 52.07 50.8)
 		)
 		(stroke
 			(width 0)
@@ -6750,8 +6572,7 @@
 	)
 	(wire
 		(pts
-			(xy 152.4 234.95)
-			(xy 152.4 237.49)
+			(xy 152.4 234.95) (xy 152.4 237.49)
 		)
 		(stroke
 			(width 0)
@@ -6761,8 +6582,7 @@
 	)
 	(wire
 		(pts
-			(xy 99.06 135.89)
-			(xy 110.49 135.89)
+			(xy 99.06 135.89) (xy 110.49 135.89)
 		)
 		(stroke
 			(width 0)
@@ -6772,8 +6592,7 @@
 	)
 	(wire
 		(pts
-			(xy 52.07 86.36)
-			(xy 52.07 80.01)
+			(xy 52.07 86.36) (xy 52.07 80.01)
 		)
 		(stroke
 			(width 0)
@@ -6783,8 +6602,7 @@
 	)
 	(wire
 		(pts
-			(xy 81.28 134.62)
-			(xy 81.28 135.89)
+			(xy 81.28 134.62) (xy 81.28 135.89)
 		)
 		(stroke
 			(width 0)
@@ -6794,8 +6612,7 @@
 	)
 	(wire
 		(pts
-			(xy 63.5 80.01)
-			(xy 73.66 80.01)
+			(xy 63.5 80.01) (xy 73.66 80.01)
 		)
 		(stroke
 			(width 0)
@@ -6805,8 +6622,7 @@
 	)
 	(wire
 		(pts
-			(xy 205.74 96.52)
-			(xy 205.74 118.11)
+			(xy 205.74 96.52) (xy 205.74 118.11)
 		)
 		(stroke
 			(width 0)
@@ -6816,8 +6632,7 @@
 	)
 	(wire
 		(pts
-			(xy 228.6 88.9)
-			(xy 229.87 88.9)
+			(xy 228.6 88.9) (xy 229.87 88.9)
 		)
 		(stroke
 			(width 0)
@@ -6827,8 +6642,7 @@
 	)
 	(wire
 		(pts
-			(xy 171.45 88.9)
-			(xy 184.15 88.9)
+			(xy 171.45 88.9) (xy 184.15 88.9)
 		)
 		(stroke
 			(width 0)
@@ -6838,8 +6652,7 @@
 	)
 	(wire
 		(pts
-			(xy 165.1 222.25)
-			(xy 175.26 222.25)
+			(xy 165.1 222.25) (xy 175.26 222.25)
 		)
 		(stroke
 			(width 0)
@@ -6849,8 +6662,7 @@
 	)
 	(wire
 		(pts
-			(xy 52.07 80.01)
-			(xy 63.5 80.01)
+			(xy 52.07 80.01) (xy 63.5 80.01)
 		)
 		(stroke
 			(width 0)
@@ -6860,8 +6672,7 @@
 	)
 	(wire
 		(pts
-			(xy 228.6 88.9)
-			(xy 228.6 110.49)
+			(xy 228.6 88.9) (xy 228.6 110.49)
 		)
 		(stroke
 			(width 0)
@@ -6871,8 +6682,7 @@
 	)
 	(wire
 		(pts
-			(xy 67.31 135.89)
-			(xy 81.28 135.89)
+			(xy 67.31 135.89) (xy 81.28 135.89)
 		)
 		(stroke
 			(width 0)
@@ -6882,8 +6692,7 @@
 	)
 	(wire
 		(pts
-			(xy 137.16 93.98)
-			(xy 143.51 93.98)
+			(xy 137.16 93.98) (xy 143.51 93.98)
 		)
 		(stroke
 			(width 0)
@@ -6893,8 +6702,7 @@
 	)
 	(wire
 		(pts
-			(xy 171.45 50.8)
-			(xy 171.45 69.85)
+			(xy 171.45 50.8) (xy 171.45 69.85)
 		)
 		(stroke
 			(width 0)
@@ -6904,8 +6712,7 @@
 	)
 	(wire
 		(pts
-			(xy 184.15 88.9)
-			(xy 185.42 88.9)
+			(xy 184.15 88.9) (xy 185.42 88.9)
 		)
 		(stroke
 			(width 0)
@@ -6915,8 +6722,7 @@
 	)
 	(wire
 		(pts
-			(xy 153.67 77.47)
-			(xy 163.83 77.47)
+			(xy 153.67 77.47) (xy 163.83 77.47)
 		)
 		(stroke
 			(width 0)
@@ -6926,8 +6732,7 @@
 	)
 	(wire
 		(pts
-			(xy 154.94 186.69)
-			(xy 154.94 199.39)
+			(xy 154.94 186.69) (xy 154.94 199.39)
 		)
 		(stroke
 			(width 0)
@@ -6937,8 +6742,7 @@
 	)
 	(wire
 		(pts
-			(xy 121.92 209.55)
-			(xy 139.7 209.55)
+			(xy 121.92 209.55) (xy 139.7 209.55)
 		)
 		(stroke
 			(width 0)
@@ -6948,8 +6752,7 @@
 	)
 	(wire
 		(pts
-			(xy 149.86 186.69)
-			(xy 154.94 186.69)
+			(xy 149.86 186.69) (xy 154.94 186.69)
 		)
 		(stroke
 			(width 0)
@@ -6959,8 +6762,7 @@
 	)
 	(wire
 		(pts
-			(xy 213.36 96.52)
-			(xy 213.36 88.9)
+			(xy 213.36 96.52) (xy 213.36 88.9)
 		)
 		(stroke
 			(width 0)
@@ -6970,8 +6772,7 @@
 	)
 	(wire
 		(pts
-			(xy 162.56 83.82)
-			(xy 163.83 83.82)
+			(xy 162.56 83.82) (xy 163.83 83.82)
 		)
 		(stroke
 			(width 0)
@@ -6981,8 +6782,7 @@
 	)
 	(wire
 		(pts
-			(xy 137.16 99.06)
-			(xy 139.7 99.06)
+			(xy 137.16 99.06) (xy 139.7 99.06)
 		)
 		(stroke
 			(width 0)
@@ -6992,8 +6792,7 @@
 	)
 	(wire
 		(pts
-			(xy 200.66 88.9)
-			(xy 205.74 88.9)
+			(xy 200.66 88.9) (xy 205.74 88.9)
 		)
 		(stroke
 			(width 0)
@@ -7003,8 +6802,7 @@
 	)
 	(wire
 		(pts
-			(xy 96.52 69.85)
-			(xy 96.52 71.12)
+			(xy 96.52 69.85) (xy 96.52 71.12)
 		)
 		(stroke
 			(width 0)
@@ -7014,8 +6812,7 @@
 	)
 	(wire
 		(pts
-			(xy 109.22 91.44)
-			(xy 109.22 88.9)
+			(xy 109.22 91.44) (xy 109.22 88.9)
 		)
 		(stroke
 			(width 0)
@@ -7025,8 +6822,7 @@
 	)
 	(wire
 		(pts
-			(xy 171.45 107.95)
-			(xy 171.45 113.03)
+			(xy 171.45 107.95) (xy 171.45 113.03)
 		)
 		(stroke
 			(width 0)
@@ -7036,8 +6832,7 @@
 	)
 	(wire
 		(pts
-			(xy 339.09 90.17)
-			(xy 336.55 90.17)
+			(xy 339.09 90.17) (xy 336.55 90.17)
 		)
 		(stroke
 			(width 0)
@@ -7047,8 +6842,7 @@
 	)
 	(wire
 		(pts
-			(xy 184.15 96.52)
-			(xy 184.15 88.9)
+			(xy 184.15 96.52) (xy 184.15 88.9)
 		)
 		(stroke
 			(width 0)
@@ -7058,8 +6852,7 @@
 	)
 	(wire
 		(pts
-			(xy 149.86 186.69)
-			(xy 149.86 199.39)
+			(xy 149.86 186.69) (xy 149.86 199.39)
 		)
 		(stroke
 			(width 0)
@@ -7069,8 +6862,7 @@
 	)
 	(wire
 		(pts
-			(xy 81.28 135.89)
-			(xy 81.28 137.16)
+			(xy 81.28 135.89) (xy 81.28 137.16)
 		)
 		(stroke
 			(width 0)
@@ -7080,8 +6872,7 @@
 	)
 	(wire
 		(pts
-			(xy 96.52 50.8)
-			(xy 110.49 50.8)
+			(xy 96.52 50.8) (xy 110.49 50.8)
 		)
 		(stroke
 			(width 0)
@@ -7091,8 +6882,7 @@
 	)
 	(wire
 		(pts
-			(xy 63.5 87.63)
-			(xy 63.5 90.17)
+			(xy 63.5 87.63) (xy 63.5 90.17)
 		)
 		(stroke
 			(width 0)
@@ -7102,8 +6892,7 @@
 	)
 	(wire
 		(pts
-			(xy 256.54 88.9)
-			(xy 259.08 88.9)
+			(xy 256.54 88.9) (xy 259.08 88.9)
 		)
 		(stroke
 			(width 0)
@@ -7113,8 +6902,7 @@
 	)
 	(wire
 		(pts
-			(xy 110.49 50.8)
-			(xy 171.45 50.8)
+			(xy 110.49 50.8) (xy 171.45 50.8)
 		)
 		(stroke
 			(width 0)
@@ -7124,8 +6912,7 @@
 	)
 	(wire
 		(pts
-			(xy 99.06 135.89)
-			(xy 99.06 137.16)
+			(xy 99.06 135.89) (xy 99.06 137.16)
 		)
 		(stroke
 			(width 0)
@@ -7135,8 +6922,7 @@
 	)
 	(wire
 		(pts
-			(xy 73.66 87.63)
-			(xy 73.66 90.17)
+			(xy 73.66 87.63) (xy 73.66 90.17)
 		)
 		(stroke
 			(width 0)
@@ -7146,8 +6932,7 @@
 	)
 	(wire
 		(pts
-			(xy 99.06 134.62)
-			(xy 99.06 135.89)
+			(xy 99.06 134.62) (xy 99.06 135.89)
 		)
 		(stroke
 			(width 0)
@@ -7157,8 +6942,7 @@
 	)
 	(wire
 		(pts
-			(xy 90.17 214.63)
-			(xy 139.7 214.63)
+			(xy 90.17 214.63) (xy 139.7 214.63)
 		)
 		(stroke
 			(width 0)
@@ -7168,8 +6952,7 @@
 	)
 	(wire
 		(pts
-			(xy 64.77 50.8)
-			(xy 73.66 50.8)
+			(xy 64.77 50.8) (xy 73.66 50.8)
 		)
 		(stroke
 			(width 0)
@@ -8333,97 +8116,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:LED")
-		(at 63.5 93.98 270)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "11832203-737e-48c2-b103-2ed688b8b7ee")
-		(property "Reference" "D3"
-			(at 64.77 92.456 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "DONE (GRN)"
-			(at 61.214 96.52 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "LED_SMD:LED_0805_2012Metric"
-			(at 63.5 93.98 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 63.5 93.98 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 63.5 93.98 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC Part #" "C2297"
-			(at 63.5 93.98 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "5408bb0d-f546-4153-a192-544287728b73")
-		)
-		(pin "2"
-			(uuid "1db0f268-2bf3-4d2e-99ac-7b685c33ea2a")
-		)
-		(instances
-			(project "connector-board-b"
-				(path "/f046fec5-6210-4377-a87a-eb74f5d5b12a"
-					(reference "D3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:C")
 		(at 200.66 92.71 0)
 		(unit 1)
@@ -8509,6 +8201,97 @@
 			(project "connector-board-b"
 				(path "/f046fec5-6210-4377-a87a-eb74f5d5b12a"
 					(reference "C9")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:LED")
+		(at 73.66 93.98 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "130afd5b-fb1b-4e7b-8bce-a8bdfeb05b3c")
+		(property "Reference" "D2"
+			(at 72.39 98.298 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "CHG (RED)"
+			(at 76.962 89.662 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "LED_SMD:LED_0805_2012Metric"
+			(at 73.66 93.98 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 73.66 93.98 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 73.66 93.98 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC Part #" "C84256"
+			(at 73.66 93.98 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "e90e7be7-dd8a-494b-8ad2-82606c262d4f")
+		)
+		(pin "2"
+			(uuid "bfc77425-4d6e-469d-983f-0759b1861e74")
+		)
+		(instances
+			(project "connector-board-b"
+				(path "/f046fec5-6210-4377-a87a-eb74f5d5b12a"
+					(reference "D2")
 					(unit 1)
 				)
 			)
@@ -10163,97 +9946,6 @@
 			(project "connector-board-b"
 				(path "/f046fec5-6210-4377-a87a-eb74f5d5b12a"
 					(reference "R4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:LED")
-		(at 73.66 93.98 270)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "5f13ee26-5957-43c7-8505-f2af6d1cbd20")
-		(property "Reference" "D2"
-			(at 74.93 89.662 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "CHG (RED)"
-			(at 71.12 91.694 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "LED_SMD:LED_0805_2012Metric"
-			(at 73.66 93.98 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 73.66 93.98 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 73.66 93.98 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC Part #" "C84256"
-			(at 73.66 93.98 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "8a701647-0612-43d2-8a86-e46abb3c7e8d")
-		)
-		(pin "2"
-			(uuid "a9a9be90-2750-44c7-a89c-c1ff3c197dae")
-		)
-		(instances
-			(project "connector-board-b"
-				(path "/f046fec5-6210-4377-a87a-eb74f5d5b12a"
-					(reference "D2")
 					(unit 1)
 				)
 			)
@@ -12817,6 +12509,82 @@
 		)
 	)
 	(symbol
+		(lib_id "power:VIN")
+		(at 59.69 50.8 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "cbd53710-ae1d-4e2a-b0f5-986e404fc7d2")
+		(property "Reference" "#PWR0210"
+			(at 59.69 48.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "VIN"
+			(at 59.69 48.26 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 59.69 48.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 59.69 48.26 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 59.69 48.26 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "ef00cdfd-e564-4790-be12-6960543e43fd")
+		)
+		(instances
+			(project "connector-board-b"
+				(path "/f046fec5-6210-4377-a87a-eb74f5d5b12a"
+					(reference "#PWR0210")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 99.06 144.78 0)
 		(unit 1)
@@ -13130,6 +12898,97 @@
 			(project "connector-board-b"
 				(path "/f046fec5-6210-4377-a87a-eb74f5d5b12a"
 					(reference "#PWR016")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:LED")
+		(at 63.5 93.98 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "d223c335-22ac-4287-86cb-516ef63d8f6c")
+		(property "Reference" "D3"
+			(at 62.23 95.504 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "DONE (GRN)"
+			(at 59.182 99.06 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "LED_SMD:LED_0805_2012Metric"
+			(at 63.5 93.98 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 63.5 93.98 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 63.5 93.98 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC Part #" "C2297"
+			(at 63.5 93.98 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "3fed5ba6-1dac-49e5-adbf-3762a9af87d0")
+		)
+		(pin "2"
+			(uuid "52e19b87-2e17-43d4-97cb-f0d3f7ce89c3")
+		)
+		(instances
+			(project "connector-board-b"
+				(path "/f046fec5-6210-4377-a87a-eb74f5d5b12a"
+					(reference "D3")
 					(unit 1)
 				)
 			)
@@ -14329,82 +14188,6 @@
 			(project "connector-board-b"
 				(path "/f046fec5-6210-4377-a87a-eb74f5d5b12a"
 					(reference "#PWR033")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:VIN")
-		(at 59.69 50.8 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "cbd53710-ae1d-4e2a-b0f5-986e404fc7d2")
-		(property "Reference" "#PWR0210"
-			(at 59.69 48.26 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "VIN"
-			(at 59.69 48.26 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 59.69 48.26 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 59.69 48.26 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 59.69 48.26 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "ef00cdfd-e564-4790-be12-6960543e43fd")
-		)
-		(instances
-			(project "connector-board-b"
-				(path "/f046fec5-6210-4377-a87a-eb74f5d5b12a"
-					(reference "#PWR0210")
 					(unit 1)
 				)
 			)
