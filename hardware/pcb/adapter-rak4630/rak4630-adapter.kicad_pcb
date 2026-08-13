@@ -94,7 +94,7 @@
 		(descr "Capacitor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal with elongated pad for handsoldering. (Body size source: IPC-SM-782 page 76, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf, https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing)")
 		(tags "capacitor handsolder")
 		(property "Reference" "C6"
-			(at 2.7945 0.438 90)
+			(at 1.016 -1.778 90)
 			(layer "F.SilkS")
 			(uuid "39b1661c-d5a4-45d0-acae-7e98b3a3145e")
 			(effects
@@ -609,7 +609,7 @@
 		(descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal with elongated pad for handsoldering. (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "resistor handsolder")
 		(property "Reference" "R3"
-			(at 0 -1.65 90)
+			(at -0.778 1.778 90)
 			(layer "F.SilkS")
 			(uuid "1110e898-e82f-45c5-81d6-e38a7cd2d142")
 			(effects
@@ -1083,7 +1083,7 @@
 		(descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal with elongated pad for handsoldering. (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "resistor handsolder")
 		(property "Reference" "R2"
-			(at 0 -1.65 90)
+			(at -2.81 0 90)
 			(layer "F.SilkS")
 			(uuid "72389819-5a85-47f6-81e9-d6a3b7def8ef")
 			(effects
@@ -1715,7 +1715,7 @@
 		(descr "Seiko CPH3225A 11mF 3.3V chip supercapacitor, 1210/3225 metric, hand-solder pads (KiCad C_1210 HandSolder geometry) + polarity mark. Pin 1 = + (VBACKUP side).")
 		(tags "supercapacitor EDLC CPH3225A 1210 3225")
 		(property "Reference" "C8"
-			(at 0 -2.4 0)
+			(at -2.8325 2.286 0)
 			(layer "F.SilkS")
 			(uuid "8a21a1d8-e7a2-41fe-aa2c-ff7ab16c08d4")
 			(effects
@@ -2482,7 +2482,7 @@
 		(descr "Resistor SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal with elongated pad for handsoldering. (Body size source: IPC-SM-782 page 72, https://www.pcb-3d.com/wordpress/wp-content/uploads/ipc-sm-782a_amendment_1_and_2.pdf)")
 		(tags "resistor handsolder")
 		(property "Reference" "R1"
-			(at 0 -1.65 90)
+			(at -2.81 0 90)
 			(layer "F.SilkS")
 			(uuid "331462c4-52fa-4501-8b26-81dac526de87")
 			(effects
@@ -3693,7 +3693,7 @@
 		(descr "LED SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing)")
 		(tags "LED")
 		(property "Reference" "D1"
-			(at -2.794 -0.254 90)
+			(at -0.254 -2.032 90)
 			(layer "F.SilkS")
 			(uuid "62c7d5b5-5b4c-4483-88c2-daba2699a280")
 			(effects
@@ -3902,7 +3902,7 @@
 		(descr "Seiko CPH3225A 11mF 3.3V chip supercapacitor, 1210/3225 metric, hand-solder pads (KiCad C_1210 HandSolder geometry) + polarity mark. Pin 1 = + (VBACKUP side).")
 		(tags "supercapacitor EDLC CPH3225A 1210 3225")
 		(property "Reference" "C7"
-			(at 0 -2.4 0)
+			(at -3.0865 -2.4 0)
 			(layer "F.SilkS")
 			(uuid "23c28404-1725-4d4b-bc8f-33160b5d7478")
 			(effects
@@ -4956,7 +4956,7 @@
 		(descr "LED SMD 0805 (2012 Metric), square (rectangular) end terminal, IPC-7351 nominal, (Body size source: https://docs.google.com/spreadsheets/d/1BsfQQcO9C6DZCsRaXUlFlo91Tg2WpOkGARC1WS5S8t0/edit?usp=sharing)")
 		(tags "LED")
 		(property "Reference" "D2"
-			(at -2.794 -0.254 90)
+			(at 0 1.778 90)
 			(layer "F.SilkS")
 			(uuid "f5892f00-6aec-46f5-8b4e-ec22d105d9cb")
 			(effects
@@ -5800,6 +5800,18 @@
 			(justify left bottom)
 		)
 	)
+	(gr_text "Green: Booting / DFU\nBlue: Bluetooth"
+		(at 132.588 120.65 0)
+		(layer "F.SilkS")
+		(uuid "00d02b22-9858-4bbb-ad28-81cfbfc128ea")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.1)
+			)
+			(justify bottom)
+		)
+	)
 	(gr_text "RESET"
 		(at 120.396 94.488 0)
 		(layer "F.SilkS")
@@ -5810,18 +5822,6 @@
 				(thickness 0.15)
 			)
 			(justify left bottom)
-		)
-	)
-	(gr_text "Green: Booting / DFU\nBlue: Bluetooth"
-		(at 132.588 122.682 0)
-		(layer "F.SilkS")
-		(uuid "00d02b22-9858-4bbb-ad28-81cfbfc128ea")
-		(effects
-			(font
-				(size 1 1)
-				(thickness 0.15)
-			)
-			(justify bottom)
 		)
 	)
 	(gr_text "RAK4630 adapter v1.0\nTwinOak Standard Repeater\n"
