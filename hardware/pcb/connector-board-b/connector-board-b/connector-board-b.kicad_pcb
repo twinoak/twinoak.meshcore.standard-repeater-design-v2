@@ -6241,7 +6241,7 @@
 				(pins "2" "4" "6" "8" "10" "1" "3" "5" "7" "9")
 			)
 		)
-		(attr through_hole)
+		(attr through_hole exclude_from_pos_files exclude_from_bom)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start 13.815 3.8)
@@ -7602,7 +7602,7 @@
 				(pins "1" "2")
 			)
 		)
-		(attr smd dnp)
+		(attr smd exclude_from_pos_files exclude_from_bom dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start -0.261252 0.735)
@@ -7907,7 +7907,7 @@
 				(pins "1" "2")
 			)
 		)
-		(attr smd dnp)
+		(attr smd exclude_from_pos_files exclude_from_bom dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start -0.227064 0.735)
@@ -10295,7 +10295,7 @@
 				(pins "5" "9" "4" "8" "3" "7" "2" "6" "1")
 			)
 		)
-		(attr through_hole)
+		(attr through_hole exclude_from_pos_files exclude_from_bom)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start 19.965 -7.73)

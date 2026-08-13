@@ -5918,7 +5918,7 @@
 				)
 			)
 		)
-		(property "JLCPCB Rotation Offset" "270"
+		(property "JLCPCB Rotation Offset" "-90"
 			(at 130.81 179.07 0)
 			(hide yes)
 			(show_name no)
@@ -6114,9 +6114,9 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp no)
 		(uuid "22bd60e9-e708-4cdb-867c-0ec20259315a")
 		(property "Reference" "J4"
@@ -6607,9 +6607,9 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp no)
 		(uuid "501a2b73-86b2-4f07-8e9f-51fb0edeee0a")
 		(property "Reference" "J5"
@@ -6917,9 +6917,9 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(in_pos_files yes)
+		(in_pos_files no)
 		(dnp yes)
 		(uuid "5aa22c20-58f3-4b18-9398-9e2c21d3edc5")
 		(property "Reference" "U2"

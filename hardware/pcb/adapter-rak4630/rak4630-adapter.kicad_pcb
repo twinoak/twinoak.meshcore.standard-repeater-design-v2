@@ -2163,7 +2163,7 @@
 				)
 			)
 		)
-		(property "JLCPCB Rotation Offset" "270"
+		(property "JLCPCB Rotation Offset" "-90"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -2851,7 +2851,7 @@
 				(pins "1" "2" "3")
 			)
 		)
-		(attr through_hole)
+		(attr through_hole exclude_from_pos_files exclude_from_bom)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start -1.38 -1.38)
@@ -4113,7 +4113,7 @@
 				(pins "1" "2" "3")
 			)
 		)
-		(attr through_hole)
+		(attr through_hole exclude_from_pos_files exclude_from_bom)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start -1.38 -1.38)
@@ -5381,7 +5381,7 @@
 				)
 			)
 		)
-		(attr smd dnp)
+		(attr smd exclude_from_pos_files exclude_from_bom dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_rect
 			(start 0 10.16)
