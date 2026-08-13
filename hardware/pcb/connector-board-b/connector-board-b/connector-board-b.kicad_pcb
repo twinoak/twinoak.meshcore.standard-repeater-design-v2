@@ -9171,6 +9171,19 @@
 				)
 			)
 		)
+		(property "FT Rotation Offset" "-90"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "44d0772f-b7bc-4e9e-ae9e-375b4dec56a2")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/48662b44-722f-4018-8529-b7595893417c")
 		(sheetname "/")
 		(sheetfile "connector-board-b.kicad_sch")
