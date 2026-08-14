@@ -1,7 +1,7 @@
 # TwinOak Standard Repeater v2 — Interconnect Reference
 
 Single source of truth for every pin and net between the boards.
-Updated 2026-08-09 (post connection-audit + A/B power move).
+Updated 2026-08-14 (platform J1 ribbon remap; previously 2026-08-09 connection-audit + A/B power move).
 
 ## Topology
 
@@ -13,8 +13,8 @@ Updated 2026-08-09 (post connection-audit + A/B power move).
 [Walter]      ─ [LTE adapter]  ─ [platform board] ─ ribbon+IDC ─ (filtered D-sub bulkhead, LTE box)
 ```
 
-* Both **platform boards are identical** (dumb 1:9 pass-through). Only the adapters and connector boards give pins meaning.
-* Bulkheads: Amphenol **FCE17-E09SM-250** filtered D-sub, **1000 pF** per line, **solder cup** — internal harness is wired **1:1 by pin number** (ribbon conductor 10 is unused at D-sub ends).
+* Both **platform boards are identical** (dumb 9-line pass-through; J1 order is permuted for flat ribbon fan-out — see the platform-board section). Only the adapters and connector boards give pins meaning.
+* Bulkheads: Amphenol **FCE17-E09SM-250** filtered D-sub, **1000 pF** per line, **solder cup** — the internal harness fans the ribbon **flat across the solder cups in physical order**: conductor → D-sub pin **1, 6, 2, 7, 3, 8, 4, 9, 5** (conductor 10 unused). Red stripe (conductor 1) at the **pin-1/pin-6 end**; never split the ribbon into per-row bundles. This is the same map as a crimp-on IDC DE-9, so a crimped IDC socket on the ribbon gives the identical pinout for bench harnesses. *(Platform J1 was remapped 2026-08-14 to make this work — any pre-remap platform board needs the old 1:1-by-pin-number harness instead.)*
 * Power architecture: solar → BQ24650 charger (B) → 1S LiPo. Raw battery feeds the Walter box (LTE D-sub pin 2) and, over the A↔B ribbon, the **TPS63001 3V3_LORA buck-boost on the A-board**. The Walter can kill 3V3_LORA remotely (LORA_PWR_KILL, default = ON when the kill line floats).
 
 ## D-sub pinouts (both are 9-pin, but NOT identical)
@@ -52,8 +52,23 @@ Pins 3, 4, 5, 8, 9 are straight-through Walter↔LoRa links (via B-board). Pins 
 
 ## Platform board (identical everywhere)
 
-Ribbon/D-sub pin → header rows: 1 = GND (all row pins 1), 2 = VBAT rail (rows A/C pin 2), 3–9 = IO1–IO7.
-Adapter interface = 4×5-pin rows; rows A‖C and B‖D are paralleled pin-for-pin.
+J1 conductor map (remapped 2026-08-14, board rev v1.1 — interleaved so the ribbon fans flat onto the D-sub cups):
+
+| J1 pad / ribbon conductor | → D-sub pin | Rail / header row |
+|--:|--:|---|
+| 1 | 1 | GND (all row pins 1) |
+| 2 | 6 | IO4 (rows B/D pin 2) |
+| 3 | 2 | VBAT (rows A/C pin 2) |
+| 4 | 7 | IO5 (B/D pin 3) |
+| 5 | 3 | IO1 (A/C pin 3) |
+| 6 | 8 | IO6 (B/D pin 4) |
+| 7 | 4 | IO2 (A/C pin 4) |
+| 8 | 9 | IO7 (B/D pin 5) |
+| 9 | 5 | IO3 (A/C pin 5) |
+| 10 | — | NC (unused conductor) |
+
+By construction J1's **top header row (odd conductors) = D-sub top row, pins 1–5 in order**, and the **bottom row (even) = D-sub bottom row, pins 6–9 in order**. D-sub pin *meanings* are unchanged — only which ribbon conductor carries them.
+Adapter interface = 4×5-pin rows; rows A‖C and B‖D are paralleled pin-for-pin (unchanged).
 Note: platform J1 uses a 9-pin symbol on the 10-pad 82155700 footprint — pad 10 (unused IDC conductor) has no net. Cosmetic only.
 
 ## Adapter pin maps (platform IO → module pin)
@@ -120,6 +135,7 @@ therefore now has:
 * **2026-08-11 preflight fixes:** RV-3028-C7 **footprint pad numbering corrected** — the library footprint was mirrored (top row read 4-3-2-1); pads renumbered in `TwinOak.pretty` and in the U5 copy embedded in the RAK PCB, silk pin-1 dot moved to the true pin-1 corner. **U5 tracks must be rerouted** (nets stayed with their pad numbers, so four signal pads changed sides). B-board **STAT LEDs D2/D3 flipped** so the anode faces the VREF resistors — the 2026-08-09 note above claimed this fix but it was not in the files. B-board **input protection added**: new net `PANEL_IN` (J2.1) → D4 SS54 → `PANEL_RAW`; D5 SMBJ26A TVS from `PANEL_IN` to GND. MPPT setpoint left at 17.83 V — the panel now sits one diode drop above it (≈18.2 V ≈ Vmp), which lands the operating point even closer to the panel's maximum-power voltage. Part swaps for delisted JLC catalog entries: A-board R13–R15 100 k C17407 → **C149504** (Basic), B-board L1 C511353 → **C845066**. D4/D5 have no PCB placements yet — run *Update PCB from Schematic* on the B-board and place/route them at J2. *(Done 2026-08-13 — TH redrew the protection with direct wires; input net is unnamed but topology identical.)*
 * **2026-08-13 JLC-import cleanup:** all hand-fitted parts are now excluded from BOM+position exports (Walter C1/C2/J1 + **U1/U2 set DNP**; RAK J4/J5; A-board JP1/J1/J2; B-board J1/J5), and the already-DNP parts (RAK U2, A D4, B C13/R11) carry explicit exclude attributes — Fabrication Toolkit exports now import to JLC without unmatched lines regardless of the Exclude-DNP option. RAK U3 and U5 carry a `JLCPCB Rotation Offset` field (−90° / 180°) for the CPL; verify the pink-dot-on-white-dot alignment in the JLC preview each order (FT versions with issue #195 ignore the field — correct in the JLC editor if so). **U5/RV-3028 orientation re-verified against Micro Crystal's datasheet (top row 1-2-3-4, dot top-left): the board is correct — the JLC part model is what needs rotating.** SW1 (C55159901): valid+assemblable but zero JLC warehouse stock — use JLC Global Parts Sourcing (LCSC has stock) or hand-solder. Bottom-silk mirroring checked on A and B: identical flags, both correct.
 * **2026-08-13 CORRECTION — RV-3028-C7 footprint restored to ORIGINAL numbering (pin 1 top-right).** The 2026-08-11 preflight claimed the footprint was mirrored; that claim was wrong — it came from text-layer extraction of the datasheet's Pin Connections figure, which lists the corner labels in misleading order. Visual read of the figure (top view: #1 bottom-left with index dot, numbering CCW) plus TH's Micro Crystal eval-board photos confirm the ORIGINAL footprint chirality was correct all along; JLCPCB's C3304278 model agrees. Pads renumbered back in the shared lib and in the U5 copy on the RAK PCB; U5's rotation-offset field zeroed. **U5 must be rerouted a second time** (the 2026-08-12 reroute matched the wrong numbering). After rerouting, verify in the JLC preview that their pink pin-1 dot sits on the silk dot at the chosen rotation.
+* **2026-08-14 — platform J1 remapped for flat ribbon fan-out (board rev v1.1).** The old harness rule (conductor n → D-sub cup n) forced splitting the ribbon into a top-row and a bottom-row bundle at the solder cups, because the cups physically interleave (1,6,2,7,3,8,4,9,5 walking across the connector). J1's schematic wiring and PCB breakout were permuted so conductor n now lands on the n-th physical cup: J1 pads 2–9 now carry IO4, VBAT, IO5, IO1, IO6, IO2, IO7, IO3 (in pad order). D-sub pinouts (both boxes), the adapter-row pinout, connector boards A/B and the A↔B ribbon are all untouched — the change lives entirely on the platform board, and one board serves both boxes as before. Bonus: the ribbon map now equals a standard crimp-on IDC DE-9, and J1's top/bottom header rows correspond 1:1 to the D-sub's top/bottom cup rows. Silk bumped to "Platform baseboard v1.1" with the fan-out order printed next to J1. Edits machine-verified (full connectivity walk sch+pcb, expected-netlist match, 0.2 mm clearance pass); the GND stitch zone's cached fills were stripped — **open in KiCad 10, refill zones (B), run DRC, re-export gerbers** before ordering. A platform board built from pre-remap files needs the old 1:1 harness.
 
 
 ## Shared libraries (from this revision)

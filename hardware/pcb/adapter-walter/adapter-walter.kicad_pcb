@@ -626,7 +626,7 @@
 			)
 		)
 		(property "Value" "UART0_RECOVERY"
-			(at 0 15.08 0)
+			(at 2.286 6.604 90)
 			(layer "F.Fab")
 			(uuid "92f08075-0424-4e81-919a-afd7cc9f0fca")
 			(effects
