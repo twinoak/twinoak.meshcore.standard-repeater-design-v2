@@ -474,6 +474,24 @@
 						)
 					)
 				)
+				(pin passive line
+					(at -7.62 -15.24 0)
+					(length 3.81)
+					(name "SH"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "SH"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
 			)
 			(embedded_fonts no)
 		)
@@ -9401,6 +9419,15 @@
 				)
 			)
 		)
+		(property "FT Rotation Offset" "-90"
+			(at 124.46 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "282f3828-166d-4fd3-acc6-68cf4b33e736")
 		)
@@ -13458,6 +13485,82 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 342.9 217.17 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "2d5fc15a-3060-4e6b-b6b7-23548cd8cd22")
+		(property "Reference" "#PWR0211"
+			(at 344.932 215.9 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 342.9 221.488 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 342.9 217.17 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 342.9 217.17 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 342.9 217.17 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "4d1251a7-fb31-4954-8b48-702bd932076e")
+		)
+		(instances
+			(project "connector-board-b"
+				(path "/f046fec5-6210-4377-a87a-eb74f5d5b12a"
+					(reference "#PWR0211")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Connector:DE9_Pins")
 		(at 350.52 201.93 0)
 		(unit 1)
@@ -13532,6 +13635,9 @@
 		)
 		(pin "9"
 			(uuid "f80e2c4d-b0a6-46be-b748-b645a5d08f00")
+		)
+		(pin "SH"
+			(uuid "a5d5e88b-03b1-4ff2-9675-5b014e6a4529")
 		)
 		(pin "3"
 			(uuid "dc779921-90e2-41c8-987f-dee4b244b247")

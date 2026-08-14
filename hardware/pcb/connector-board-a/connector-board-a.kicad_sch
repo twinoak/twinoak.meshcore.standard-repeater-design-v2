@@ -691,6 +691,24 @@
 						)
 					)
 				)
+				(pin passive line
+					(at -7.62 -15.24 0)
+					(length 3.81)
+					(name "SH"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "SH"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
 			)
 			(embedded_fonts no)
 		)
@@ -5467,6 +5485,9 @@
 		(pin "9"
 			(uuid "e41b3a7a-d11b-4183-9f67-f070246fbb0a")
 		)
+		(pin "SH"
+			(uuid "0779738c-b65b-4c03-b0dc-c78c2fb83afe")
+		)
 		(instances
 			(project "connector-board-a"
 				(path "/a5917824-ac3c-42e9-a83e-01bf9fc87273"
@@ -6937,6 +6958,82 @@
 			(project "connector-board-a"
 				(path "/a5917824-ac3c-42e9-a83e-01bf9fc87273"
 					(reference "#PWR0201")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 203.2 52.07 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "f19016df-5558-4280-8015-18e92a798c76")
+		(property "Reference" "#PWR0203"
+			(at 205.232 50.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 203.2 56.388 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 203.2 52.07 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 203.2 52.07 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 203.2 52.07 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "51a07706-c917-42a9-939d-4c2e4281e562")
+		)
+		(instances
+			(project "connector-board-a"
+				(path "/a5917824-ac3c-42e9-a83e-01bf9fc87273"
+					(reference "#PWR0203")
 					(unit 1)
 				)
 			)

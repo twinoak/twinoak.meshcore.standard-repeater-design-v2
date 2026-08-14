@@ -3927,6 +3927,18 @@
 		(uuid "abdbae76-b879-4433-999a-513a5317daee")
 	)
 	(junction
+		(at 260.35 113.03)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "b5145c5f-375e-4fe1-ba6d-362507ec7c02")
+	)
+	(junction
+		(at 265.43 110.49)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "b6432eb8-c9d9-40ae-a3ac-67a8fae24e0d")
+	)
+	(junction
 		(at 199.39 201.93)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3973,6 +3985,10 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "ffcf8f11-f2e7-47c2-902d-cf281b4762ed")
+	)
+	(no_connect
+		(at 375.92 67.31)
+		(uuid "00a7408f-c0df-4544-a108-248be028021b")
 	)
 	(no_connect
 		(at 375.92 80.01)
@@ -4043,6 +4059,10 @@
 		(uuid "ba324618-a563-4412-9543-ce6ea9898a4d")
 	)
 	(no_connect
+		(at 375.92 72.39)
+		(uuid "bacbb091-f8c2-4f00-ac3f-d5890c7072ed")
+	)
+	(no_connect
 		(at 375.92 59.69)
 		(uuid "bcb58b7a-1963-4286-ae3d-a90d630f6fac")
 	)
@@ -4099,6 +4119,16 @@
 			(type default)
 		)
 		(uuid "02657f91-54f1-42ae-b775-e8b3708045e5")
+	)
+	(wire
+		(pts
+			(xy 265.43 104.14) (xy 265.43 110.49)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "04ff0a44-d133-46d2-b60d-63b8e593f333")
 	)
 	(wire
 		(pts
@@ -4162,7 +4192,7 @@
 	)
 	(wire
 		(pts
-			(xy 232.41 113.03) (xy 270.51 113.03)
+			(xy 232.41 113.03) (xy 260.35 113.03)
 		)
 		(stroke
 			(width 0)
@@ -4342,13 +4372,13 @@
 	)
 	(wire
 		(pts
-			(xy 375.92 67.31) (xy 355.6 67.31)
+			(xy 260.35 104.14) (xy 260.35 113.03)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "40534b5b-3e72-4365-8b11-b4d6a751ed97")
+		(uuid "4568e45c-2910-48fb-80b6-0d9a8398f465")
 	)
 	(wire
 		(pts
@@ -4459,6 +4489,16 @@
 			(type default)
 		)
 		(uuid "6248d1f4-9157-444e-8f13-b63b792f1325")
+	)
+	(wire
+		(pts
+			(xy 265.43 110.49) (xy 270.51 110.49)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6531c9c6-4567-4bb9-a94c-01c5f420a4ca")
 	)
 	(wire
 		(pts
@@ -4642,16 +4682,6 @@
 	)
 	(wire
 		(pts
-			(xy 350.52 63.5) (xy 350.52 72.39)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "beb785e3-9c07-44f1-89c2-ca1b56f0c036")
-	)
-	(wire
-		(pts
 			(xy 247.65 92.71) (xy 247.65 113.03)
 		)
 		(stroke
@@ -4742,16 +4772,6 @@
 	)
 	(wire
 		(pts
-			(xy 355.6 67.31) (xy 355.6 63.5)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d05197d1-d1cf-4d51-a1ae-f4e708ba7778")
-	)
-	(wire
-		(pts
 			(xy 146.05 184.15) (xy 146.05 125.73)
 		)
 		(stroke
@@ -4759,6 +4779,16 @@
 			(type default)
 		)
 		(uuid "d5c80341-0bac-481b-ab69-2140178e667b")
+	)
+	(wire
+		(pts
+			(xy 260.35 113.03) (xy 270.51 113.03)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d6b3fc1f-e1a8-4f96-972a-44c8a02fe6d7")
 	)
 	(wire
 		(pts
@@ -4912,23 +4942,13 @@
 	)
 	(wire
 		(pts
-			(xy 232.41 110.49) (xy 270.51 110.49)
+			(xy 232.41 110.49) (xy 265.43 110.49)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "f4e1e450-3a87-41b4-b483-4f62671156df")
-	)
-	(wire
-		(pts
-			(xy 375.92 72.39) (xy 350.52 72.39)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f6692cee-94f0-4e78-987f-f40d7d961bdc")
 	)
 	(wire
 		(pts
@@ -5843,6 +5863,82 @@
 		)
 	)
 	(symbol
+		(lib_id "power:+3V3")
+		(at 265.43 96.52 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "172acb24-a33c-4874-b393-a1a9689157ee")
+		(property "Reference" "#PWR023"
+			(at 265.43 96.52 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+3V3"
+			(at 265.43 92.71 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 24.13 20.32 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 24.13 20.32 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 265.43 96.52 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "e6c0aeca-6bff-4fdc-89aa-3bbca3cf126b")
+		)
+		(instances
+			(project "rak4630-adapter"
+				(path "/38ac6593-5391-44f0-929b-714d24dc2acd"
+					(reference "#PWR023")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "adapter:USBLC6-2SC6")
 		(at 130.81 179.07 0)
 		(unit 1)
@@ -5918,7 +6014,7 @@
 				)
 			)
 		)
-		(property "JLCPCB Rotation Offset" "-90"
+		(property "FT Rotation Offset" "90"
 			(at 130.81 179.07 0)
 			(hide yes)
 			(show_name no)
@@ -6526,6 +6622,97 @@
 		)
 	)
 	(symbol
+		(lib_id "adapter:R")
+		(at 260.35 100.33 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "40b5ceb6-c17b-415f-bb8c-fd8d3d1b5f35")
+		(property "Reference" "R1"
+			(at 259.08 98.552 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "1k"
+			(at 258.826 100.33 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+			(at 24.13 20.32 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 24.13 20.32 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 260.35 100.33 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC Part #" "C17513"
+			(at 260.35 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "44a2e25c-1b64-438c-ae76-00498a0c9928")
+		)
+		(pin "2"
+			(uuid "78bcca1f-6d85-4102-bc4e-e0505c60ac39")
+		)
+		(instances
+			(project "rak4630-adapter"
+				(path "/38ac6593-5391-44f0-929b-714d24dc2acd"
+					(reference "R1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:+3V3")
 		(at 323.85 97.79 0)
 		(unit 1)
@@ -6678,82 +6865,6 @@
 			(project "rak4630-adapter"
 				(path "/38ac6593-5391-44f0-929b-714d24dc2acd"
 					(reference "J5")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+3V3")
-		(at 355.6 55.88 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "5170b8ae-97d2-44e6-ac66-520ff7aaafb5")
-		(property "Reference" "#PWR023"
-			(at 355.6 55.88 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "+3V3"
-			(at 355.6 52.07 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 114.3 -20.32 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 114.3 -20.32 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 355.6 55.88 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "8538ec68-ed4e-4c2c-8e82-f7bcf87558e7")
-		)
-		(instances
-			(project "rak4630-adapter"
-				(path "/38ac6593-5391-44f0-929b-714d24dc2acd"
-					(reference "#PWR023")
 					(unit 1)
 				)
 			)
@@ -7197,7 +7308,7 @@
 				)
 			)
 		)
-		(property "JLCPCB Rotation Offset" "180"
+		(property "FT Rotation Offset" "180"
 			(at 288.29 113.03 0)
 			(hide yes)
 			(show_name no)
@@ -7500,97 +7611,6 @@
 		)
 	)
 	(symbol
-		(lib_id "adapter:R")
-		(at 355.6 59.69 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "7288faf6-f3a1-4e14-bb1e-e00a7caba713")
-		(property "Reference" "R2"
-			(at 356.87 57.912 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "1k"
-			(at 357.124 59.69 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
-			(at 114.3 -20.32 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 114.3 -20.32 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 355.6 59.69 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC Part #" "C17513"
-			(at 355.6 59.69 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "23486a54-6811-4c8e-ab4a-b713deaa76e1")
-		)
-		(pin "2"
-			(uuid "b8d0a5db-3412-4528-89ba-b415a0d01506")
-		)
-		(instances
-			(project "rak4630-adapter"
-				(path "/38ac6593-5391-44f0-929b-714d24dc2acd"
-					(reference "R2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 76.2 72.39 0)
 		(unit 1)
@@ -7662,6 +7682,97 @@
 			(project "rak4630-adapter"
 				(path "/38ac6593-5391-44f0-929b-714d24dc2acd"
 					(reference "#PWR042")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "adapter:R")
+		(at 265.43 100.33 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "853cb4dd-31b4-4543-bae4-2972d9a4620b")
+		(property "Reference" "R2"
+			(at 266.7 98.552 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "1k"
+			(at 266.954 100.33 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
+			(at 24.13 20.32 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 24.13 20.32 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 265.43 100.33 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC Part #" "C17513"
+			(at 265.43 100.33 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "72cf5c31-92f7-4a02-a771-755670a2e805")
+		)
+		(pin "2"
+			(uuid "cc2f9f0a-5ca3-41bc-b155-925e6f44ab32")
+		)
+		(instances
+			(project "rak4630-adapter"
+				(path "/38ac6593-5391-44f0-929b-714d24dc2acd"
+					(reference "R2")
 					(unit 1)
 				)
 			)
@@ -8960,82 +9071,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:+3V3")
-		(at 350.52 55.88 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "c38c7277-585b-40e9-8e4c-cd86f8ecf37d")
-		(property "Reference" "#PWR022"
-			(at 350.52 55.88 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "+3V3"
-			(at 350.52 52.07 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 114.3 -20.32 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 114.3 -20.32 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 350.52 55.88 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "804903cd-8553-466f-a593-35b10269e34a")
-		)
-		(instances
-			(project "rak4630-adapter"
-				(path "/38ac6593-5391-44f0-929b-714d24dc2acd"
-					(reference "#PWR022")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "adapter:C")
 		(at 147.32 114.3 0)
 		(unit 1)
@@ -9678,6 +9713,82 @@
 		)
 	)
 	(symbol
+		(lib_id "power:+3V3")
+		(at 260.35 96.52 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "e727e256-0fec-433d-9053-4a0d8e4febd8")
+		(property "Reference" "#PWR022"
+			(at 260.35 96.52 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+3V3"
+			(at 260.35 92.71 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 24.13 20.32 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 24.13 20.32 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 260.35 96.52 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "08678a5c-0078-44b6-80e0-3a9536c12e57")
+		)
+		(instances
+			(project "rak4630-adapter"
+				(path "/38ac6593-5391-44f0-929b-714d24dc2acd"
+					(reference "#PWR022")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 120.65 151.13 0)
 		(unit 1)
@@ -9839,97 +9950,6 @@
 			(project "rak4630-adapter"
 				(path "/38ac6593-5391-44f0-929b-714d24dc2acd"
 					(reference "R4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "adapter:R")
-		(at 350.52 59.69 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "fc18f093-ba9f-4fe5-9ebc-56ef5cce608e")
-		(property "Reference" "R1"
-			(at 349.25 57.912 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "1k"
-			(at 348.996 59.69 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
-			(at 114.3 -20.32 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 114.3 -20.32 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 350.52 59.69 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC Part #" "C17513"
-			(at 350.52 59.69 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "90aacded-e7db-476e-890c-af8fcee97829")
-		)
-		(pin "2"
-			(uuid "cf7bc96a-24a1-40af-a7ab-d834fd1c5cc8")
-		)
-		(instances
-			(project "rak4630-adapter"
-				(path "/38ac6593-5391-44f0-929b-714d24dc2acd"
-					(reference "R1")
 					(unit 1)
 				)
 			)
