@@ -1,5 +1,5 @@
 Must haves:
-1. OTA with A/B + health-gated auto-rollback.
+1. OTA with A/B + health-gated auto-rollback. "Un-brickable".
 2. Autonomous watchdog + power-cycle.
 3. Power telemetry with trending and alerts.
 4. Remote console / config passthrough(tunnel to the MeshCore CLI over a UART link)
