@@ -6,10 +6,12 @@ Must haves:
 5. Continuous RF health stats + noisescope on demand(periodic noise floor samples, neighbor RSSI/SNR, packet/forward counts, airtime from normal MeshCore operation)
 
 Should have:
+
 6. Boot-loop detection + log/crash capture
 7. Telemetry store-and-forward
 8. LTE self-monitoring
 9. Enclosure environment monitoring
 
 Nice to have:
+
 10. Remote promiscuous packet capture, maybe some sort of MQTT server
