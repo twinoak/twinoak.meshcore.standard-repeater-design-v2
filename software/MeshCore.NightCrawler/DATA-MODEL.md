@@ -62,20 +62,21 @@ reads its public key. The model therefore carries both `publicKey` and a set of
   "aliasKeys": ["a1b2c3"],              // provisional prefixes merged into this node
   "name": "TwinOak-Grenaa-Chimney",
   "role": "repeater",                    // companion | repeater | roomserver | sensor | unknown
-  "board": "RAK4630",                    // hardware name, when read
+  "board": "RAK4630",                    // hardware name, best-effort (advert/heuristic)
   "firmware": {
-    "version": "v1.16.2",
-    "raw": "…full ver string…"
+    "version": "v1.17.1",                // only present if a guest login succeeded
+    "raw": "…full ver string…"           // from REQ_TYPE_GET_OWNER_INFO
   },
-  "ownerInfo": "TwinOak — thomas@twinoak.dk",
+  "ownerInfo": "TwinOak — thomas@twinoak.dk",  // from ANON_REQ_TYPE_OWNER (anonymous)
   "position": { "lat": 56.41, "lon": 10.88, "source": "advert" },  // if advertised
 
-  "scopes": {                            // MeshCore "regions" — FR-10
-    "defaultScopeRegion": "DK",
-    "regions": ["DK", "DK-East"],
-    "floodRules": { "allow": ["DK"], "deny": ["*"] },
-    "floodMaxUnscoped": 2,
-    "raw": "…verbatim region list output…" // keep raw until parsing is trusted
+  "scopes": {                            // MeshCore "regions" — FR-10, the primary datum
+    // From the anonymous ANON_REQ_TYPE_REGIONS reply: the node's FLOOD-ALLOWED
+    // scope names. This is all that is remotely readable (default-scope name,
+    // denied list and hierarchy are admin/serial-only — see PROTOCOL §5).
+    "floodAllowedRegions": ["DK", "DK-East"],  // named scopes this node re-floods
+    "floodsUnscoped": false,             // true iff "*" was present in the reply
+    "raw": "DK,DK-East"                  // verbatim comma-separated reply
   },
 
   "neighbours": [ /* Neighbour — see §4.1 */ ],
@@ -93,16 +94,18 @@ reads its public key. The model therefore carries both `publicKey` and a set of
   },
 
   "access": {
-    "loginAttempted": true,
-    "loginSucceeded": true,
-    "permissionTier": "admin",           // guest | read-only | read-write | admin | none
+    "anonReadOk": true,                  // scopes/owner read anonymously
+    "guestLoginAttempted": true,
+    "guestLoginSucceeded": true,
+    "guestPasswordIndex": 1,             // which candidate matched (index, NOT the password)
+    "permissionTier": "guest",           // guest | none  (admin is never attempted in v0.1)
     "reachedOverAir": true               // false = known only from advert/contact
   },
 
   "discovery": {
     "depth": 2,                          // shallowest hop distance from the seed
     "discoveredVia": ["b7f0…","advert"], // node(s)/mechanism that referenced it
-    "status": "crawled"                  // crawled | partial | auth-failed | referenced | unreachable | beyond-depth
+    "status": "crawled"                  // crawled | scope-only | guest-auth-failed | partial | referenced | unreachable | beyond-depth
   },
 
   "timestamps": {
@@ -112,32 +115,32 @@ reads its public key. The model therefore carries both `publicKey` and a set of
     "lastCrawled": "2026-08-19T23:20:00+02:00"  // last successful data pull
   },
 
-  "provenance": {                        // per-field "as-of" + source command
-    "firmware.version": { "asOf": "…", "source": "ver" },
-    "ownerInfo":        { "asOf": "…", "source": "get owner.info" },
-    "neighbours":       { "asOf": "…", "source": "neighbors" },
-    "scopes":           { "asOf": "…", "source": "region list" }
+  "provenance": {                        // per-field "as-of" + source request
+    "scopes":           { "asOf": "…", "source": "anon-regions" },     // anonymous
+    "ownerInfo":        { "asOf": "…", "source": "anon-owner" },       // anonymous
+    "firmware.version": { "asOf": "…", "source": "get-owner-info" },   // guest
+    "neighbours":       { "asOf": "…", "source": "get-neighbours" }    // guest
   },
 
   "errors": [                            // field-level failures, non-fatal
-    { "field": "scopes", "asOf": "…", "message": "timeout awaiting region list" }
+    { "field": "neighbours", "asOf": "…", "message": "guest login failed (no candidate password matched)" }
   ]
 }
 ```
 
 ### 4.1 `Neighbour`
 
-An entry in a node's neighbour table. Signal fields are present when the firmware
-exposes them.
+An entry in a node's neighbour table, as returned by `REQ_TYPE_GET_NEIGHBOURS`.
+The response carries a pubkey prefix, SNR and how long ago the neighbour was
+heard — there is **no per-neighbour RSSI** in this table.
 
 ```jsonc
 {
-  "publicKey": "c9ae…",       // or a prefix if that's all the table gives
-  "name": "…",                // if resolvable
-  "rssiDbm": -96,
-  "snrDb": 7.5,
-  "lastHeard": "2026-08-19T23:05:00+02:00",
-  "hops": 0                    // 0 = direct/zero-hop neighbour
+  "publicKey": "c9ae…",       // usually a prefix (pubkey_prefix_length bytes)
+  "name": "…",                // if resolvable from the graph
+  "snrDb": 7.5,               // firmware sends snr*4; store the divided value
+  "lastHeard": "2026-08-19T23:05:00+02:00",  // derived from heard_seconds_ago
+  "hops": 0                    // neighbour tables are built from zero-hop adverts
 }
 ```
 
@@ -151,17 +154,23 @@ is past the depth bound (FR-19).
 {
   "from": "a1b2c3d4…",
   "to":   "c9ae…",
-  "rssiDbm": -96,
   "snrDb": 7.5,
   "directed": true,            // neighbour tables are directional (who *I* hear)
   "asOf": "2026-08-19T23:05:00+02:00",
-  "observedVia": "neighbors@a1b2c3d4…"
+  "observedVia": "get-neighbours@a1b2c3d4…",
+  "scopeMatch": "same"         // same | differ | unknown — do both ends share a flood-allowed scope? (the primary comparison)
 }
 ```
 
 Directionality matters: A hearing B does not imply B hears A (asymmetric links
 are common and diagnostically interesting). Where both directions are observed,
 two edges exist and a consumer can infer a bidirectional link.
+
+`scopeMatch` is the payoff of the primary objective made queryable at the edge
+level: for each adjacency, do the two ends share at least one flood-allowed
+scope? `differ` edges — a node and its neighbour that will not re-flood each
+other's traffic — are exactly the silent holes the crawl exists to surface. It is
+`unknown` when either end's scope set hasn't been read yet.
 
 ## 6. `RunManifest`
 
@@ -181,14 +190,17 @@ without an external log store (FR-31).
   "counters": {
     "requestsSent": 512,
     "nodesQueried": 104,
+    "scopesMapped": 104,             // nodes whose flood-allowed scope set was read (the primary KPI)
+    "fullyCrawled": 98,              // nodes that also yielded neighbours + version (guest login worked)
     "newNodes": 3,
     "refreshed": 101,
-    "authFailures": 6,
+    "guestAuthFailures": 6,          // nodes that rejected all candidate guest passwords (still scope-mapped)
     "unreachable": 4,
     "throttleWaitSeconds": 30720
   },
   "changes": [                       // optional drift summary vs previous run
-    { "node": "a1b2…", "field": "firmware.version", "from": "v1.15.1", "to": "v1.16.2" },
+    { "node": "a1b2…", "field": "scopes.floodsUnscoped", "from": true, "to": false },
+    { "node": "e4d1…", "field": "firmware.version", "from": "v1.15.1", "to": "v1.17.1" },
     { "node": "c9ae…", "field": "neighbours", "note": "lost 2, gained 1" }
   ]
 }

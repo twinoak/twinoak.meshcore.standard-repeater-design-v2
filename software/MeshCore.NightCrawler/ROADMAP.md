@@ -12,20 +12,25 @@ Deliver [everything tagged **[M]**](REQUIREMENTS.md) and stop:
 
 - TCP companion connection + handshake.
 - Companion frame protocol slice (just the frames in
-  [PROTOCOL.md §2](PROTOCOL.md#2-frames-nightcrawler-uses)), opcodes verified
-  against the firmware running on TwinOak repeaters.
+  [PROTOCOL.md §2](PROTOCOL.md#2-companion-frames-nightcrawler-uses)); opcodes are
+  read from the v1.17.1 source and pinned to the firmware in the field.
 - BFS traversal with visited-set, depth bound, and the token-bucket rate limiter
   as a hard choke point.
-- Core per-node query tier: login, `ver`/`board`/`role`, `owner.info`,
-  `neighbors`, region config.
+- **Anonymous scope census** (`ANON_REQ_TYPE_REGIONS` + `ANON_REQ_TYPE_OWNER`) —
+  the primary objective — for every reachable node, no login required.
+- **Guest-tier graph** where a candidate guest password works: neighbours
+  (`REQ_TYPE_GET_NEIGHBOURS`) + firmware version (`REQ_TYPE_GET_OWNER_INFO`).
+- Per-edge scope comparison (`scopeMatch`) so neighbour-scope mismatches fall out
+  of the data.
 - Incremental, atomic JSON persistence + run manifest.
 - Console logging + end-of-run summary.
 
 **Exit criterion:** one real overnight run against the live mesh at 1 msg/min,
 depth 5, that (a) does not disrupt the network, (b) terminates cleanly, and (c)
-produces a `mesh-graph.json` a human (and the fleet manager) can use. Write up
-the observed nodes/night and any saturation effects — *that write-up is the PoC's
-real deliverable.*
+produces a `mesh-graph.json` whose **scope map** — who floods un-scoped, who is
+scoped to what, and which neighbours disagree — a human (and the fleet manager)
+can use. Write up the observed nodes/night, the scope picture, and any saturation
+effects — *that write-up is the PoC's real deliverable.*
 
 ## Phase 1 — Make it dependable
 
@@ -43,7 +48,8 @@ Once the PoC proves viable:
 - A stable export/handoff to [MeshCore.FleetManager](../MeshCore.FleetManager/):
   either the fleet manager reads `mesh-graph.json` directly, or NightCrawler
   posts to a local ingest endpoint.
-- Pull per-node login credentials from the fleet manager instead of env vars.
+- Pull per-node guest-password candidates from the fleet manager instead of the
+  local config list.
 - Emit the fleet-manager-shaped drift feed (new/unknown nodes, firmware drift,
   scope drift, neighbour churn).
 
@@ -66,10 +72,13 @@ consumer exists.
   the field.
 - **Trace-based path mapping** — use `trace` per node to record actual routed
   paths and per-hop SNR, not just adjacency.
-- **Anonymous-query experiments** — building on the RemoteTerm fork's anonymous
-  repeater query endpoints (`req_regions_sync`, `req_owner_sync`) to reduce or
-  remove the need to log in for read-only facts, cutting the request cost per
-  node.
+- **Passive scope corroboration** — the anonymous scope/owner endpoints
+  (`ANON_REQ_TYPE_REGIONS` / `ANON_REQ_TYPE_OWNER`) are now stock MeshCore and are
+  already the backbone of v0.1's census, so they are no longer an experiment. The
+  remaining idea is *passive*: if the companion surfaces the transport code on
+  `PUSH_CODE_ADVERT`, read each node's **active** on-air scope straight from the
+  adverts it floods and cross-check it against its queried flood-allowed set — a
+  scope map with near-zero added airtime.
 
 ## Explicitly out of scope, indefinitely
 

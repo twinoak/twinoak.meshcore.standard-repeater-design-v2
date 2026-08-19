@@ -4,6 +4,17 @@ Priority tags: **[M]** must-have for the PoC, **[S]** should-have, **[C]** could
 The PoC is defined as *everything tagged [M], and nothing else is required to
 call the PoC done.*
 
+> **Primary objective.** NightCrawler exists first and foremost to **map scope
+> (region) usage across the network and reveal whether neighbouring nodes use
+> similar scopes** (FR-10 + FR-11). Every other datum it collects is supporting
+> context. When a trade-off arises, the scope map wins.
+
+> **Auth model (v0.1).** The crawler operates at the **anonymous** and **guest**
+> tiers only — never admin, never a text CLI command. Scopes and owner info are
+> read anonymously; neighbours, firmware version and stats need a **guest login**,
+> which the crawler attempts with a configured list of candidate guest passwords.
+> The full tier breakdown is in [PROTOCOL §0](PROTOCOL.md#0-the-one-thing-that-shaped-v01-what-a-node-answers-and-to-whom).
+
 ---
 
 ## 1. Functional requirements
@@ -33,35 +44,57 @@ call the PoC done.*
 
 ### 1.3 Per-node data collection
 
-For each node the crawler reaches, it attempts to collect:
+For each node the crawler reaches, it attempts to collect (in priority order —
+scopes first, since that is the point):
 
-- **[M] FR-8** **Owner info** (`owner.info`).
-- **[M] FR-9** **Firmware version** (`ver`) and, where available, board/hardware
-  name (`board`) and role (companion / repeater / room server / sensor).
-- **[M] FR-10** **Configured scopes / regions** — the node's default scope region
-  and its region allow/deny flood configuration, to whatever depth the node
-  exposes to a logged-in admin.
-- **[M] FR-11** **Neighbour list** with, where the firmware provides it, per-
-  neighbour signal quality (RSSI/SNR) and last-heard time.
+- **[M] FR-10** **Configured scopes / regions — the primary datum.** Read the
+  node's **flood-allowed scope set** via the anonymous `ANON_REQ_TYPE_REGIONS`
+  request: the list of region names it will re-flood, and whether `*` (un-scoped
+  flooding) is still among them. This is obtainable with **no login**. The
+  crawler records this set verbatim and derives a `floodsUnscoped` flag from it.
+  (The default-scope-region name, denied list and full region hierarchy are
+  *not* remotely readable — they are admin/serial-only — so they are out of scope
+  for v0.1; see [PROTOCOL §5](PROTOCOL.md#5-scopes--regions--the-primary-objective).)
+- **[M] FR-11** **Neighbour list** with per-neighbour signal quality (SNR) and
+  last-heard time, via the **guest** `REQ_TYPE_GET_NEIGHBOURS` request. This both
+  drives the crawl (discovers the next hop) and provides the adjacency needed to
+  answer "do these two *neighbours* use similar scopes?" Requires a guest login;
+  if login fails, the node's own neighbours are unavailable (its scope is still
+  recorded anonymously).
+- **[M] FR-8** **Owner info** — node name + `owner.info`, via the anonymous
+  `ANON_REQ_TYPE_OWNER` request (**no login**). When a guest login succeeds this
+  also arrives, together with the version, from `REQ_TYPE_GET_OWNER_INFO`.
+- **[M] FR-9** **Firmware version** and role. The full version string is **only
+  available with a guest login** (`REQ_TYPE_GET_OWNER_INFO`); it was deliberately
+  removed from the anonymous responses. Role (companion / repeater / room server /
+  sensor) is inferable from the advert without any query. Board/hardware name is
+  best-effort (not separately exposed to guests in v1.17.1).
 - **[S] FR-12** **Public key / node ID** and advertised name for every node, so
   records are stably keyed even before a full query succeeds.
-- **[S] FR-13** **Basic radio/link stats** (`stats-radio`: noise floor, airtime,
-  error counts) for repeaters we can log in to.
+- **[S] FR-13** **Basic radio/link stats** — noise floor, RSSI/SNR, packet
+  counts, airtime, error counts — via the **guest** `REQ_TYPE_GET_STATUS`
+  request (`RepeaterStats`), for repeaters we can guest-log in to.
 - **[C] FR-14** **Telemetry** (battery, environment) where a node serves it —
   useful but overlaps with the fleet manager's job, so it stays optional here.
 - **[C] FR-15** **Position** (lat/lon) if advertised, for later mapping.
 
-### 1.4 Authentication
+### 1.4 Authentication (guest-only)
 
-- **[M] FR-16** Support logging in to repeaters/room servers with an **admin or
-  guest password** so that admin-gated reads (neighbours, owner info, region
-  config) succeed. Passwords are supplied by configuration, and the crawler
-  supports a **default/shared password** plus **per-node overrides**.
-- **[M] FR-17** Degrade gracefully when login fails or no password is known:
-  record whatever is obtainable anonymously (name, public key, presence,
-  advertised data) and mark the node as `auth-failed` / `partial`.
-- **[S] FR-18** Never store passwords in the output data file. (They come from
-  config; the output records only *whether* auth succeeded.)
+- **[M] FR-16** Log in to repeaters/room servers at the **guest tier only**, to
+  unlock the guest reads (neighbours, firmware version, status). The crawler
+  tries a **configured, ordered list of candidate guest passwords** per node and
+  stops at the first success; the default list is **`["", "hello"]`** (empty and
+  `hello`). Per-node overrides are supported. The crawler holds **no admin
+  password and never sends one** — reaching the admin tier is structurally
+  impossible, which is what makes "read-only" a guarantee rather than a promise.
+- **[M] FR-17** Degrade gracefully when no candidate password works: the node's
+  **scope set and owner info are still recorded** (both are anonymous), and the
+  node is marked `guest-auth-failed` / `partial` — its neighbours and firmware
+  version are simply left unknown. **Losing a guest login never loses the primary
+  datum**, because scopes don't need one.
+- **[S] FR-18** Never store passwords in the output data file. (Guest passwords
+  are low-sensitivity — often blank or `hello` — but the output still records
+  only *whether* guest login succeeded and at what tier, never the password.)
 
 ### 1.5 Traversal control
 
@@ -157,19 +190,35 @@ For each node the crawler reaches, it attempts to collect:
 
 ---
 
-## 4. Open questions to resolve during the PoC
+## 4. Open questions
 
-These are the things the PoC exists to answer or that need a firmware check
-before coding the relevant part:
+The protocol questions that dominated the first draft are now **resolved against
+the v1.17.1 firmware source** and captured in [PROTOCOL.md](PROTOCOL.md):
 
-1. **Remote neighbour read.** Confirm the exact mechanism and command to read a
-   *remote* repeater's neighbour table via a logged-in companion session
-   (`req_neighbours` / `cmd "neighbors"` passthrough) and the response shape.
-   See [PROTOCOL.md §6](PROTOCOL.md#6-the-remote-neighbour-read-question-the-crux).
-2. **Frame opcodes.** Pin the numeric `CMD_*` / `RESP_CODE_*` / `PUSH_CODE_*`
-   values against the firmware version in the field before hardcoding them.
-3. **Scope/region read-back.** Confirm which `region ...` sub-commands a
-   logged-in admin can *read* remotely, and their output format.
+- ~~Remote neighbour read mechanism~~ → **resolved:** `REQ_TYPE_GET_NEIGHBOURS`
+  via `CMD_SEND_BINARY_REQ` after a guest login; response shape in
+  [PROTOCOL §6](PROTOCOL.md#6-reading-a-remote-nodes-neighbour-table-resolved).
+- ~~Frame opcodes~~ → **resolved** for v1.17.1 (still pinned to the field
+  firmware via `CMD_DEVICE_QUERY`; kept in one `OpCodes` file).
+- ~~Scope/region read-back~~ → **resolved:** the anonymous `ANON_REQ_TYPE_REGIONS`
+  reply is the node's flood-allowed scope set; nothing deeper is remotely
+  readable ([PROTOCOL §5](PROTOCOL.md#5-scopes--regions--the-primary-objective)).
+
+What genuinely remains for the PoC to answer:
+
+1. **Guest coverage.** On the live mesh, how many repeaters actually accept a
+   blank or `hello` guest login? Nodes that reject both still yield scopes+owner
+   anonymously — but their neighbour lists (and hence deeper discovery through
+   them) are unavailable. The real per-night neighbour-graph coverage depends on
+   this, and it is not knowable without running.
+2. **Path-discovery cost.** Anonymous scope/owner requests require a **direct
+   route** to the target. For nodes the companion has no cached path to, a
+   path-discovery adds an OTA request before the query. How often that is needed
+   (vs. reusing cached advert paths) directly affects the request budget.
+3. **Passive scope corroboration.** Does the companion surface the transport
+   code / scope on `PUSH_CODE_ADVERT`, so a node's *active* scope can be
+   cross-checked against its *configured* flood-allowed set without a query? If
+   so, it is a cheap enrichment (see [PROTOCOL §5](PROTOCOL.md#5-scopes--regions--the-primary-objective)).
 4. **Viability.** With depth 5 at 1 msg/min, how many nodes can realistically be
-   covered in one night, and does that saturate anything? This is the core PoC
-   result.
+   scope-mapped in one night, and does that saturate anything? This is the core
+   PoC result.

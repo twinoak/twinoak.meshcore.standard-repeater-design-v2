@@ -24,7 +24,9 @@ nightcrawler --host <ip|hostname> [options]
 | `--burst <n>` | `1` | Token-bucket burst size. `1` = strictly no bursting. |
 | `--max-nodes <n>` | *(none)* | Optional cap on nodes queried this run. FR-21. |
 | `--deadline <time>` | *(none)* | Wall-clock stop, e.g. `06:00` or an ISO timestamp. FR-22. |
-| `--tier <core\|extended>` | `core` | Which per-node query plan to run. `extended` adds stats/telemetry/trace. |
+| `--tier <core\|extended>` | `core` | Which per-node query plan to run. `core` = scope census + neighbours + version; `extended` also adds stats/telemetry/trace. |
+| `--scopes-only` | off | Run the anonymous scope census only — skip guest login, neighbours and version. Fastest way to map scopes network-wide. |
+| `--guest-passwords <list>` | `,hello` | Comma-separated candidate guest passwords to try (empty item = blank password). Overrides the config list for this run. FR-16. |
 | `--output <path>` | `mesh-graph.json` | Graph output file. |
 | `--continue` | off | Resume a prior `incomplete` run's frontier instead of reseeding. |
 | `--refresh-older-than <dur>` | *(none)* | Only re-query nodes whose data is older than e.g. `48h`. |
@@ -33,8 +35,11 @@ nightcrawler --host <ip|hostname> [options]
 | `--verbose` | off | Frame-level logging. FR-33. |
 | `--config <path>` | `appsettings.json` | Path to a config file. |
 
-Passwords are **not** passed as flags (they'd leak into shell history / process
-lists). They come from the config file or environment. See §3.
+Guest passwords are configured as a **candidate list** (see §3). Because v0.1 uses
+**guest access only** — and guest passwords on this mesh are low-sensitivity
+(typically blank or `hello`) — the list can live in the config file. A
+`--guest-passwords` flag is offered for convenience; an admin password is never
+accepted, by anything.
 
 ## 2. `appsettings.json`
 
@@ -58,38 +63,44 @@ lists). They come from the config file or environment. See §3.
     "path": "mesh-graph.json",
     "prettyPrint": true
   },
-  "auth": {
-    // see §3 — secrets belong in env/user-secrets, not here in the repo
-    "defaultPasswordEnv": "NIGHTCRAWLER_DEFAULT_PW",
+  "guestAuth": {
+    // Guest tier only — NightCrawler never holds or sends an admin password.
+    // Tried in order per node; first success wins. Empty string = blank password.
+    "candidatePasswords": ["", "hello"],
     "perNode": {
-      // "a1b2c3d4…": { "passwordEnv": "NIGHTCRAWLER_PW_GRENAA" }
+      // "a1b2c3d4…": { "candidatePasswords": ["", "hello", "grenaa2025"] }
     }
   },
   "logging": { "level": "Information" }
 }
 ```
 
-## 3. Secrets / passwords
+## 3. Guest passwords
 
-Login passwords for repeaters are sensitive and must not sit in a repo-committed
-file or in shell history. NightCrawler resolves them, in order:
+NightCrawler operates at the **guest tier only** (FR-16). For each node it tries
+a list of **candidate guest passwords** in order and stops at the first that logs
+in; the default list is `["", "hello"]` (blank and `hello`). These are
+low-sensitivity by nature — guest access is read-only and the passwords are a
+shared mesh convention, not secrets — so the list lives plainly in config.
 
-1. **Per-node override** — an env var named by `auth.perNode.<key>.passwordEnv`.
-2. **Default/shared password** — the env var named by `auth.defaultPasswordEnv`
-   (`NIGHTCRAWLER_DEFAULT_PW`), used for any node without an override.
-3. **.NET user-secrets** (dev) — for local runs, the standard
-   `dotnet user-secrets` store is honoured so nothing lands on disk in the repo.
+Resolution order for a node's candidate list:
 
-If no password resolves for a node, login is skipped and the node is crawled
-anonymously (recording whatever is readable without auth), then marked
-`auth-failed`/`partial` (FR-17). **No password is ever written to the output
-graph** (FR-18).
+1. **Per-node list** — `guestAuth.perNode.<key>.candidatePasswords`, if present.
+2. **Global list** — `guestAuth.candidatePasswords` (default `["", "hello"]`).
+3. **`--guest-passwords` flag** — a comma-separated override for a one-off run.
 
-> The fleet manager is the intended long-term home for per-node credentials.
-> Once it exists, NightCrawler can fetch the credentials it needs from the fleet
-> manager (over a local, authenticated channel) instead of from env vars — see
-> [INTEGRATIONS](../MeshCore.FleetManager/INTEGRATIONS.md). For the PoC, env
-> vars / user-secrets are the mechanism.
+If none of the candidates work, the node is **not** skipped: its scopes and owner
+were already read anonymously, so it is recorded and marked `guest-auth-failed` /
+`scope-only` (FR-17) — only its neighbours and firmware version are left unknown.
+**No password is ever written to the output graph** — the record stores only
+which candidate *index* matched (FR-18).
+
+> **On admin credentials:** NightCrawler deliberately has no concept of an admin
+> password. Reconfiguration and admin-gated reads are the fleet manager's job,
+> kept separate so the crawler is provably read-only. If a future version ever
+> needs admin reads, credentials would come from the fleet manager over a local,
+> authenticated channel — see
+> [INTEGRATIONS](../MeshCore.FleetManager/INTEGRATIONS.md) — never from this file.
 
 ## 4. Scheduling
 
