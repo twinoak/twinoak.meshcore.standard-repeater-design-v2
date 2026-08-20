@@ -1,0 +1,69 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Thomas\\Documents\\GitHub\\twinoak.meshcore.standard-repeater-design-v2\\software\\MeshCore.NightCrawler\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F966A89D-982E-460E-BA7D-72441D5183B9}|src\\MeshCore.NightCrawler\\MeshCore.NightCrawler.csproj|c:\\users\\thomas\\documents\\github\\twinoak.meshcore.standard-repeater-design-v2\\software\\meshcore.nightcrawler\\src\\meshcore.nightcrawler\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{F966A89D-982E-460E-BA7D-72441D5183B9}|src\\MeshCore.NightCrawler\\MeshCore.NightCrawler.csproj|solutionrelative:src\\meshcore.nightcrawler\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F966A89D-982E-460E-BA7D-72441D5183B9}|src\\MeshCore.NightCrawler\\MeshCore.NightCrawler.csproj|c:\\users\\thomas\\documents\\github\\twinoak.meshcore.standard-repeater-design-v2\\software\\meshcore.nightcrawler\\src\\meshcore.nightcrawler\\crawl\\crawler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F966A89D-982E-460E-BA7D-72441D5183B9}|src\\MeshCore.NightCrawler\\MeshCore.NightCrawler.csproj|solutionrelative:src\\meshcore.nightcrawler\\crawl\\crawler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F966A89D-982E-460E-BA7D-72441D5183B9}|src\\MeshCore.NightCrawler\\MeshCore.NightCrawler.csproj|c:\\users\\thomas\\documents\\github\\twinoak.meshcore.standard-repeater-design-v2\\software\\meshcore.nightcrawler\\src\\meshcore.nightcrawler\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F966A89D-982E-460E-BA7D-72441D5183B9}|src\\MeshCore.NightCrawler\\MeshCore.NightCrawler.csproj|solutionrelative:src\\meshcore.nightcrawler\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Crawler.cs",
+              "DocumentMoniker": "C:\\Users\\Thomas\\Documents\\GitHub\\twinoak.meshcore.standard-repeater-design-v2\\software\\MeshCore.NightCrawler\\src\\MeshCore.NightCrawler\\Crawl\\Crawler.cs",
+              "RelativeDocumentMoniker": "src\\MeshCore.NightCrawler\\Crawl\\Crawler.cs",
+              "ToolTip": "C:\\Users\\Thomas\\Documents\\GitHub\\twinoak.meshcore.standard-repeater-design-v2\\software\\MeshCore.NightCrawler\\src\\MeshCore.NightCrawler\\Crawl\\Crawler.cs",
+              "RelativeToolTip": "src\\MeshCore.NightCrawler\\Crawl\\Crawler.cs",
+              "ViewState": "AgIAAIIAAAAAAAAAAAAcwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-19T16:15:46.318Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\Thomas\\Documents\\GitHub\\twinoak.meshcore.standard-repeater-design-v2\\software\\MeshCore.NightCrawler\\src\\MeshCore.NightCrawler\\appsettings.json",
+              "RelativeDocumentMoniker": "src\\MeshCore.NightCrawler\\appsettings.json",
+              "ToolTip": "C:\\Users\\Thomas\\Documents\\GitHub\\twinoak.meshcore.standard-repeater-design-v2\\software\\MeshCore.NightCrawler\\src\\MeshCore.NightCrawler\\appsettings.json",
+              "RelativeToolTip": "src\\MeshCore.NightCrawler\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-08-19T16:13:03.3Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Thomas\\Documents\\GitHub\\twinoak.meshcore.standard-repeater-design-v2\\software\\MeshCore.NightCrawler\\src\\MeshCore.NightCrawler\\Program.cs",
+              "RelativeDocumentMoniker": "src\\MeshCore.NightCrawler\\Program.cs",
+              "ToolTip": "C:\\Users\\Thomas\\Documents\\GitHub\\twinoak.meshcore.standard-repeater-design-v2\\software\\MeshCore.NightCrawler\\src\\MeshCore.NightCrawler\\Program.cs",
+              "RelativeToolTip": "src\\MeshCore.NightCrawler\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-19T16:12:55.452Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

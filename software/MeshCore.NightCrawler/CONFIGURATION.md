@@ -19,11 +19,14 @@ nightcrawler --host <ip|hostname> [options]
 |---|---|---|
 | `--host <h>` | *(required)* | Companion node hostname/IP (TCP/WiFi companion). |
 | `--port <n>` | `5000` | Companion TCP port. |
+| `--seeds <list>` | *(contacts)* | Comma-separated crawl seeds — public keys (64 hex), key prefixes, or advertised names. When set, the crawl **starts from these** instead of every contact (see §6). |
 | `--depth <n>` | `5` | Maximum crawl depth (hops from the seed). FR-19. |
 | `--rate <n>` | `1` | Maximum **over-the-air messages per minute**. FR-23. |
 | `--burst <n>` | `1` | Token-bucket burst size. `1` = strictly no bursting. |
 | `--max-nodes <n>` | *(none)* | Optional cap on nodes queried this run. FR-21. |
 | `--deadline <time>` | *(none)* | Wall-clock stop, e.g. `06:00` or an ISO timestamp. FR-22. |
+| `--path-hash-size <n>` | `2` | Path hop-hash size in bytes (1, 2 or 3). The Denmark mesh default is **2** (see §7). |
+| `--set-path-hash-mode` | off | Push that size to the companion (a device-settings change). Off by default — NightCrawler otherwise only **warns** on a mismatch. |
 | `--tier <core\|extended>` | `core` | Which per-node query plan to run. `core` = scope census + neighbours + version; `extended` also adds stats/telemetry/trace. |
 | `--scopes-only` | off | Run the anonymous scope census only — skip guest login, neighbours and version. Fastest way to map scopes network-wide. |
 | `--guest-passwords <list>` | `,hello` | Comma-separated candidate guest passwords to try (empty item = blank password). Overrides the config list for this run. FR-16. |
@@ -57,7 +60,14 @@ accepted, by anything.
     "deadline": "06:00",
     "queryTier": "core",           // core | extended
     "includeContacts": true,
-    "adaptiveBackoff": true         // FR-27
+    "adaptiveBackoff": true,        // FR-27
+    "pathHashSizeBytes": 2,         // 1 | 2 | 3 — DK mesh default is 2 (see §7)
+    "setPathHashMode": false        // push it to the companion, or just warn
+  },
+  "seeds": {
+    // Full public keys (64 hex), key prefixes, or advertised names.
+    // Empty / omitted = seed from all contacts. See §6.
+    "keys": ["ef159de84313fea9ac63770697532aa9edcbb34f4c37cda480894f2669e12ecf"]
   },
   "output": {
     "path": "mesh-graph.json",
@@ -130,3 +140,49 @@ nightcrawler --host 192.168.1.50 --depth 5 --rate 1 --deadline 06:00 \
 
 Exit codes let a scheduler or the fleet manager tell "finished the mesh" from
 "ran out of night" from "something broke."
+
+## 6. Seeds
+
+By default NightCrawler seeds from **every contact** the companion knows. That is
+convenient but blunt: a contact is any node whose advert was heard, and adverts
+flood across the whole mesh, so a "contact" can be many hops away — which makes
+the depth bound nearly meaningless.
+
+Configuring explicit **seeds** fixes that. Give NightCrawler a starting node (or a
+few) and the crawl begins there and walks *its* neighbours outward — a genuine
+RF-adjacency walk from a known point, where depth counts real hops from the seed.
+
+A seed may be:
+
+- a **full public key** (64 hex chars) — the most precise, and it works even if the
+  node is not yet a saved contact (a guest login floods and still reaches it);
+- a **key prefix** (matched against known contacts); or
+- an **advertised name** (matched case-insensitively against known contacts).
+
+```jsonc
+"seeds": { "keys": ["ef159de8…e12ecf", "TwinOak-Grenaa-Chimney"] }
+```
+
+or `--seeds ef159de8…e12ecf,TwinOak-Grenaa-Chimney`. When `seeds` is empty the
+crawl falls back to contact-seeding (or nothing, with `--no-contacts`).
+
+> **Why not seed from the companion's own neighbours automatically?** Because a
+> *companion* has no neighbour table to read — that is a repeater-only feature; the
+> companion firmware exposes only its contact list. So the closest thing to
+> "start from my nearest nodes" is to name them explicitly here (or point the seed
+> at your nearest repeater and let its neighbour table take over from hop 1).
+
+## 7. Path-hash size
+
+MeshCore encodes each hop of a routing path as a 1-, 2-, or 3-byte hash, network-
+wide. **The Danish mesh uses 2-byte** (`pathHashSizeBytes: 2`, the default here).
+NightCrawler needs this to match the companion, or paths — and therefore the
+reply paths it builds for anonymous scope requests — are mis-read.
+
+On connect, NightCrawler reads the companion's configured size and:
+
+- if it **matches** the config, logs it and continues;
+- if it **differs**, prints a loud warning (paths may be mis-read);
+- if `setPathHashMode` / `--set-path-hash-mode` is set, it **pushes** the configured
+  size to the companion (a device-settings change, so it is opt-in and off by
+  default).
