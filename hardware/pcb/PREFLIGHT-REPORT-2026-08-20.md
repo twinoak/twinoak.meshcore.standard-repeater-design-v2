@@ -65,7 +65,7 @@ All 12 gerbers in `connector-board-a/outputs/` are dated **2026-07-20 13:45** �
 
 **Board level:** outline closed (27.4 × 39.1 mm rect) ✓ · all new parts and courtyards fully inside; no courtyard overlaps anywhere (U5↔C22 gap 0.53 mm, U5↔C23 0.47 mm, U5↔J3 0.56 mm — tight but legal) ✓ · J3 pin-1 hole edge 1.79 mm from the board edge ✓ · min copper-to-edge 0.508 mm ✓ · vias uniform 0.6/0.3 ✓ · min THT drill 0.8 ✓ · track widths only 0.254 / 0.508 ✓ · all SMD front-side, single-side assembly preserved ✓.
 
-**BOM:** 12 unique LCSC numbers across 21 machine-placed parts, every one populated — U5 carries **C92489**, C22/C23 reuse **C14663** ✓ · hand-fit J1/J2/JP1 and DNP'd D4 correctly excluded in both schematic and PCB (J3 is the lone exception → A1) ✓.
+**BOM:** 11 unique LCSC numbers across 21 machine-placed parts, every one populated — U5 carries **C92489**, C22/C23 reuse **C14663** ✓ · hand-fit J1/J2/JP1 and DNP'd D4 correctly excluded in both schematic and PCB (J3 is the lone exception → A1) ✓.
 
 **Resolved from 08-14:** the open shield question is closed — **J1's SH pad is now tied to GND** in both schematic and copper ✓.
 
@@ -76,6 +76,6 @@ All 12 gerbers in `connector-board-a/outputs/` are dated **2026-07-20 13:45** �
 1. Schematic: J3 → untick In-BOM + In-position-files → save.
 2. F8 (Update PCB from Schematic) → confirm only J3's attrs change.
 3. Refill zones → ERC + DRC (expect zero; silk-over-pad on the new tight cluster gets its official check here).
-4. Fabrication Toolkit export → verify the BOM has 12 LCSC lines and **no** J3 line, POS has no J3 row.
+4. Fabrication Toolkit export → verify the BOM has 11 LCSC lines and **no** J3 line, POS has no J3 row.
 5. JLC preview: U5 pin-1 dot vs silk tick (A2), U4, D4 absent.
 6. Assembly BOM step: read the live counts for **C4354938** and **C92489** before paying.
