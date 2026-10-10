@@ -68,6 +68,12 @@ bool time_set(uint32_t epoch) {
 
 // ---- INA3221: 16-bit BE registers; shunt LSB 40 uV, bus LSB 8 mV (both >>3) ----
 
+static const float s_shunt_mohm[3] = {
+  (float)INA_SHUNT_CH1_MILLIOHM,   // RS2, panel
+  (float)INA_SHUNT_CH2_MILLIOHM,   // RS3, battery
+  (float)INA_SHUNT_CH3_MILLIOHM,   // RS4, load
+};
+
 static bool ina_reg(uint8_t reg, int16_t* out) {
   Wire.beginTransmission(INA_ADDR);
   Wire.write(reg);
@@ -85,6 +91,6 @@ bool ina_read(uint8_t ch, float* bus_v, float* cur_ma) {
   if (!ina_reg(base + 1, &bus_raw)) return false;
   float shunt_uv = (shunt_raw >> 3) * 40.0f;
   *bus_v  = (bus_raw >> 3) * 0.008f;
-  *cur_ma = shunt_uv / (float)INA_SHUNT_MILLIOHM;
+  *cur_ma = shunt_uv / s_shunt_mohm[ch - 1];
   return true;
 }

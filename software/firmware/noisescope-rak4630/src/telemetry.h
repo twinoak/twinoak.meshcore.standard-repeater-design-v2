@@ -15,6 +15,8 @@ bool ina_ok();
 uint32_t time_epoch();
 bool time_set(uint32_t epoch);   // also writes the RTC when present
 
-// INA3221 channel read, ch = 1..3 (ch1 panel, ch2 battery, ch3 load).
-// bus_v in volts, cur_ma in mA (positive = discharge direction per shunt orientation).
+// INA3221 channel read, ch = 1..3 (ch1 panel, ch2 battery, ch3 load), each with
+// its own shunt value (config.h). bus_v in volts (measured at IN-: VIN / VBAT / VLOAD+),
+// cur_ma in mA: ch1 positive = panel into charger, ch2 positive = charging (negative =
+// discharging), ch3 positive = load draw.
 bool ina_read(uint8_t ch, float* bus_v, float* cur_ma);

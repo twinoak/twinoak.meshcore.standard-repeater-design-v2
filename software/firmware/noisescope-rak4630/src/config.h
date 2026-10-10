@@ -100,8 +100,18 @@
 // ---- I2C peripherals on the TwinOak boards ----
 #define RTC_ADDR   0x52                 // RV-3028-C7 on the RAK adapter
 #define INA_ADDR   0x42                 // INA3221 on connector board B (A0 tied to SDA)
-#ifndef INA_SHUNT_MILLIOHM
-  #define INA_SHUNT_MILLIOHM 20         // RS2/RS3/RS4 20 mOhm per BOM
+// Shunts per connector board B BOM (see hardware/pcb/CURRENT-SENSE.md) - they are NOT equal:
+//   ch1 = RS2 100 mOhm  panel   (IN+ PANEL+, IN- VIN;    positive = panel into charger)
+//   ch2 = RS3  20 mOhm  battery (IN+ VCC,    IN- VBAT;   positive = charging, negative = discharging)
+//   ch3 = RS4  50 mOhm  load    (IN+ VCC,    IN- VLOAD+; positive = load draw)
+#ifndef INA_SHUNT_CH1_MILLIOHM
+  #define INA_SHUNT_CH1_MILLIOHM 100
+#endif
+#ifndef INA_SHUNT_CH2_MILLIOHM
+  #define INA_SHUNT_CH2_MILLIOHM 20
+#endif
+#ifndef INA_SHUNT_CH3_MILLIOHM
+  #define INA_SHUNT_CH3_MILLIOHM 50
 #endif
 #ifndef I2C_CLOCK_HZ
   #define I2C_CLOCK_HZ 100000           // 1k pullups through bulkhead filter: keep at/below 100 kHz

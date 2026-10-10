@@ -53,7 +53,11 @@ only) aggregates ~1 kHz instantaneous-RSSI sampling of the **home channel
 through the LoRa channel filter** — i.e. what MeshCore's receiver lives in.
 `dc` = fraction of samples above `th` (threshold = previous window's min +
 10 dB): a direct burst-duty-cycle number. `pwr` (when the INA3221 responds)
-reports the B-board channels: panel / battery / total load.
+reports the B-board channels: panel / battery / total load. Currents are in mA
+with the board's per-channel shunts already applied (RS2 100 mΩ, RS3 20 mΩ,
+RS4 50 mΩ — `hardware/pcb/CURRENT-SENSE.md`): `ipanel` positive = panel into
+the charger, `ibat` positive = charging / negative = discharging, `iload`
+positive = draw. Voltages are the bus readings at VIN, VBAT and VLOAD+.
 ```json
 {"t":"stat","ts":1754820010,"ms":12345,"up":12,"mode":"monitor","home":869.618,
  "rssi":{"n":9900,"avg":-114.2,"max":-99.5,"min":-116.0,"dc":0.0312,"th":-106.0},

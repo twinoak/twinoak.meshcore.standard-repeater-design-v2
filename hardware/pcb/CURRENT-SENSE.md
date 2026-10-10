@@ -6,10 +6,13 @@ datasheets, the LCSC part pages for the three shunt part numbers, and MeshCore's
 what each costs, what firmware must assume, and what to verify on the first article.*
 
 **Verdict:** all four values are valid and each is sized by a different constraint. The hardware
-needs no change. What is wrong is the *firmware*: neither NoiseScope nor stock MeshCore currently
-reads the three INA3221 channels with the right shunt values (§4). Since the boards are not
-ordered yet, §5 gives the one hardware option that makes stock MeshCore correct with a single
-build flag.
+needs no change. What was wrong is the *firmware*: neither NoiseScope nor stock MeshCore read the
+three INA3221 channels with the right shunt values (§4).
+
+**Decision 2026-10-10 (TH): keep the mixed shunts (option A in §5).** The repeater will run custom
+MeshCore-based firmware anyway, so per-channel shunt values live in that firmware. NoiseScope was
+fixed the same day (`INA_SHUNT_CH1/2/3_MILLIOHM` = 100 / 20 / 50 in `src/config.h`, per-channel
+table in `src/telemetry.cpp`, sign convention documented in `PROTOCOL.md`).
 
 ## 1. Topology (as routed)
 
@@ -140,9 +143,9 @@ termination point — no safety change); the burst-drop budget in §3.3 gets 54 
 **C — uniform 100 mΩ (stock MeshCore untouched): no.** Ch2 and ch3 saturate at 1.64 A (2 A charge,
 1.8 A bursts), 200 mV / 0.4 W drops.
 
-Recommendation: **B** if stock-MeshCore compatibility by build flag is the goal (it is for a
-design whose management system must also handle stock-firmware nodes); **A** if the lowest
-charge-path impedance is worth carrying a MeshCore patch. Either way, fix NoiseScope.
+Chosen: **A** (2026-10-10) — custom MeshCore-based firmware is planned regardless, so the
+per-channel values go there; B stays documented as the fallback if stock firmware ever has to run
+on this board unmodified.
 
 ## 6. First-article checks for this block
 
