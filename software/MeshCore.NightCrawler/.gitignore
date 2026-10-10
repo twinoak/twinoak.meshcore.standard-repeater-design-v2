@@ -1,9 +1,0 @@
-# Build output
-bin/
-obj/
-*.user
-
-# Crawl output (data, not source)
-mesh-graph.json
-mesh-graph.json.tmp
-*.mesh-graph.json
