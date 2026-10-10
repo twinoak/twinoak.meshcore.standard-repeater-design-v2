@@ -1,20 +1,31 @@
 # TwinOak Standard Repeater v2 — Project Knowledge
 
 *Map and memory of this repo for whoever (or whatever) picks it up next. Authoritative detail lives
-in the files it points to; keep this one short and current. Last updated 2026-10-10.*
+in the files it points to; keep this one short and current. Last updated 2026-10-10, 23:30 — first batch ordered.*
 
 ## 1. Status (2026-10-10)
 
-- **Hardware:** five production boards (platform, connector A, connector B, RAK4630 adapter, Walter
-  adapter) passed three pre-order preflights (`hardware/pcb/PREFLIGHT-REPORT-*.md`, 08-11 / 08-14 /
-  08-20) and have Fabrication Toolkit exports from 2026-08-21 in each `production/` folder.
-  **Nothing has been ordered from JLCPCB yet — no boards exist.**
+- **Hardware: FIRST BATCH ORDERED FROM JLCPCB 2026-10-10 (evening).** Five boards (platform ×2 per
+  repeater bare; conn-A, conn-B, RAK4630 adapter, Walter adapter SMT-assembled) from the `production/`
+  exports of 2026-10-10 (platform/Walter 17:45–17:47, RAK/conn-B/conn-A 20:53–21:01), after the
+  via-in-pad rework (81 → 2 vias in SMD pads, both QFN thermal pads; all different-net clearances
+  ≥ 0.2 mm; zones repoured). As-ordered deviations from the schematic intent:
+  - **RAK adapter U5 (RV-3028-C7 RTC) + C7/C8 backup caps NOT placed (DNP)** — RV-3028-C7 is on
+    worldwide allocation (LCSC/Mouser/DigiKey 0, Arrow 16 wk, Mouser QA first delivery 2027-04); no
+    pin-compatible substitute exists (RV-3032-C7 and RV-8263-C7 have different pinouts). Footprint
+    kept; hand-fit later if stock returns. **Firmware consequence: the Walter must set the RAK's time
+    after every boot and every kill cycle** (it needed to anyway — MLCC backup was ~1 h).
+  - conn-A J3 (J_ENV) export flags fixed (08-20 preflight A1) — not in BOM/POS.
+  - Walter C1 (470 µF polymer) stays hand-fit; a JLC-placeable equivalent is recorded on the symbol:
+    Honor Elec RYHT16V470UF8*11, LCSC C48970577 (8 × 11.5 mm, 3.5 mm pitch, 14 mΩ, 125 °C).
 - **Firmware:** **no Walter (ESP32-S3) firmware exists.** NoiseScope (`software/firmware/noisescope-rak4630`)
   is the only software in the repo. The repeater will run **custom MeshCore-based firmware** on the
   RAK4630; stock-MeshCore compatibility is not a design constraint.
 - **Removed 2026-10-10:** `MeshCore.FleetManager` (spec) and `MeshCore.NightCrawler` (C# PoC) —
   deprecated; the management system is the separate MeshMaster project (meshmaster.dk).
-- **Next step: validate the hardware design** — §9.
+- **Next step: first-article validation when the boards arrive** (§9 B) — and, while waiting, the
+  pre-order items in §9 A that are still useful: the Walter bring-up sketch and the bulkhead I2C/SWD
+  bench test on the breadboard rig, plus sourcing the hand-fit parts (§7).
 - Recent docs: `hardware/pcb/BENCH-BREADBOARD.md` (Walter + RAK4631/RAK19001 bench rig),
   `hardware/pcb/CURRENT-SENSE.md` (shunt design, decided: keep mixed shunts, per-channel values in firmware).
 
@@ -155,6 +166,12 @@ a single-RAK unit.
   reflashed and `UICR.APPROTECT = 0x5A` written. Module-batch property — read `INFO.VARIANT` first.
 - Never chip-erase the RAK in service (kills bootloader, SoftDevice, MeshCore identity/config in
   InternalFS, and UICR → REGOUT0 drops to 1.8 V on a bare core). Application-range erase only.
+- **Via-in-pad (2026-10-10):** the first layouts had ~80 vias inside SMD pads (0.3/0.6 mm). An open
+  via barrel (~0.11 mm³) can swallow a 0603/0805 joint's solder; all were moved out except the QFN
+  thermal pads. Working rules since: vias tented (board default); dog-bone vias with the ring ≥ 0.2 mm
+  from any different-net copper and the hole edge ≥ 0.2 mm from the pad opening; one via per pad end;
+  ≥ 0.25 mm hole-to-hole. A 0.6 mm ring does not fit between 0.65 mm-pitch QFN pads or 0.5 mm-pitch
+  USB-C rows at 0.2 mm — route out first, via further away.
 - Dual-RAK adapter (`DUAL-RAK4630-FEASIBILITY.md`): feasible with zero adapter firmware —
   TS5A23157 analog muxes + 2-bit shift register clocked by "SWDCLK while nRESET low"; segmented I2C
   (second RAK gets a private bus; INA3221 visible to RAK-A only); same-channel omni + yagi bridge is
@@ -164,11 +181,11 @@ a single-RAK unit.
 
 ## 7. Open items
 
-**Decide before ordering:**
-1. Walter-or-cheaper-MCU question (2026-09) — affects whether the Walter adapter is ordered as-is.
-2. Stock watch list (§3) at order time; regenerate `connector-board-a` exports if the J3 flag fix
-   (08-20 preflight A1) post-dates the 08-21 export.
-3. Meshnology pack's protection-board charge-current limit vs. the 2 A charger.
+**Decided by the order (2026-10-10):** Walter adapter ordered as-is (the cheaper-MCU question is
+deferred to a later rev); J3 flags fixed; RV-3028 DNP (see §1).
+1. Meshnology pack's protection-board charge-current limit vs. the 2 A charger — still to confirm.
+2. RTC: watch RV-3028-C7 stock (LCSC C3304278 / C3019759); hand-fit when available, or respin U5 to
+   an in-stock RTC with backup switchover (Epson RX8130CE, ADI DS3231 — not verified) in rev 2.0.
 
 **First-article inspection:**
 4. Rotations: RAK U5 (RV-3028, 180°), RAK U3 (USBLC6), conn-B U1 (BQ24650), conn-A U4 (TPS63001,
@@ -215,7 +232,7 @@ possibly business-only).
 
 ## 9. Validation plan
 
-### A. Before ordering (design validation — now)
+### A. Before the boards arrive (was: before ordering)
 
 1. **Desk review of behaviour, not nets** (the preflights covered nets): charger/load interaction
    (termination, recharge cycling, precharge at dawn), Walter VIN drop budget at an empty pack, ch1

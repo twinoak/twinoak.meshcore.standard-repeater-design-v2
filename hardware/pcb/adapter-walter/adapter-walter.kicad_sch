@@ -4529,7 +4529,18 @@
 				)
 			)
 		)
-		(property "MPN" "Panasonic 16SEPG470M (OS-CON)"
+		(property "MPN" "Honor Elec RYHT16V470UF8*11 (alt. Panasonic 16SEPG470M)"
+			(at 193.04 85.09 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC Part #" "C48970577"
 			(at 193.04 85.09 0)
 			(hide yes)
 			(show_name no)
