@@ -1,5 +1,10 @@
 # TwinOak Standard Repeater v2 — Interconnect Reference
 
+> **FROZEN 2026-10-10 — first JLCPCB batch ordered, hand-fit parts bought.** The D-sub pinouts, the
+> A↔B ribbon, the platform J1 map and the adapter interface rows below are an interface revision, not
+> a working document: they change only through a dated decision in `INTERFACE-FREEZE.md`, and
+> `python3 tools/check_interfaces.py` must pass before any export or commit that touches a board.
+
 Single source of truth for every pin and net between the boards.
 Updated 2026-08-14 (platform J1 ribbon remap; previously 2026-08-09 connection-audit + A/B power move).
 

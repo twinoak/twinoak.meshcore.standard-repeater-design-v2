@@ -1,7 +1,7 @@
 # TwinOak Standard Repeater v2 — Project Knowledge
 
 *Map and memory of this repo for whoever (or whatever) picks it up next. Authoritative detail lives
-in the files it points to; keep this one short and current. Last updated 2026-10-10, 23:30 — first batch ordered.*
+in the files it points to; keep this one short and current. Last updated 2026-10-11 — first batch ordered, interfaces frozen.*
 
 ## 1. Status (2026-10-10)
 
@@ -23,6 +23,10 @@ in the files it points to; keep this one short and current. Last updated 2026-10
   RAK4630; stock-MeshCore compatibility is not a design constraint.
 - **Removed 2026-10-10:** `MeshCore.FleetManager` (spec) and `MeshCore.NightCrawler` (C# PoC) —
   deprecated; the management system is the separate MeshMaster project (meshmaster.dk).
+- **DECISION 2026-10-11: inter-board interfaces are FROZEN** (`hardware/pcb/INTERFACE-FREEZE.md`) —
+  D-subs, ribbon, platform J1 map, adapter rows, rails/polarities on those pins. Machine-checked by
+  `hardware/pcb/tools/check_interfaces.py` against `tools/interface-freeze.json` (as-ordered state);
+  run it before every export/commit. Changes = a new, dated interface revision; new adapters conform.
 - **Next step: first-article validation when the boards arrive** (§9 B) — and, while waiting, the
   pre-order items in §9 A that are still useful: the Walter bring-up sketch and the bulkhead I2C/SWD
   bench test on the breadboard rig, plus sourcing the hand-fit parts (§7).
@@ -72,7 +76,7 @@ folder moves, fix those two files.** Design rules: 0.2 mm clearance (own rule; J
 Stock to re-check at order time: RAK4630 (47 pcs on 08-14), LPS4018 L2 (12 pcs), SI4840DY, CAX
 toggle (zero JLC stock — LCSC/TME), BME280.
 
-## 4. Interconnect essentials (full detail: `hardware/pcb/INTERCONNECT.md` — update it first when wiring changes)
+## 4. Interconnect essentials (full detail: `hardware/pcb/INTERCONNECT.md` — **FROZEN 2026-10-10**, see `INTERFACE-FREEZE.md`)
 
 **D-subs are deliberately NOT identical:**
 
