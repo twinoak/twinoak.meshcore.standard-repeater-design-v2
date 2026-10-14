@@ -1,7 +1,7 @@
 # TwinOak Standard Repeater v2 — Project Knowledge
 
 *Map and memory of this repo for whoever (or whatever) picks it up next. Authoritative detail lives
-in the files it points to; keep this one short and current. Last updated 2026-10-11 — first batch ordered, interfaces frozen.*
+in the files it points to; keep this one short and current. Last updated 2026-10-11 — first batch ordered, interfaces frozen, firmware planned.*
 
 ## 1. Status (2026-10-10)
 
@@ -21,6 +21,13 @@ in the files it points to; keep this one short and current. Last updated 2026-10
 - **Firmware:** **no Walter (ESP32-S3) firmware exists.** NoiseScope (`software/firmware/noisescope-rak4630`)
   is the only software in the repo. The repeater will run **custom MeshCore-based firmware** on the
   RAK4630; stock-MeshCore compatibility is not a design constraint.
+- **Firmware planned 2026-10-11, nothing built yet:** two new repositories, `twinoak.meshcore.repeater-firmware`
+  (RAK4630: upstream MeshCore's repeater plus the link to the Walter and the radio half of an exit node) and
+  `twinoak.meshcore.walter-firmware` (ESP32-S3: supervisor, SWD flasher, signed updates with rollback, LTE uplink).
+  What the two must agree on is specified here, in `software/spec/` — start with `software/spec/SYSTEM.md`.
+  MeshMaster is the backend. **Decided 2026-10-14:** its three proposals (`software/spec/proposals/`) are accepted —
+  built in MeshMaster's core (its D-45), the unit a `mesh` agent bolted to its repeater; the work is `meshmaster.dk`
+  pile 4.14, the exit-node firmware's pile 1.5 and the Walter's phase 4 (`software/spec/SYSTEM.md` §8–§9).
 - **Removed 2026-10-10:** `MeshCore.FleetManager` (spec) and `MeshCore.NightCrawler` (C# PoC) —
   deprecated; the management system is the separate MeshMaster project (meshmaster.dk).
 - **DECISION 2026-10-11: inter-board interfaces are FROZEN** (`hardware/pcb/INTERFACE-FREEZE.md`) —
@@ -227,8 +234,9 @@ deferred to a later rev); J3 flags fixed; RV-3028 DNP (see §1).
 |---|---|---|
 | NoiseScope (RAK4630 SX1262 scanner, RX-only, NDJSON over Serial1@115200, UF2/SWD flashable, 8 s WDT, reports INA3221 + RTC) | `software/firmware/noisescope-rak4630` | v0.1.0, PlatformIO, pinned to MeshCore's Adafruit core fork + RadioLib commit. Per-channel shunts since 2026-10-10. |
 | software-goals.md | `software/` | Must-haves: A/B OTA with health-gated rollback, autonomous watchdog/power-cycle, power telemetry + alerts, remote console tunnel to MeshCore CLI, continuous RF health + NoiseScope on demand. Should: boot-loop detection, store-and-forward, LTE self-monitoring, enclosure environment. |
-| Repeater firmware (custom, MeshCore-based) | — | Planned, not started. |
-| Walter firmware | — | Does not exist. |
+| System specification: the plan and decisions (`SYSTEM.md`), the UART link between the boxes (`LINK-PROTOCOL.md` 1.0), the signed release manifest and image descriptor (`FIRMWARE-MANIFEST.md`), reference code and fixtures, MeshMaster proposals | `software/spec/` | Written 2026-10-11. **Edited only here**; each firmware repo carries a hash-checked copy (`tools/specsync.py`). |
+| Repeater firmware (MeshCore-based; roles repeater / scanner / later bridge) | repo `twinoak.meshcore.repeater-firmware` | Planned 2026-10-11: task piles written (phases 0–3), nothing built. NoiseScope moves there as the `scanner` role (its phase 3); the copy here stays until that has landed. |
+| Walter firmware (ESP-IDF) | repo `twinoak.meshcore.walter-firmware` | Planned 2026-10-11: task piles written (phases 0–3), nothing built. Ends at a backend seam; the MeshMaster agent waits for the proposals. |
 | FleetManager / NightCrawler | removed 2026-10-10 | Deprecated → MeshMaster (separate repo). |
 
 LTE providers tested: Lebara (cheapest plan works), NexCon (25 MB/month ≈ 1 €/month, good portal,

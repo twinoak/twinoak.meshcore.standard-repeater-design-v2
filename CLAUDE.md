@@ -18,3 +18,8 @@ Conventions:
 - Deprecated and removed: MeshCore.FleetManager and MeshCore.NightCrawler (management lives in the
   separate MeshMaster project). Don't recreate them here.
 - The repeater will run custom MeshCore-based firmware; stock-MeshCore compatibility is not a constraint.
+- The firmware lives in two other repositories (`twinoak.meshcore.repeater-firmware`,
+  `twinoak.meshcore.walter-firmware`). What they must agree on — the plan, the UART link, the release
+  manifest — is `software/spec/` and is edited only here; after a change, copy it to both with
+  `software/spec/tools/specsync.py` (`software/spec/README.md`). Files under `software/spec/` are LF and
+  compared by hash: do not let an editor or git change their line endings.

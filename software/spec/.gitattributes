@@ -1,0 +1,2 @@
+# The specification is compared by hash wherever it is copied: git must not touch a byte of it.
+* -text
