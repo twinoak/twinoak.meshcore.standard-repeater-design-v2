@@ -155,6 +155,10 @@ a single-RAK unit.
   3.28 A full scale; 0.4 / 2 / 0.8 mA per LSB). All valid; kept mixed, firmware carries per-channel
   values. RS3 was kept low for battery-path impedance at the price of 2 mA/LSB. RS2 is a 0.25 W
   thick-film (±800 ppm/°C); RS1/RS3/RS4 are 1 W Milliohm sense parts.
+- **Battery NTC (2026-10-19):** conn-B's TS divider (R5 5k23 / R6 30k1, TI values) assumes a 10 k / B≈3435 K
+  NTC (103AT class) → charge window 0.5…40.7 °C, cut-off 44 °C while charging. A generic B3950 NTC shifts it to
+  3.5…38.6 °C (no charging on 1–3 °C winter days). Chosen part: muRata NXFT15XH103FEAB050 (LCSC C17314387,
+  B25/85 3434 K, 50 mm leads), taped to the pack face. No NTC on J6 = charging suspended (cold fault).
 - RV-3028 footprint saga: the 08-11 preflight claimed it was mirrored; TH proved via Micro Crystal
   eval-board photos that the **original footprint was correct**; restored 08-13, U5 rerouted twice,
   rotation offset 180° verified against the JLC pink-dot preview. Lesson: trust physical
@@ -260,6 +264,9 @@ possibly business-only).
 4. Re-run the 08-14/08-20 pre-order procedures (fresh exports, DRC, JLC preview rotations, live stock).
 
 ### B. First article (after boards arrive)
+
+**Power-on order, expected readings and stop conditions: `hardware/pcb/BRING-UP.md`** (2026-10-17). The list
+below is the checklist; that file is the procedure.
 
 0. Incoming inspection, unpowered — rotation/polarity items (§7.4–5); ohmmeter: every rail to GND
    (3V3_LORA, VBAT/VCC/VLOAD+, WALTER_VIN), D-sub SH→GND, platform J1 fan-out 1,6,2,7,3,8,4,9,5,
