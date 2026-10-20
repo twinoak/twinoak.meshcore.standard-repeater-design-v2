@@ -1,0 +1,4 @@
+# Bench scripts and configs run on Linux (Raspberry Pi): keep LF on every checkout
+hardware/pcb/tools/*.sh  text eol=lf
+hardware/pcb/tools/*.cfg text eol=lf
+software/firmware/walter-swd-bench/host-test/*.sh text eol=lf

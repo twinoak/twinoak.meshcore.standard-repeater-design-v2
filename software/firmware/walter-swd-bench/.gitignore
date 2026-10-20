@@ -1,0 +1,3 @@
+.pio/
+src/image_data.gen.cpp
+host-test/build/

@@ -1,0 +1,191 @@
+"""images/*.hex -> src/image_data.gen.cpp: the image the Walter writes to a factory RAK4630.
+
+PlatformIO runs this before every build (extra_scripts = pre:tools/hex2image.py). By hand:
+
+    python3 tools/hex2image.py <out.cpp> <in.hex> [<in.hex> ...]
+
+Several .hex files are merged (a byte given twice must be the same). The build stops on an image that
+cannot be the RAK4630 bootloader + SoftDevice:
+  * data outside flash (0x00000000-0x000FFFFF) and UICR (0x10001000-0x10001FFF)
+  * no MBR at 0x00000000 or nothing at 0x00001000 (a bootloader-only hex: the RAK needs the SoftDevice too)
+  * no UICR.NRFFW[0] (bootloader address), or no data at that address
+  * UICR.APPROTECT (0x10001208) in the image: the tool owns that word (nrf52.cpp)
+No .hex at all is not an error: the firmware builds without an image and says so.
+Standard library only (PlatformIO's own Python runs it).
+"""
+import glob
+import hashlib
+import os
+import struct
+import sys
+import zlib
+
+FLASH_END = 0x00100000
+UICR_BASE, UICR_END = 0x10001000, 0x10002000
+UICR_NRFFW0, UICR_APPROTECT = 0x10001014, 0x10001208
+SD_MAGIC_ADDR, SD_MAGIC, SD_ID_ADDR, SD_VERSION_ADDR = 0x3004, 0x51B1E5DB, 0x3010, 0x3014
+
+
+class HexError(Exception):
+    pass
+
+
+def parse_hex(path, mem):
+    base = 0
+    name = os.path.basename(path)
+    with open(path, "r", encoding="ascii") as f:
+        for n, line in enumerate(f, 1):
+            line = line.strip()
+            if not line:
+                continue
+            if line[0] != ":":
+                raise HexError("%s:%d: not an Intel HEX record" % (name, n))
+            try:
+                raw = bytes.fromhex(line[1:])
+            except ValueError:
+                raise HexError("%s:%d: not hex digits" % (name, n))
+            if len(raw) < 5 or len(raw) != raw[0] + 5:
+                raise HexError("%s:%d: record length" % (name, n))
+            if sum(raw) & 0xFF:
+                raise HexError("%s:%d: checksum" % (name, n))
+            addr, typ, data = (raw[1] << 8) | raw[2], raw[3], raw[4:-1]
+            if typ == 0:
+                for i, b in enumerate(data):
+                    a = base + addr + i
+                    if a in mem and mem[a] != b:
+                        raise HexError("%s:%d: 0x%08X given twice with different data" % (name, n, a))
+                    mem[a] = b
+            elif typ == 1:
+                return
+            elif typ == 2:
+                base = ((data[0] << 8) | data[1]) << 4
+            elif typ == 4:
+                base = ((data[0] << 8) | data[1]) << 16
+            elif typ in (3, 5):
+                pass  # start address: irrelevant for flashing
+            else:
+                raise HexError("%s:%d: record type %d" % (name, n, typ))
+    raise HexError("%s: no end-of-file record (truncated download?)" % name)
+
+
+def build_image(paths):
+    mem = {}
+    for p in paths:
+        parse_hex(p, mem)
+    words, padded = {}, 0
+    for wa in sorted({a & ~3 for a in mem}):
+        v = 0
+        for i in range(4):
+            b = mem.get(wa + i)
+            if b is None:
+                b, padded = 0xFF, padded + 1
+            v |= b << (8 * i)
+        words[wa] = v
+    for wa in words:
+        if not (wa < FLASH_END or UICR_BASE <= wa < UICR_END):
+            raise HexError("data at 0x%08X: outside flash and UICR" % wa)
+    if UICR_APPROTECT in words:
+        raise HexError("the image writes UICR.APPROTECT (0x10001208); the tool decides that word per chip revision")
+    if 0 not in words or 0x1000 not in words:
+        raise HexError("nothing at 0x00000000 (MBR) or 0x00001000 (SoftDevice): a bootloader-only hex? "
+                       "The RAK needs bootloader + SoftDevice S140 6.1.1 (BRING-UP.md step 5)")
+    if UICR_NRFFW0 not in words:
+        raise HexError("no UICR.NRFFW[0] (0x10001014): the MBR would never start the bootloader")
+    bl = words[UICR_NRFFW0]
+    if bl >= FLASH_END or bl & 0xFFF or bl not in words:
+        raise HexError("UICR.NRFFW[0] = 0x%08X, but the image has no bootloader there" % bl)
+    sd_id = sd_ver = 0
+    if words.get(SD_MAGIC_ADDR) == SD_MAGIC:
+        sd_id, sd_ver = words.get(SD_ID_ADDR, 0), words.get(SD_VERSION_ADDR, 0)
+    segs = []
+    for wa in sorted(words):
+        if segs and segs[-1][0] + 4 * len(segs[-1][1]) == wa:
+            segs[-1][1].append(words[wa])
+        else:
+            segs.append((wa, [words[wa]]))
+    crc = 0
+    for _, ws in segs:
+        crc = zlib.crc32(struct.pack("<%dI" % len(ws), *ws), crc)
+    data_words = sum(1 for v in words.values() if v != 0xFFFFFFFF)
+    sources = []
+    for p in paths:
+        with open(p, "rb") as f:
+            sources.append("%s sha256:%s" % (os.path.basename(p), hashlib.sha256(f.read()).hexdigest()[:16]))
+    return {"segs": segs, "crc": crc & 0xFFFFFFFF, "bl": bl, "sd_id": sd_id, "sd_ver": sd_ver,
+            "data_words": data_words, "padded": padded, "source": ", ".join(sources)}
+
+
+def render(img):
+    out = ["// Generated by tools/hex2image.py from images/*.hex. Do not edit; not committed.",
+           '#include "image.h"', ""]
+    if img is None:
+        out.append('const Image kBuiltinImage = {nullptr, 0, 0, 0, 0, 0, 0, "none"};')
+        return "\n".join(out) + "\n"
+    for i, (_, ws) in enumerate(img["segs"]):
+        out.append("static const uint32_t kSeg%d[%d] = {" % (i, len(ws)))
+        for j in range(0, len(ws), 8):
+            out.append("  " + ", ".join("0x%08Xu" % w for w in ws[j:j + 8]) + ",")
+        out.append("};")
+    out.append("static const ImageSegment kSegs[] = {")
+    for i, (addr, ws) in enumerate(img["segs"]):
+        out.append("  {0x%08Xu, %du, kSeg%d}," % (addr, len(ws), i))
+    out.append("};")
+    src = img["source"].replace("\\", "/").replace('"', "'")
+    out.append('const Image kBuiltinImage = {kSegs, %du, %du, 0x%08Xu, 0x%08Xu, %du, %du, "%s"};'
+               % (len(img["segs"]), img["data_words"], img["crc"], img["bl"], img["sd_id"], img["sd_ver"], src))
+    return "\n".join(out) + "\n"
+
+
+def summary(img, paths):
+    if img is None:
+        return "hex2image: no images/*.hex - building WITHOUT an image (provision will refuse)"
+    lines = ["hex2image: %s" % img["source"],
+             "  %d segments, %d words to write, CRC32 0x%08X, bootloader at 0x%08X"
+             % (len(img["segs"]), img["data_words"], img["crc"], img["bl"])]
+    if img["sd_ver"]:
+        v = img["sd_ver"]
+        lines.append("  SoftDevice S%d %d.%d.%d" % (img["sd_id"], v // 1000000, v // 1000 % 1000, v % 1000))
+        if (img["sd_id"], v) != (140, 6001001):
+            lines.append("  WARNING: MeshCore's Adafruit core is built for S140 6.1.1")
+    else:
+        lines.append("  WARNING: no SoftDevice info struct at 0x3004")
+    if img["padded"]:
+        lines.append("  note: %d bytes padded with 0xFF to whole words" % img["padded"])
+    for addr, ws in img["segs"]:
+        lines.append("  0x%08X .. 0x%08X" % (addr, addr + 4 * len(ws) - 1))
+    return "\n".join(lines)
+
+
+def generate(out_path, paths):
+    img = build_image(paths) if paths else None
+    text = render(img)
+    old = None
+    if os.path.exists(out_path):
+        with open(out_path, "r", encoding="utf-8") as f:
+            old = f.read()
+    if old != text:
+        with open(out_path, "w", encoding="utf-8", newline="\n") as f:
+            f.write(text)
+    return summary(img, paths)
+
+
+try:
+    Import("env")  # noqa: F821 - SCons builtin when PlatformIO runs this
+except NameError:
+    env = None
+
+if env is not None:
+    _proj = env.subst("$PROJECT_DIR")
+    try:
+        print(generate(os.path.join(_proj, "src", "image_data.gen.cpp"),
+                       sorted(glob.glob(os.path.join(_proj, "images", "*.hex")))))
+    except HexError as e:
+        print("hex2image: ERROR: %s" % e)
+        env.Exit(1)
+elif __name__ == "__main__":
+    if len(sys.argv) < 2:
+        sys.exit(__doc__)
+    try:
+        print(generate(sys.argv[1], sys.argv[2:]))
+    except HexError as e:
+        sys.exit("hex2image: ERROR: %s" % e)

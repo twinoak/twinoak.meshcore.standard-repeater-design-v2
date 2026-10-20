@@ -87,6 +87,9 @@ and `BENCH-BREADBOARD.md` §6 — this file is the order of operations.*
 
 Keep the J7 supply connected at 3.70 V, limit raised to 2.5 A. Plug the 10 k / NTC into **J6**.
 
+> **Note from first article (2026-10-20):** a lab supply on J7 cannot sink current, so steps 2a/2d work but
+> 2b (MPPT) and 2c (charge current) cannot be shown with it. You need the resistor, an e-load or a real cell.
+
 **2a — regulation point.** Second supply on J2 (pin 1 +): **20.0 V, limit 0.6 A**. Output on.
 - Expect: the CHG LED lights and VCC climbs to **4.200 V ±1 %**. The J7 supply then reads 4.2 V and
   ~0 A while still set to 3.70 V. That is normal: it can't sink current, so the charger lifts the node to
@@ -135,10 +138,38 @@ shell on the filtered bulkheads.
    row A pin 1 GND, row A pin 2 +3V3. USB alone does **not** power this board: VBUS only reaches the nRF
    USB PHY.
 2. Expect ~5–15 mA idle; the LEDs blink under firmware.
-3. USB-C to the laptop. Double-tap reset should bring up the UF2 drive. Flash NoiseScope.
-   - `info`: rtc = 0 (U5 is DNP on batch 1), ina = 0 (no B-board yet). Note **INFO.VARIANT**: APPROTECT
-     on rev 3 parts, see `BENCH-BREADBOARD.md` caveat 6.
-4. Then power it from conn-A instead: platform + adapter in the LoRa box, conn-A fed as in step 3. Check
+3. USB-C to the laptop. **Factory RAK4630 stamps run RAK's RUI3 firmware, not the Arduino/UF2 bootloader**
+   (found 2026-10-20). A COM port appears, the board idles at ~1 mA after a 3–5 mA boot burst, double-tap
+   reset does nothing, and Arduino/PlatformIO/adafruit-nrfutil uploads fail. Confirm it with a terminal at
+   115200, CR+LF: `AT` → `OK`, `AT+VER=?` → RUI version. RUI3's own DFU (`AT+BOOT` + Nordic nrfutil) only
+   accepts RAK's RUI3 packages, so it is not a route to MeshCore or NoiseScope.
+4. **One-time SWD flash of the Arduino bootloader + SoftDevice S140 6.1.1** (RAKWireless WisBlock repo,
+   `bootloader/RAK4630`). Use the image that *includes* the SoftDevice: a bootloader-only hex has been
+   reported to leave the board not enumerating on USB. SWD is on the adapter's interface rows: row C pin 1
+   GND, pin 3 nRESET, pin 4 SWDCLK, pin 5 SWDIO. Keep the bench 3.30 V on row A pin 2 and connect the
+   probe's VTref only. Probe: J-Link + nrfjprog/J-Flash, or any CMSIS-DAP (Raspberry Pi Debug Probe / Pico
+   debugprobe) + pyOCD/OpenOCD. Order: read FICR **INFO.VARIANT** → if the AHB-AP refuses (APPROTECT on rev 3
+   parts, `BENCH-BREADBOARD.md` caveat 6), recover/mass-erase → full erase → flash bootloader+SD → reset.
+   This permanently replaces RUI3, which nothing here needs. **Every stamp needs this once.**
+   - **Cheapest probe:** a Raspberry Pi Pico (any RP2040/RP2350 board) with Raspberry Pi's `debugprobe`
+     firmware. Hold BOOTSEL, plug it in, copy `debugprobe_on_pico.uf2` onto the drive; it is now a CMSIS-DAP
+     probe. Wiring: Pico GP2 → SWDCLK (row C pin 4), GP3 → SWDIO (row C pin 5), GND → row C pin 1. Do not
+     connect the Pico's 3V3. Then `pip install pyocd`, `pyocd list`, `pyocd cmd -t nrf52840 -c "read32
+     0x10000104"` (INFO.VARIANT), `pyocd erase -t nrf52840 --chip`, `pyocd flash -t nrf52840 <bootloader+S140
+     hex>`. **For every unit after the first, use the D-sub fixture:** `PROVISIONING-FIXTURE.md` provisions a closed unit
+     through connector B's D-sub, the Walter's own path. **No Pico? A Raspberry Pi Zero does the same job** with OpenOCD's
+     GPIO bit-bang driver: wiring, config and commands are in `tools/openocd-pizero-swd.cfg` (a Pi 5 also
+     works, but its GPIO sits behind the RP1 chip and needs the slower `linuxgpiod` driver).
+   - **Or the Walter itself (bench tool, 2026-10-20):** `software/firmware/walter-swd-bench` runs on the
+     Walter and does this whole step through the production chain on a console command (`provision yes`):
+     erase, bootloader + S140, UICR, verify, one reset, about a minute. A person runs it, so S-5 holds; the production
+     Walter firmware gets the same as a console command, `rak provision` (`software/spec/SYSTEM.md` S-5a, its phase 5).
+     Host-tested against a simulated nRF52840, not yet on hardware: if the first run fails, a probe (above) is
+     the independent reference.
+5. Now double-tap reset brings up the UF2 drive. Flash NoiseScope: `adafruit-nrfutil dfu serial -pkg
+   firmware.zip -p COMx -b 115200`, or convert `firmware.hex` with `uf2conv.py -f 0xADA52840` and drag it on.
+   - `info`: rtc = 0 (U5 is DNP on batch 1), ina = 0 (no B-board yet).
+6. Then power it from conn-A instead: platform + adapter in the LoRa box, conn-A fed as in step 3. Check
    3V3_LORA arrives at row A pin 2.
 
 ## Step 6 — Walter adapter

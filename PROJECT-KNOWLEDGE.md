@@ -18,10 +18,20 @@ in the files it points to; keep this one short and current. Last updated 2026-10
   - conn-A J3 (J_ENV) export flags fixed (08-20 preflight A1) — not in BOM/POS.
   - Walter C1 (470 µF polymer) stays hand-fit; a JLC-placeable equivalent is recorded on the symbol:
     Honor Elec RYHT16V470UF8*11, LCSC C48970577 (8 × 11.5 mm, 3.5 mm pitch, 14 mΩ, 125 °C).
-- **Firmware:** **no Walter (ESP32-S3) firmware exists.** NoiseScope (`software/firmware/noisescope-rak4630`)
-  is the only software in the repo. The repeater will run **custom MeshCore-based firmware** on the
-  RAK4630; stock-MeshCore compatibility is not a design constraint.
-- **Firmware planned 2026-10-11, nothing built yet:** two new repositories, `twinoak.meshcore.repeater-firmware`
+- **Firmware:** the repeater runs **custom MeshCore-based firmware** on the RAK4630; stock-MeshCore compatibility is
+  not a design constraint. In this repository: NoiseScope (`software/firmware/noisescope-rak4630`) and the Walter
+  SWD bench tool (`software/firmware/walter-swd-bench`, below). The two firmwares proper are their own repositories:
+- **State 2026-10-20 (all host-tested, nothing yet run on a board):** repeater firmware phases 0–3.3 merged, pile
+  3.4 written (the base in the release; the first board); Walter firmware phases 0–3 merged, phase 4 (the agent)
+  stopped at task 01 for two person's steps, phases 5 (`rak provision`, S-5a) and 6 (the bench: sessions drive the
+  rig through `tools/bench/`) written; meshmaster.dk piles 4.14–4.15 merged (the unit, catalogue, update jobs),
+  4.16 written (the unit before its repeater, the base in the catalogue, the guest door); exit-node firmware pile
+  1.6 at task 24 (`agent-core` v0.3.0). **The run order with every person step: `software/FIRST-UNIT.md`.**
+- **S-5a (decided 2026-10-20):** a factory radio gets its base (MBR + S140 6.1.1 + bootloader + UICR) from the Walter
+  only by a person's typed `rak provision <DEVICEID>|locked confirm`; `UICR.APPROTECT = 0x5A` only for build code F.
+  The base is a `use: provision` Intel HEX file in the repeater's release (`FIRMWARE-MANIFEST.md` §4a, checked by
+  `manifestref.validate_provision`). Proposal 04 accepted in that form.
+- **Firmware planned 2026-10-11:** two new repositories, `twinoak.meshcore.repeater-firmware`
   (RAK4630: upstream MeshCore's repeater plus the link to the Walter and the radio half of an exit node) and
   `twinoak.meshcore.walter-firmware` (ESP32-S3: supervisor, SWD flasher, signed updates with rollback, LTE uplink).
   What the two must agree on is specified here, in `software/spec/` — start with `software/spec/SYSTEM.md`.
@@ -34,6 +44,22 @@ in the files it points to; keep this one short and current. Last updated 2026-10
   D-subs, ribbon, platform J1 map, adapter rows, rails/polarities on those pins. Machine-checked by
   `hardware/pcb/tools/check_interfaces.py` against `tools/interface-freeze.json` (as-ordered state);
   run it before every export/commit. Changes = a new, dated interface revision; new adapters conform.
+- **First article, 2026-10-20 (in progress):** conn-A and conn-B *partly* validated. Confirmed: charger starts,
+  CV termination at 4.2 V, CHG→DONE LEDs, TS window with a 10 k stand-in. Not yet shown: MPPT and the 2 A charge
+  current, because the bench supply on J7 cannot sink (needs resistor/e-load/real cell). RAK adapter boots
+  (3–5 mA burst, then ~1 mA) and enumerates on USB, but the stamps ship with **RUI3**, not the Arduino/UF2
+  bootloader. The first flash must be done over SWD (bootloader + S140 6.1.1), see `BRING-UP.md` step 5.
+- **Provisioning fixture (2026-10-20):** each RAK4630 gets bootloader + S140 once over SWD. That is done through a
+  female DE-9 on connector B J1 (in place of the LTE box) wired to a Pi Zero running OpenOCD, so it runs on a closed
+  unit through the Walter's own chain at 100 kHz to start. `hardware/pcb/PROVISIONING-FIXTURE.md`,
+  `tools/openocd-pizero-dsub-fixture.cfg`, `tools/provision-rak.sh`. No interface change.
+- **Walter SWD bench tool (2026-10-20):** `software/firmware/walter-swd-bench` (PlatformIO espressif32 6.9.0,
+  Arduino) provisions a factory RAK from the Walter's own socket through the production chain. Console: `probe`,
+  `idcode`, `info`, `provision yes` (CTRL-AP ERASEALL → bootloader + S140 → UICR.APPROTECT = 0x5A only for build
+  code F → verify → one pin reset), ~1 min at 100 kHz. The image is `images/*.hex`, built in by
+  `tools/hex2image.py` (refuses a bootloader-only hex). Host-tested (15 scenarios against a bit-level simulated
+  nRF52840, `host-test/run.sh`); **not yet run on hardware**. Its `swd.cpp`/`nrf52.cpp` seed the production Walter
+  firmware's SWD engine.
 - **Next step: first-article validation when the boards arrive** (§9 B) — and, while waiting, the
   pre-order items in §9 A that are still useful: the Walter bring-up sketch and the bulkhead I2C/SWD
   bench test on the breadboard rig, plus sourcing the hand-fit parts (§7).
@@ -212,8 +238,9 @@ deferred to a later rev); J3 flags fixed; RV-3028 DNP (see §1).
 7. Harness pin-1 discipline when fanning the ribbon onto the D-sub cups.
 
 **Firmware-dependent:**
-8. **No Walter firmware.** SWD-over-D-sub, UART link, kill sequencing and LM66100 behaviour cannot
-   be validated without at least a bring-up sketch (`BENCH-BREADBOARD.md` §7 gives the order).
+8. **The Walter firmware has never run on a board.** SWD-over-D-sub, the UART link, kill sequencing and the
+   LM66100 behaviour are the Walter's phase 6 (sessions on the rig) and `docs/bench.md` there; the bench tool
+   here is the stopgap for SWD and provisioning.
 9. Custom MeshCore build must carry per-channel INA3221 shunts (stock MeshCore applies one
    `TELEM_INA3221_SHUNT_VALUE` = 0.1 Ω to all channels — wrong for ch2/ch3 here).
 10. RV-3028 TCE=1 / BSM=LSM must be written once (EEPROM) or the backup caps do nothing.
@@ -237,10 +264,12 @@ deferred to a later rev); J3 flags fixed; RV-3028 DNP (see §1).
 | Item | Path | State |
 |---|---|---|
 | NoiseScope (RAK4630 SX1262 scanner, RX-only, NDJSON over Serial1@115200, UF2/SWD flashable, 8 s WDT, reports INA3221 + RTC) | `software/firmware/noisescope-rak4630` | v0.1.0, PlatformIO, pinned to MeshCore's Adafruit core fork + RadioLib commit. Per-channel shunts since 2026-10-10. |
+| Walter SWD bench tool (provisions a factory RAK4630 with bootloader + S140 over the production chain; console) | `software/firmware/walter-swd-bench` | 2026-10-20. Host test passes; untried on hardware. A bench tool, not the Walter firmware. |
 | software-goals.md | `software/` | Must-haves: A/B OTA with health-gated rollback, autonomous watchdog/power-cycle, power telemetry + alerts, remote console tunnel to MeshCore CLI, continuous RF health + NoiseScope on demand. Should: boot-loop detection, store-and-forward, LTE self-monitoring, enclosure environment. |
 | System specification: the plan and decisions (`SYSTEM.md`), the UART link between the boxes (`LINK-PROTOCOL.md` 1.0), the signed release manifest and image descriptor (`FIRMWARE-MANIFEST.md`), reference code and fixtures, MeshMaster proposals | `software/spec/` | Written 2026-10-11. **Edited only here**; each firmware repo carries a hash-checked copy (`tools/specsync.py`). |
-| Repeater firmware (MeshCore-based; roles repeater / scanner / later bridge) | repo `twinoak.meshcore.repeater-firmware` | Planned 2026-10-11: task piles written (phases 0–3), nothing built. NoiseScope moves there as the `scanner` role (its phase 3); the copy here stays until that has landed. |
-| Walter firmware (ESP-IDF) | repo `twinoak.meshcore.walter-firmware` | Planned 2026-10-11: task piles written (phases 0–3), nothing built. Ends at a backend seam; the MeshMaster agent waits for the proposals. |
+| Repeater firmware (MeshCore-based; roles repeater / scanner / later bridge) | repo `twinoak.meshcore.repeater-firmware` | Phases 0–3.3 merged 2026-10-18 (host-tested, both images build, never on a board; `tools/bench/` for sessions); pile 3.4 written 2026-10-20. NoiseScope lives there as the `scanner` role; the copy here stays as the original. No release key yet. |
+| Walter firmware (ESP-IDF) | repo `twinoak.meshcore.walter-firmware` | Phases 0–3 merged 2026-10-15 (SWD, nRF52, flasher with the settings page, image store, updates, supervisor, modem, HTTPS, wake cycle — host-tested only); phase 4 (agent) stopped at 01; phases 5–6 written 2026-10-20. |
+| Exit-node firmware + `agent-core` | repo `twinoak.meshmaster.exitnode-firmware` | `agent-core` v0.2.0 tagged; v0.3.0 closes with pile 1.6 task 24. |
 | FleetManager / NightCrawler | removed 2026-10-10 | Deprecated → MeshMaster (separate repo). |
 
 LTE providers tested: Lebara (cheapest plan works), NexCon (25 MB/month ≈ 1 €/month, good portal,
