@@ -25,8 +25,9 @@ ESP32-S3 against Arduino-ESP32 2.0.17. **Not yet run on hardware.** The first ru
    Put it in `images/` (see `images/README.md`). The build refuses a bootloader-only hex.
 2. **The unit, as in the field** (`hardware/pcb/BRING-UP.md` step 7): LoRa box (RAK adapter on its platform) on
    conn-A J1, Walter adapter + platform on conn-B J1, the ribbon between the connector boards. Antennas on both
-   radios. Power: bench supply **3.7 V, 300 mA limit** on J7 (or the battery), SW1 ON. Then the Walter's USB-C to
-   the laptop; the LM66100 on the Walter adapter keeps USB and the battery rail apart (`BRING-UP.md` step 6.3).
+   radios. Power: bench supply **3.7 V, 300 mA limit** on J7, SW1 ON — **not the battery** until U3 on the Walter adapter is reworked (`BRING-UP.md` step 6). Then the Walter's USB-C to
+   the laptop. (On the boards of 2026-10-10, U3 lets the USB's 5 V onto the battery rail: harmless with the lab supply,
+   not with a cell.)
    - *Not assembled yet?* The firmware doesn't care what is between the pins. A bare Walter on its own USB, wired
      to the RAK adapter's interface rows as in `hardware/pcb/BENCH-BREADBOARD.md` §3 (470 Ω in series, GND
      common) with the adapter on 3.30 V from the bench supply, runs the same session. Power the RAK first.
@@ -67,6 +68,12 @@ settle `SYSTEM.md` §10.2 (APPROTECT on revision 3 parts) and go into `PROJECT-K
 5. **pin reset** — the only reset of the procedure, after everything is written and verified.
 6. **attach again** — reports whether the bootloader kept the access port open.
 
+**Known (2026-10-22): power-cycle the radio after `provision yes` or `info`.** On the first unit the bootloader
+only started (LED, UF2 drive) after a power cycle. The tool leaves the radio in the nRF52's *Debug Interface
+mode*: it never withdraws CDBGPWRUPREQ/CSYSPWRUPREQ, and step 5 clears halting debug in one DHCSR write instead
+of resuming the core first. A power-on reset clears both. The Walter firmware's own driver does both properly
+(`Nrf52::run()`, `Nrf52::close()`, called by `rak provision` before its pin reset); this stopgap is not fixed.
+
 The variant table is a lookup, not a guess (`nrf52.cpp`, `protectKind`): build code A–D legacy, F revision 3,
 anything else stops. Every step that fails stops, and every stop leaves the radio where `provision yes` can start
 again from the top: the only state it can leave behind is "erased", which is what it starts from anyway.
@@ -78,13 +85,13 @@ again from the top: the only state it can leave behind is "erased", which is wha
 - `reset` refuses a second reset within 1 s (two within 0.5 s put the RAK in its UF2 bootloader).
 - No reset between ERASEALL and the UICR.APPROTECT write.
 - SWD at 125 kHz by default — the nRF52840's specified minimum clock (its product specification, *Debug and trace*;
-  the Walter firmware found it first) — `speed` 10–500 kHz; the filtered chain is good to ~300 kHz.
+  the Walter firmware found it first) — `speed` 10–500 kHz; DPIDR reads clean through the filtered chain at 500 kHz (2026-10-22).
 - Expect the RAK to reboot when the Walter powers up or is flashed (ESP32-S3 GPIO power-up glitch, caveat 3).
 
 ## Other commands
 
 `verify` (radio vs. built-in image) · `reset` · `power off|on|cycle` (LoRa rail through the kill line) ·
-`uart` (bridge to the RAK's Serial1 at 115200 8N1, Ctrl-X ends: talk to RUI3 with `AT`, or watch NoiseScope) ·
+`uart` (bridge to the RAK's Serial1 at 115200 8N1, Ctrl-X ends: RUI3 leaves these pins in Custom Mode and answers nothing; watch NoiseScope or the repeater's console) ·
 `speed [kHz]` · `image`.
 
 ## Files

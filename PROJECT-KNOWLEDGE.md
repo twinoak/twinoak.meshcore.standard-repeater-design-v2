@@ -1,7 +1,7 @@
 # TwinOak Standard Repeater v2 — Project Knowledge
 
 *Map and memory of this repo for whoever (or whatever) picks it up next. Authoritative detail lives
-in the files it points to; keep this one short and current. Last updated 2026-10-11 — first batch ordered, interfaces frozen, firmware planned.*
+in the files it points to; keep this one short and current. Last updated 2026-10-22 — first bench session through the Walter; the Walter adapter's U3 needs a rework.*
 
 ## 1. Status (2026-10-10)
 
@@ -21,12 +21,12 @@ in the files it points to; keep this one short and current. Last updated 2026-10
 - **Firmware:** the repeater runs **custom MeshCore-based firmware** on the RAK4630; stock-MeshCore compatibility is
   not a design constraint. In this repository: NoiseScope (`software/firmware/noisescope-rak4630`) and the Walter
   SWD bench tool (`software/firmware/walter-swd-bench`, below). The two firmwares proper are their own repositories:
-- **State 2026-10-20 (all host-tested, nothing yet run on a board):** repeater firmware phases 0–3.3 merged, pile
-  3.4 written (the base in the release; the first board); Walter firmware phases 0–3 merged, phase 4 (the agent)
-  stopped at task 01 for two person's steps, phases 5 (`rak provision`, S-5a) and 6 (the bench: sessions drive the
-  rig through `tools/bench/`) written; meshmaster.dk piles 4.14–4.15 merged (the unit, catalogue, update jobs),
-  4.16 written (the unit before its repeater, the base in the catalogue, the guest door); exit-node firmware pile
-  1.6 at task 24 (`agent-core` v0.3.0). **The run order with every person step: `software/FIRST-UNIT.md`.**
+- **State 2026-10-22 (all host-tested; only the bench tool has run on a board):** repeater firmware phases 0–3.3
+  merged, pile 3.4 task 01 merged (the base vendored and carried in every release), task 02 (the first board) waits
+  for the bench; Walter firmware phases 0–3 and 5 (`rak provision`, S-5a) merged, phase 4 (the agent) running again
+  since 2026-10-22 on `agent-core` v0.3.0, phase 6 (the bench: sessions drive the rig through `tools/bench/`)
+  written; meshmaster.dk piles 4.14–4.16 merged (the unit, catalogue, update jobs; the unit before its repeater, the
+  base in the catalogue, the guest door); exit-node firmware pile 1.6 merged and tagged `v0.3.0`. **The run order with every person step: `software/FIRST-UNIT.md`.**
 - **S-5a (decided 2026-10-20):** a factory radio gets its base (MBR + S140 6.1.1 + bootloader + UICR) from the Walter
   only by a person's typed `rak provision <DEVICEID>|locked confirm`; `UICR.APPROTECT = 0x5A` only for build code F.
   The base is a `use: provision` Intel HEX file in the repeater's release (`FIRMWARE-MANIFEST.md` §4a, checked by
@@ -49,6 +49,23 @@ in the files it points to; keep this one short and current. Last updated 2026-10
   current, because the bench supply on J7 cannot sink (needs resistor/e-load/real cell). RAK adapter boots
   (3–5 mA burst, then ~1 mA) and enumerates on USB, but the stamps ship with **RUI3**, not the Arduino/UF2
   bootloader. The first flash must be done over SWD (bootloader + S140 6.1.1), see `BRING-UP.md` step 5.
+- **Bench 2026-10-22** (unit assembled, lab supply 3.7 V on J7, the Walter running `walter-swd-bench`):
+  - **The Walter adapter's U3 back-feeds — rework it before a cell and the Walter's USB ever meet.** With the USB-C
+    in, the battery rail rose to 5.0 V and the supply's current fell to 0: U3's CE is on GND, which per TI makes the
+    LM66100 an always-on switch; reverse blocking needs CE on VOUT. Rework: `BRING-UP.md` step 6; the fix for the
+    next board: `INTERCONNECT.md`, 2026-10-22 correction.
+  - SWD through both D-subs and the ribbon: DPIDR 0x2BA01477 at 125, 250 and 500 kHz (500 is the tool's top step);
+    `probe`: nRESET/SWDIO held HIGH, SWCLK held LOW, RAK TX held HIGH.
+  - The first RAK4630: `INFO.VARIANT` **AAD0** — revision 2, legacy APPROTECT, so the RAK bootloader 0.4.4 cannot
+    close its debug port. As shipped: RUI3's bootloader at 0xE0000, S140 7.2.0, UICR.APPROTECT 0xFFFFFFFF,
+    UICR.REGOUT0 3.3 V (the base carries only NRFFW[0]/[1], so REGOUT0 returns to its default).
+  - RUI3 answers nothing on D-sub 8/9: those are TX1/RX1, which RUI3 leaves in Custom Mode. Walter → RAK on the UART
+    is first tested with the radio's first image.
+  - Kill line: `power off` → nRESET, SWCLK, SWDIO and RAK TX all held LOW (the RAK unpowered); `power on` → back, DPIDR
+    good.
+  - **The first RAK4630 provisioned** (`provision yes`, 125 kHz): ERASEALL 183 ms, 46331 words written and verified
+    (CRC32 0x9FDAF5F2), one pin reset, 53 s in all — **port after reset: open**. `info` after: NRFFW[0] 0x000F4000,
+    S140 6.1.1, APPROTECT 0xFFFFFFFF, REGOUT0 0xFFFFFFFF (the default).
 - **Provisioning fixture (2026-10-20):** each RAK4630 gets bootloader + S140 once over SWD. That is done through a
   female DE-9 on connector B J1 (in place of the LTE box) wired to a Pi Zero running OpenOCD, so it runs on a closed
   unit through the Walter's own chain at 100 kHz to start. `hardware/pcb/PROVISIONING-FIXTURE.md`,
@@ -162,8 +179,9 @@ RS4 50 mΩ); bus voltages read at VIN, VBAT, VLOAD+. MCP1700 always-on 3.3 V fee
 Master switch SW1 (2-pole) kills panel + battery → everything dead except RTC on backup caps.
 
 A-board: `VBAT_RAW` → TPS63001 → `3V3_LORA` (≈1.2 A capability, LoRa side draws ≤ ~0.3 A). Walter:
-`VCC` → LM66100 ideal diode → `WALTER_VIN` (+470 µF polymer); USB-C 5 V on the Walter wins the rail
-and cannot back-charge the LiPo. Walter LTE bursts up to 1.5 A on VIN. Series drop pack→Walter at
+`VCC` → LM66100 ideal diode → `WALTER_VIN` (+470 µF polymer); with U3's CE on VOUT, USB-C 5 V on the
+Walter wins the rail and cannot back-charge the LiPo (**the boards of 2026-10-10 have CE on GND and do: rework,
+`BRING-UP.md` step 6**). Walter LTE bursts up to 1.5 A on VIN. Series drop pack→Walter at
 an 1.8 A burst ≈ 0.25–0.35 V (RS3+RS4+F1+SW1+JST+LM66100) — check against the Walter's VIN minimum
 at an empty pack. RTC backup 2×100 µF MLCC → hold-up tens of minutes to ~1.5 h, **only if firmware
 sets RV-3028 TCE=1 and BSM=LSM (factory default OFF)**.
@@ -249,11 +267,13 @@ deferred to a later rev); J3 flags fixed; RV-3028 DNP (see §1).
 
 **Predicted but unproven:**
 12. I2C through the bulkhead: rise time with 1 k + ~1.2 nF at 100 kHz ("workable, drop clock if flaky").
-13. SWD bit-bang ceiling through 470 R + 2.2 nF (predicted ≤ ~300 kHz; SWDIO turnaround is the tight spot).
+13. SWD bit-bang ceiling through 470 R + 2.2 nF (predicted ≤ ~300 kHz; SWDIO turnaround is the tight spot). **2026-10-22: DPIDR reads clean at 125, 250 and
+    500 kHz; provisioning runs at 125 kHz.**
 14. Walter power-up glitch resetting the RAK (expected in production).
 15. Kill-line default-ON with Walter unpowered; backfeed through 470 R when one side is dead.
 16. B-board thermals on the 2 A charge spine (widened to 40 mil → predicted ~+7 °C).
-17. LM66100 drop (20–90 mV) and no back-charge with USB plugged into a live Walter.
+17. LM66100 drop (20–90 mV) and no back-charge with USB plugged into a live Walter. **2026-10-22: back-charge
+    FAILED on the unreworked board (CE on GND) — recheck after the rework.**
 18. Noise floor inside the shielded assembly with charger switching and LTE bursts active vs. quiet
     (NoiseScope, through the real cavity filter) — the point of goals 2/3.
 19. RTC hold-up through a kill cycle; "dead-battery dawn" recovery (precharge 200 mA vs. a booting
@@ -310,7 +330,7 @@ below is the checklist; that file is the procedure.
 3. Platform + harness — buzz every conductor through the bulkhead; 1000 pF per line to shell.
 4. RAK adapter — USB-C enumerates, UF2 on double-tap, flash NoiseScope; `info` shows RTC=1; read
    `INFO.VARIANT`; set TCE/BSM; LEDs; Serial1 via J4/J5; idle/RX/TX current; RTC hold-up through a kill.
-5. Walter adapter — LM66100 drop; USB plugged into a live system → zero current into battery;
+5. Walter adapter — the U3 rework first (boards of 2026-10-10); LM66100 drop; USB plugged into a live system → zero current into battery;
    reset switch; J1 header flash via dongle; socket orientation vs. silk.
 6. Integration — UART both ways at 115200; nRESET pulse → one RAK reboot; SWD: DP IDCODE
    0x2BA01477 → FICR → flash → verify; I2C scope at the RAK end with INA3221 + BME280 + RTC

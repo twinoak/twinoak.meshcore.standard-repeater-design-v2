@@ -66,15 +66,20 @@ These four can run at the same time — they are four repositories:
 
 ## 2. The bench (Thomas, then the Walter's phase 6)
 
+**First, the U3 rework on the Walter adapter** (`hardware/pcb/BRING-UP.md` step 6, proven by its step 3). Until it is
+done the Walter's USB powers the whole unit through U3: a cell on the rail would be charged from USB with nothing to
+stop it at 4.2 V, and phase 6's LTE runs would take the modem's 1.5 A bursts from the laptop's USB port.
+
 1. **A dummy load** on the LoRa port (an SMA 50 Ω terminator through the pigtail): a session puts a
    repeater image on the radio only on a dummy load — a test repeater on an antenna is a stranger on
    the Danish mesh.
 2. **A local release of the repeater firmware** (its `docs/release.md`, *A rehearsal*, run locally):
    signed with the test key, it is what the Walter's bench gives the radio.
 3. **The Walter's first flash** — over the Walter's own USB-C, in its socket in the LTE box with the
-   box open: no need to take it out first. The Walter adapter's LM66100 keeps the USB's 5 V off the
-   battery rail (`hardware/pcb/BRING-UP.md` step 6.3), so the unit can be powered as in the field
-   while the cable is in. **By hand**, before any setting is typed (it erases them): `esptool …
+   box open: no need to take it out first. **Power the unit from the lab supply on J7, not the battery, while the
+   cable is in, until U3 on the Walter adapter is reworked** (`hardware/pcb/BRING-UP.md` step 6): on the boards of
+   2026-10-10 the USB's 5 V reaches the battery rail. After the rework the unit can be powered as in the field with
+   the cable in. **By hand**, before any setting is typed (it erases them): `esptool …
    write-flash 0x0 out/images/twinoak-walter-factory.bin` (the Walter firmware's README). After it,
    images go on without touching the settings (`bench flash`, the Walter's own update), and
    `bench.local.json` says `"walter": "keep"` from the start. **This is the only flash that needs the

@@ -34,7 +34,8 @@ Why not a single cable:
 * Walter's USB-C `VBUS` is **hard-wired to `VIN`** — no diode, no fuse (datasheet: "DO NOT power
   Walter with both the USB-C connection and the VIN-pin!"). Feeding VIN from the RAK base means
   losing the Walter's USB console/flash unless you cut VBUS in a USB cable. The production adapter
-  solves this with the LM66100; the bench doesn't have one.
+  solves this with the LM66100 (CE on VOUT; the boards of 2026-10-10 need the `BRING-UP.md` step 6 rework); the
+  bench doesn't have one.
 * The GM02SP modem draws its TX bursts **straight from VIN/VBUS** (only the S3 sits behind the
   buck; published ceiling 1.5 A). The RAK19001's `VBUS` header pin is the raw 5 V of a USB port that
   also has to run the base and the charger — don't hang an LTE modem on it.

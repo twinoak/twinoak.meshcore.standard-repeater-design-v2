@@ -174,13 +174,27 @@ shell on the filtered bulkheads.
 
 ## Step 6 — Walter adapter
 
+**Boards of 2026-10-10: rework U3 first** (`INTERCONNECT.md`, *2026-10-22 correction*). Its CE (pin 3) is on GND,
+which makes the LM66100 an always-on switch: with the Walter's USB-C in, 5 V reaches the battery rail and would
+charge a cell with nothing to stop it at 4.2 V. Until reworked, plug the Walter's USB-C in only with the lab supply on
+the rail or with SW1 OFF — never with a cell and SW1 ON. The rework, everything off and unplugged:
+
+- U3's column on the C3 side reads, from the C1 end: pin 1 VIN, pin 2 GND, pin 3 CE. Lift pin 3 (the one nearest
+  SW1) off its pad. The pad is tied to pin 2, C3 and the pour, so it stays GND: Kapton under the lifted lead.
+- 0.1–0.2 mm enamelled wire from the lifted lead to pin 6 (VOUT: the other column's pin nearest C1) or to C1's +
+  lead. Insulated past pin 5 (ST, an open-drain output) and pin 4. Never power up with CE floating.
+- Then steps 1–3 below; step 3 is the proof.
+
 1. **Without the Walter in the socket:** supply **3.7 V, limit 100 mA** on row C pin 1 GND / pin 2 VCC.
    WALTER_VIN at the socket's VIN pin should read 3.7 V minus 20–90 mV (the LM66100).
 2. Insert the Walter (USB-C THIS END) with the LTE antenna fitted. Raise the limit to **0.5 A** for boot.
    For LTE attach, raise it to **2 A**: the modem bursts to ~1.5 A, and a limit that is too tight shows
    up as endless re-attach.
 3. With the supply live, plug the Walter's USB-C into the laptop. Supply current should fall to ~0 and
-   the battery rail must **not** rise: the LM66100 blocks back-feed.
+   the battery rail must **not** rise: the LM66100 blocks back-feed. (In the assembled unit the current falls only by
+   the Walter's share.) WALTER_VIN reads ~5 V; with the cable out it is back at the supply minus 20–90 mV and the
+   Walter runs on. *2026-10-22, unreworked board in the assembled unit: the rail rose to 5.0 V and the supply's
+   current went to 0 — the fault this step exists to catch.*
 
 ## Step 7 — integration, still on the lab supply
 
